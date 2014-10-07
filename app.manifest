@@ -2,7 +2,7 @@
     "namespace": "com.cerema.dashboard",
     "git": "https://github.com/CEREMA/com.cerema.dashboard.git",
     "title": "Dashboard",
-    "description": "Suivi de gestion du SII",
+    "description": "Suivi de gestion du SII / DTERMED",
     "platform": "desktop",
     "targets": [
         "webapp"
@@ -69,6 +69,5 @@
     },
     "server": {
         "port": 3000
-    },
-    "commit": 1
+    }
 }
