@@ -1,0 +1,30 @@
+.BackgroundSystem
+{
+	background-image:url(webapp/defaultdesktop.png);
+}
+
+.qxAboutLogo
+{
+	background-image:url(startup/logo.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 128px 128px;
+	width: 128px;
+	height: 128px;	
+}
+
+.qxIcon
+{
+	background-image:url(webapp/ico.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;	
+}
+
+.mnu_preferences
+{
+	background-image:url(webapp/Preferences.png);
+}
+
