@@ -51,11 +51,11 @@
         "Ext.ux.ColorField"
     ],
     "plugins": [],
-	"db": [
-		"dashboard2013",
-		"dashboard2014",
-		"dashboard2015"
-	],
+    "db": [
+        "dashboard2013",
+        "dashboard2014",
+        "dashboard2015"
+    ],
     "api": [
         "Categories",
         "Factures",
