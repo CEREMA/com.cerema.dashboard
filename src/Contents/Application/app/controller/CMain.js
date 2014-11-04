@@ -50,6 +50,11 @@ App.controller.define('CMain', {
 				{
 					alert('sddfsklj');
 				}
+			},
+			"marches>button TMarcheNew": {
+				click: function() {
+					alert('tic');
+				}
 			}
 		});
 		
@@ -83,7 +88,7 @@ App.controller.define('CMain', {
 	},
 	open_facture: function()
 	{
-		App.view.create('main.Facture',{
+		App.view.create('main.VFacture',{
 			modal: true
 		}).show();
 	},
@@ -112,7 +117,7 @@ App.controller.define('CMain', {
 	},
 	open_marches: function()
 	{
-		App.view.create('main.Marches',{
+		App.view.create('main.VMarches',{
 			modal:true
 		}).show();
 	},
@@ -123,8 +128,8 @@ App.controller.define('CMain', {
 		grid.getStore().getProxy().extraParams.id=d.id;
 		grid.getStore().load();
 		App.get('button#win_facture').setDisabled(false);
-		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=d.id;
-		App.get('combo#cbo_marche').getStore().load();
+		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=d.id;
+		App.get('combo#cbo_marche').getStore().load();*/
 	},
 	onLoad: function()
 	{
@@ -139,7 +144,7 @@ App.controller.define('CMain', {
 	grid_onclick: function( p, record, item, index )
 	{
 		console.log(record);
-		App.view.create('main.Facture',{modal: true}).show();
+		App.view.create('main.VFacture',{modal: true}).show();
 	}
 		
 });

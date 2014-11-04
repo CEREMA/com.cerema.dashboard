@@ -22,12 +22,17 @@ App.view.define('main.VFacture',
 	{
 		text: "Téléverser",
 		id: 'TFactureUploadButton',
-		hidden: true/*,
+		scale: 'medium', 
+		iconCls: 'icoUpload', 
+		iconAlign: 'left',
+		hidden: false/*,
 		handler: uploadFacturesFile*/
 	},
 	{
 		text: "Document",
 		id: 'TFactureUploadFile',
+		scale: 'medium', 
+		iconCls: 'icoDownload', 
 		hidden: false/*,
 		handler: downloadFacturesFile*/
 	},	

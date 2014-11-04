@@ -96,10 +96,8 @@ App.view.define('VMain', {
 					ftype: 'groupingsummary'
 				}
 			],
-			store: new Ext.data.DirectStore({
-				model: App.model.get('MFactures'),
+			store: App.store.create('MFactures',{
 				autoLoad: false,
-				directFn: App.Factures.get,
 				sortInfo:{field: 'prestation', direction: "ASC"},
 				groupField:'marche_title'
 			})

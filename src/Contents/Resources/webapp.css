@@ -28,3 +28,32 @@
 	background-image:url(webapp/Preferences.png);
 }
 
+.attachment
+{
+	background-image:url(webapp/attachment.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.icoDownload
+{
+	background-image:url(webapp/Download.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 24px 24px;
+	width: 24px;
+	height: 24px;
+}
+
+.icoUpload
+{
+	background-image:url(webapp/upload.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 24px 24px;
+	width: 24px;
+	height: 24px;
+}

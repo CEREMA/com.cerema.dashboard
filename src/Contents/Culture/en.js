@@ -1,3 +1,3 @@
 i18n['en'] = {	
-	PASSPORT_CAS: 	"Sign in with Cerbère"
+	PASSPORT_CERBERE: 	"Sign in with CerbÃ¨re"
 };
