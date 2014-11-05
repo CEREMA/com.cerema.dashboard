@@ -52,8 +52,8 @@
     ],
     "plugins": [],
     "db": [
-		"bpclight",
-		"dashboard",
+        "bpclight",
+        "dashboard",
         "dashboard2013",
         "dashboard2014",
         "dashboard2015"
