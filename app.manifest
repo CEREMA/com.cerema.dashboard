@@ -70,7 +70,7 @@
         "file": "app.png"
     },
     "splashscreen": {
-        "background": "#FFFFFF",
+        "background": "#EEEEEE",
         "color": "cyan",
         "file": "app.png"
     },
