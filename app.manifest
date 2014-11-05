@@ -13,7 +13,7 @@
     "copyright": "Copyright (c) 2014 By CEREMA",
     "license": "BSD",
     "author": {
-        "name": "St�phane Zucatti",
+        "name": "Stephane Zucatti",
         "mail": "stephane.zucatti@me.com",
         "twitter": "@mydearsz",
         "web": "",
@@ -52,6 +52,8 @@
     ],
     "plugins": [],
     "db": [
+		"bpclight",
+		"dashboard",
         "dashboard2013",
         "dashboard2014",
         "dashboard2015"
