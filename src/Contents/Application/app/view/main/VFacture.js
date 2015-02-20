@@ -265,8 +265,7 @@ App.view.define('main.VFacture',
 		margin: {
 			bottom: 5,
 			right: 6
-		},
-		uploader: "/upload"
+		}
 	}
 	]
 
