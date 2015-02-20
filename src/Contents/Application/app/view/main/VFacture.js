@@ -171,12 +171,6 @@ App.view.define('main.VFacture',
 		width: "100%"
 	},
 	{
-		fieldLabel: 'Numéro DA',
-		name: 'numda',
-		xtype: 'textfield',
-		width: "100%"
-	},
-	{
 		fieldLabel: 'Mt prévisionnel',
 		name: 'montant_prev',
 		xtype: 'numberfield',
