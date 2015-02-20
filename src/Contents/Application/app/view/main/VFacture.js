@@ -3,7 +3,7 @@ App.view.define('main.VFacture',
     extend: 'Ext.window.Window',
 	alias : 'widget.facture',
 	
-    width: 410,
+    width: 420,
 	labelWidth: 110,
 	closable: true,
 	draggable: true,
