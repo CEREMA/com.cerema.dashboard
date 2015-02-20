@@ -53,10 +53,7 @@
     "plugins": [],
     "db": [
         "bpclight",
-        "dashboard",
-        "dashboard2013",
-        "dashboard2014",
-        "dashboard2015"
+        "dashboard"
     ],
     "api": [
         "Categories",
