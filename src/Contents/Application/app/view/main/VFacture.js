@@ -109,6 +109,54 @@ App.view.define('main.VFacture',
 					bottom:10
 				},				
 				width: 50
+			},
+			{
+				xtype: "button",
+				enableToggle: true,
+				iconCls: "",
+				iconAlign: "left",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},				
+				width: 50
+			},
+			{
+				xtype: "button",
+				enableToggle: true,
+				iconCls: "",
+				iconAlign: "left",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},				
+				width: 50
+			},
+			{
+				xtype: "button",
+				enableToggle: true,
+				iconCls: "",
+				iconAlign: "left",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},				
+				width: 50
+			},
+			{
+				xtype: "button",
+				enableToggle: true,
+				iconCls: "",
+				iconAlign: "left",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},				
+				width: 50
 			}
 		]
 	},
