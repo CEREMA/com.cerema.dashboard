@@ -182,8 +182,7 @@ App.view.define('main.VFacture',
 		name: 'gim',
 		hidden: true,
 		xtype: 'combo',
-		store: new Ext.data.DirectStore({
-			directFn: App.GM.getAll,
+		store: App.store.create('App.GM.getAllnew',{
 			autoLoad: true
 		}),
 		allowBlank: false,
