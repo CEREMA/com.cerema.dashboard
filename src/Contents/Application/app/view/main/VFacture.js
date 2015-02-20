@@ -141,6 +141,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Prestation',
+		labelWidth: 80,
 		name: 'prestation',
 		allowBlank: false,
 		xtype: 'textfield',
@@ -148,12 +149,14 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Référence',
+		labelWidth: 80,
 		name: 'reference',
 		xtype: 'textfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'Code GM',
+		labelWidth: 80,
 		name: 'gim',
 		hidden: true,
 		xtype: 'combo',
@@ -168,6 +171,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Echéance',
+		labelWidth: 80,
 		name: 'echeance',
 		format: 'Y-m-d',
 		xtype: 'datefield',
@@ -175,6 +179,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Marché',
+		labelWidth: 80,
 		name: 'marche',
 		allowBlank: false,
 		hiddenName: 'cbo_marche',
@@ -192,37 +197,42 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Numéro DA',
-		labelWidth: 20,
+		labelWidth: 80,
 		name: 'numda',
 		xtype: 'textfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'Montant prévisionnel',
+		labelWidth: 80,
 		name: 'montant_prev',
 		xtype: 'numberfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'EJ',
+		labelWidth: 80,
 		name: 'ej',
 		xtype: 'textfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'N° Facture',
+		labelWidth: 80,
 		name: 'nofacture',
 		xtype: 'textfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'Montant Facture',
+		labelWidth: 80,
 		name: 'montant_facture',
 		xtype: 'numberfield',
 		width: "100%"
 	},
 	{
 		fieldLabel: 'Date Facture',
+		labelWidth: 80,
 		name: 'date_facture',
 		id: 'date_facture',
 		format: 'Y-m-d',
@@ -231,6 +241,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Date Service Fait',
+		labelWidth: 80,
 		name: 'date_servicefait',
 		id: 'date_servicefait',
 		format: 'Y-m-d',
@@ -239,6 +250,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Date Chorus',
+		labelWidth: 80,
 		name: 'date_chorus',
 		id: 'date_chorus',
 		format: 'Y-m-d',
@@ -248,6 +260,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Commentaire',
+		labelWidth: 80,
 		name: 'commentaire',
 		xtype: 'textarea',
 		width: "100%"
