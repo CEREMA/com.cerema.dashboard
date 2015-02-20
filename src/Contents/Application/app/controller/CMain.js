@@ -41,6 +41,11 @@ App.controller.define('CMain', {
 			"button#TMarcheClose": {
 				click: "onMarchesClose"
 			},
+			"button": {
+				toggle: function(p,press) {
+					App.get('button').toggle(false);
+				}
+			},
 			"facture": {
 				show: "facture_onShow"
 			},
