@@ -289,7 +289,7 @@ App.view.define('main.VFacture',
 		height: 110,
 		padding: {
 			left: 1,
-			right: 3
+			right: 6
 		},
 		margin: {
 			bottom: 5
