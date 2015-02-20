@@ -192,6 +192,7 @@ App.view.define('main.VFacture',
 	},
 	{
 		fieldLabel: 'Numéro DA',
+		labelWidth: 20,
 		name: 'numda',
 		xtype: 'textfield',
 		width: "100%"
