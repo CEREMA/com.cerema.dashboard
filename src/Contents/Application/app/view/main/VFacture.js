@@ -11,7 +11,7 @@ App.view.define('main.VFacture',
 	hidden: true,
 	frame: false,
 	title: 'Facture',
-	bodyStyle:'padding:5px 5px 0',
+
 	defaults: {
 		width: "100%"
 	},
