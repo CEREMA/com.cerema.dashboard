@@ -73,6 +73,7 @@ App.controller.define('CMain', {
 	},
 	facture_onShow: function()
 	{
+		console.log(App.get('facture panel#test'));
 		var cp = new Ext.picker.Color({
 			value: '993300',  
 			renderTo: App.get('facture panel#test')
