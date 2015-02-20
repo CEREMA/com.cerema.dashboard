@@ -88,6 +88,11 @@ App.view.define('main.VFacture',
 		width: "100%",
 		items: [
 			{
+				xtype: "label",
+				text: "Etiquette",
+				width: 50
+			},
+			{
 				xtype: "button",
 				enableToggle: true,
 				iconCls: "",
