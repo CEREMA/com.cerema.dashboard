@@ -108,7 +108,7 @@ App.view.define('main.VFacture',
 					top:10,
 					bottom:10
 				},				
-				width: 50
+				flex: 1
 			},
 			{
 				xtype: "button",
@@ -120,7 +120,7 @@ App.view.define('main.VFacture',
 					top:10,
 					bottom:10
 				},				
-				width: 50
+				flex: 1
 			},
 			{
 				xtype: "button",
@@ -132,7 +132,7 @@ App.view.define('main.VFacture',
 					top:10,
 					bottom:10
 				},				
-				width: 50
+				flex: 1
 			},
 			{
 				xtype: "button",
@@ -144,7 +144,7 @@ App.view.define('main.VFacture',
 					top:10,
 					bottom:10
 				},				
-				width: 50
+				flex: 1
 			},
 			{
 				xtype: "button",
@@ -156,7 +156,7 @@ App.view.define('main.VFacture',
 					top:10,
 					bottom:10
 				},				
-				width: 50
+				flex: 1
 			}
 		]
 	},
