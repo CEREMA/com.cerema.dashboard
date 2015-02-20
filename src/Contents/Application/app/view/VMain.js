@@ -96,8 +96,7 @@ App.view.define('VMain', {
 					ftype: 'groupingsummary'
 				}
 			],
-			store: App.store.create('MFactures',{
-				autoLoad: false,
+			store: App.store.create('App.Factures.get',{
 				sortInfo:{field: 'prestation', direction: "ASC"},
 				groupField:'marche_title'
 			})
