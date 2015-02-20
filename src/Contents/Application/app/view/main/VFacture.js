@@ -5,7 +5,6 @@ App.view.define('main.VFacture',
 	
 	x:50,
 	y:50,
-    height: 500,
     width: 850,
 	closable: true,
 	draggable: true,
