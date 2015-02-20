@@ -12,6 +12,7 @@ App.view.define('main.VFacture',
 	frame: false,
 	title: 'Facture',
 	bodyStyle:'padding:5px 5px 0',
+	layout: 'form',
 	defaults: {
 		width: "100%"
 	},
