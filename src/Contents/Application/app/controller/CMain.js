@@ -7,7 +7,6 @@ App.controller.define('CMain', {
 	],
 	
 	models: [
-		"MFactures"
 	],
 	
 	init: function()
