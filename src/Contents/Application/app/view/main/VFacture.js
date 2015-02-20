@@ -23,9 +23,7 @@ App.view.define('main.VFacture',
 				iconCls: "green",
 				iconAlign: "left",
 				margin: {
-					left: 1,
-					top:10,
-					bottom:10
+					left: 1
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
@@ -37,9 +35,7 @@ App.view.define('main.VFacture',
 				iconCls: "orange",
 				iconAlign: "left",
 				margin: {
-					left: 1,
-					top:10,
-					bottom:10
+					left: 1
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
@@ -51,9 +47,7 @@ App.view.define('main.VFacture',
 				iconCls: "red",
 				iconAlign: "left",
 				margin: {
-					left: 1,
-					top:10,
-					bottom:10
+					left: 1
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
@@ -65,9 +59,7 @@ App.view.define('main.VFacture',
 				iconCls: "black",
 				iconAlign: "left",
 				margin: {
-					left: 1,
-					top:10,
-					bottom:10
+					left: 1
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
@@ -79,9 +71,7 @@ App.view.define('main.VFacture',
 				iconCls: 'grey',
 				iconAlign: "left",
 				margin: {
-					left: 1,
-					top:10,
-					bottom:10
+					left: 1
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
