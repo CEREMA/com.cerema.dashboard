@@ -211,10 +211,7 @@ App.view.define('main.VFacture',
 		forceSelection:true, 
 		mode: 'local',
 		itemId: 'cbo_marche',
-		store: new Ext.data.DirectStore({
-			directFn: App.Marches.getAll,
-			autoLoad: false
-		}),
+		store: App.store.create('App.Marches.getAll'),
 		valueField: 'ID',
 		displayField: 'TITLE',
 		width: "100%"
