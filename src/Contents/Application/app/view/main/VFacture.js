@@ -75,7 +75,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				iconCls: "",
+				iconCls: "green",
 				iconAlign: "left",
 				margin: {
 					left: 1,
@@ -88,7 +88,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				iconCls: "",
+				iconCls: "orange",
 				iconAlign: "left",
 				margin: {
 					left: 1,
@@ -101,7 +101,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				iconCls: "",
+				iconCls: "red",
 				iconAlign: "left",
 				margin: {
 					left: 1,
@@ -114,7 +114,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				iconCls: "",
+				iconCls: "black",
 				iconAlign: "left",
 				margin: {
 					left: 1,
@@ -127,7 +127,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				iconCls: "",
+				iconCls: "grey",
 				iconAlign: "left",
 				margin: {
 					left: 1,
