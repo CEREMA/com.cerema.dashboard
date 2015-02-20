@@ -15,61 +15,7 @@ App.view.define('main.VFacture',
 	defaults: {
 		width: "100%"
 	},
-	bbar:[
-	{
-		xtype: 'numberfield',
-		width:50,
-		value: 1,
-		minValue: 0,
-		id: 'duplicate_number'
-	},	
-	{
-		xtype: 'button',
-		text: 'Dupliquer'/*,
-		handler: factures_duplicate*/
-	},
-	'->',
-	{ 
-		text:'Fermer', 
-		itemId: "Facture_close",
-		formBind:true, 
-		scope:this
-	},
-	{ 
-		text: 'Supprimer', 
-		id: 'TFactureDelete',
-		hidden: true,
-		formBind: true, 
-		scope: this/*, 
-		handler: myform_delete*/
-	},
-	{ 
-		text: 'Enregistrer', 
-		formBind: true, 
-		hidden: true,
-		id: 'TFactureRecord',
-		scope: this/*, 
-		handler: myform_post*/
-	}
-	],	  
-	items: [
-	{
-		xtype: "panel",
-		layout: "hbox",
-		border: false,
-		width: "100%",
-		bodyStyle: 'background:transparent;',
-		items: [
-			{
-				xtype: "label",
-				text: "Etiquette:",
-				margin: {
-					left: 1,
-					top:10,
-					bottom:10
-				},
-				width: 102
-			},
+	tbar: [
 			{
 				xtype: "button",
 				enableToggle: true,
@@ -139,6 +85,63 @@ App.view.define('main.VFacture',
 				},				
 				flex: 1,
 				toggleGroup: 'colors'
+			}
+	
+	],
+	bbar:[
+	{
+		xtype: 'numberfield',
+		width:50,
+		value: 1,
+		minValue: 0,
+		id: 'duplicate_number'
+	},	
+	{
+		xtype: 'button',
+		text: 'Dupliquer'/*,
+		handler: factures_duplicate*/
+	},
+	'->',
+	{ 
+		text:'Fermer', 
+		itemId: "Facture_close",
+		formBind:true, 
+		scope:this
+	},
+	{ 
+		text: 'Supprimer', 
+		id: 'TFactureDelete',
+		hidden: true,
+		formBind: true, 
+		scope: this/*, 
+		handler: myform_delete*/
+	},
+	{ 
+		text: 'Enregistrer', 
+		formBind: true, 
+		hidden: true,
+		id: 'TFactureRecord',
+		scope: this/*, 
+		handler: myform_post*/
+	}
+	],	  
+	items: [
+	{
+		xtype: "panel",
+		layout: "hbox",
+		border: false,
+		width: "100%",
+		bodyStyle: 'background:transparent;',
+		items: [
+			{
+				xtype: "label",
+				text: "Etiquette:",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},
+				width: 102
 			}
 		]
 	},
