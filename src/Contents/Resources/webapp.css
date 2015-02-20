@@ -60,25 +60,30 @@
 
 .green
 {
-	background-color: green
+	background-color: green,
+	width: 100%
 }
 
 .orange
 {
-	background-color: orange
+	background-color: orange,
+	width: 100%
 }
 
 .red
 {
-	background-color: red
+	background-color: red,
+	width: 100%
 }
 
 .black
 {
-	background-color: black
+	background-color: black,
+	width: 100%
 }
 
 .grey
 {
-	background-color: grey
+	background-color: grey,
+	width: 100%
 }
