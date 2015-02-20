@@ -75,7 +75,7 @@ App.controller.define('CMain', {
 	{
 		var cp = new Ext.picker.Color({
 			value: '993300',  
-			renderTo: App.get('panel#test')
+			renderTo: App.get('facture panel#test')
 		});		
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
