@@ -89,7 +89,8 @@ App.view.define('main.VFacture',
 		items: [
 			{
 				xtype: "label",
-				text: "Etiquette",
+				text: "Etiquette:",
+				padding: 5,
 				width: 50
 			},
 			{
