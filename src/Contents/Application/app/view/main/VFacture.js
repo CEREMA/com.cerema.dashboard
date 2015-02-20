@@ -127,7 +127,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
-				style: 'background-color:#DDDDDD',
+				cls: 'grey',
 				iconAlign: "left",
 				margin: {
 					left: 1,
