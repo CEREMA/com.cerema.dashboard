@@ -94,7 +94,7 @@ App.view.define('main.VFacture',
 					left: 10,
 					bottom:5
 				},
-				width: 110
+				width: 105
 			},
 			{
 				xtype: "button",
