@@ -17,31 +17,6 @@ App.view.define('main.VFacture',
 	bodyStyle:'padding:5px 5px 0',
 	width: 420,
 	defaults: {width: "100%"},
-	tbar:[
-	{
-		text: "Téléverser",
-		id: 'TFactureUploadButton',
-		scale: 'medium', 
-		iconCls: 'icoUpload', 
-		iconAlign: 'left',
-		hidden: false/*,
-		handler: uploadFacturesFile*/
-	},
-	{
-		text: "Document",
-		id: 'TFactureUploadFile',
-		scale: 'medium', 
-		iconCls: 'icoDownload', 
-		hidden: false/*,
-		handler: downloadFacturesFile*/
-	},	
-	{
-		xtype: 'panel',
-		id: 'TFactureUpload',
-		hidden: true,
-		html: '<input type="file" id="fileToUploadF"></input>'
-	}
-	],
 	bbar:[
 	{
 		xtype: 'numberfield',
