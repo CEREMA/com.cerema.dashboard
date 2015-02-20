@@ -92,7 +92,8 @@ App.view.define('main.VFacture',
 				text: "Etiquette:",
 				margin: {
 					left: 1,
-					bottom:5
+					top:10,
+					bottom:10
 				},
 				width: 105
 			},
