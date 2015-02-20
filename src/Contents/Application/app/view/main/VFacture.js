@@ -82,6 +82,10 @@ App.view.define('main.VFacture',
 	],	  
 	items: [
 	{
+		xtype: "panel",
+		itemId: "test"
+	},
+	{
 		fieldLabel: 'Prestation',
 		name: 'prestation',
 		allowBlank: false,
