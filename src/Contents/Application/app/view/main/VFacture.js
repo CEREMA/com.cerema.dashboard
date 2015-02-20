@@ -16,7 +16,7 @@ App.view.define('main.VFacture',
 	title: 'Facture',
 	bodyStyle:'padding:5px 5px 0',
 	width: 420,
-	defaults: {width: 390},
+	defaults: {width: "100%"},
 	tbar:[
 	{
 		text: "Téléverser",
