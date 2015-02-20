@@ -203,7 +203,7 @@ App.view.define('main.VFacture',
 		width: "100%"
 	},
 	{
-		fieldLabel: 'Montant prévisionnel',
+		fieldLabel: 'Mt prévisionnel',
 		labelWidth: 80,
 		name: 'montant_prev',
 		xtype: 'numberfield',
@@ -240,7 +240,7 @@ App.view.define('main.VFacture',
 		width: "100%"
 	},
 	{
-		fieldLabel: 'Date Service Fait',
+		fieldLabel: 'Service Fait',
 		labelWidth: 80,
 		name: 'date_servicefait',
 		id: 'date_servicefait',
