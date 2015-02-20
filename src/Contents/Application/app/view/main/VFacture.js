@@ -168,12 +168,14 @@ App.view.define('main.VFacture',
 		fieldLabel: 'Prestation',
 		name: 'prestation',
 		allowBlank: false,
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Référence',
 		name: 'reference',
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Code GM',
@@ -187,13 +189,15 @@ App.view.define('main.VFacture',
 		allowBlank: false,
 		valueField: 'code',
 		editable: false,
-		displayField: 'code'
+		displayField: 'code',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Echéance',
 		name: 'echeance',
 		format: 'Y-m-d',
-		xtype: 'datefield'
+		xtype: 'datefield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Marché',
@@ -212,46 +216,54 @@ App.view.define('main.VFacture',
 			autoLoad: false
 		}),
 		valueField: 'ID',
-		displayField: 'TITLE'
+		displayField: 'TITLE',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Numéro DA',
 		name: 'numda',
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Montant prévisionnel',
 		name: 'montant_prev',
-		xtype: 'numberfield'
+		xtype: 'numberfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'EJ',
 		name: 'ej',
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'N° Facture',
 		name: 'nofacture',
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Montant Facture',
 		name: 'montant_facture',
-		xtype: 'numberfield'
+		xtype: 'numberfield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Date Facture',
 		name: 'date_facture',
 		id: 'date_facture',
 		format: 'Y-m-d',
-		xtype: 'datefield'
+		xtype: 'datefield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Date Service Fait',
 		name: 'date_servicefait',
 		id: 'date_servicefait',
 		format: 'Y-m-d',
-		xtype: 'datefield'
+		xtype: 'datefield',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Date Chorus',
@@ -259,19 +271,22 @@ App.view.define('main.VFacture',
 		id: 'date_chorus',
 		format: 'Y-m-d',
 		xtype: 'datefield',
-		hidden: true
+		hidden: true,
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Commentaire',
 		name: 'commentaire',
-		xtype: 'textarea'
+		xtype: 'textarea',
+		width: "100%"
 	},
 	{
 		fieldLabel: 'Id',
 		id: 'FacturesId',
 		name: 'id',
 		hidden: true,
-		xtype: 'textfield'
+		xtype: 'textfield',
+		width: "100%"
 	}
 	]
 
