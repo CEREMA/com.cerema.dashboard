@@ -74,7 +74,7 @@ App.controller.define('CMain', {
 	facture_onShow: function()
 	{
 		var cp = new Ext.picker.Color({
-			value: '993300',  // initial selected color
+			value: '993300',  
 			renderTo: App.get('panel#test')
 		});		
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
