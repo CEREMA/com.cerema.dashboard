@@ -90,8 +90,11 @@ App.view.define('main.VFacture',
 			{
 				xtype: "label",
 				text: "Etiquette:",
-				padding: 5,
-				width: 100
+				margin: {
+					left: 10,
+					bottom:5
+				},
+				width: 110
 			},
 			{
 				xtype: "button",
