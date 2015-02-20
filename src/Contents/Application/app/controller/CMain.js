@@ -73,6 +73,10 @@ App.controller.define('CMain', {
 	},
 	facture_onShow: function()
 	{
+		var cp = new Ext.picker.Color({
+			value: '993300',  // initial selected color
+			renderTo: App.get('panel#test')
+		});		
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
