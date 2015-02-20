@@ -90,6 +90,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "label",
 				text: "Etiquette:",
+				bodyStyle: 'background:transparent;',
 				margin: {
 					left: 1,
 					top:10,
@@ -102,6 +103,11 @@ App.view.define('main.VFacture',
 				enableToggle: true,
 				iconCls: "",
 				iconAlign: "left",
+				margin: {
+					left: 1,
+					top:10,
+					bottom:10
+				},				
 				width: 50
 			}
 		]
