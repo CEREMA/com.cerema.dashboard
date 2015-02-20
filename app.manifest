@@ -31,8 +31,13 @@
         {
             "name": "ext",
             "version": "4.2.1",
-            "src": "http://cdn.sencha.com/ext/gpl/{version}/ext-all-debug.js",
-            "res": "http://cdn.sencha.com/ext/gpl/{version}/resources/css/ext-all.css"
+            "theme": "classic",
+            "src": [
+                "http://cdn.sencha.com/ext/gpl/{version}/ext-all-debug.js"
+            ],
+            "res": [
+                "http://cdn.sencha.com/ext/gpl/{version}/resources/ext-theme-{theme}/ext-theme-{theme}-all.css"
+            ]
         },
         {
             "name": "jquery",
