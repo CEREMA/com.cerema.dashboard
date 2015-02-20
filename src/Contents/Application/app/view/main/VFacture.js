@@ -191,15 +191,6 @@ App.view.define('main.VFacture',
 		displayField: 'code'
 	},
 	{
-		fieldLabel: 'Etiquette',
-		name: 'etiquette',
-		xtype: 'colorfield',
-		triggerAction: 'all',
-		editable: false,
-		selectOnFocus:false,			
-		forceSelection:true
-	},
-	{
 		fieldLabel: 'Echéance',
 		name: 'echeance',
 		format: 'Y-m-d',
