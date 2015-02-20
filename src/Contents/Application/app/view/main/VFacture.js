@@ -277,6 +277,7 @@ App.view.define('main.VFacture',
 		width: "100%"
 	},{
 		xtype: "uploadfilemanager",
+		itemId: "up",
 		width: "100%",
 		height: 110,
 		border: false
