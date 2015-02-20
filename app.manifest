@@ -53,7 +53,7 @@
         "CMain"
     ],
     "modules": [
-        "Ext.ux.ColorField"
+        "Ext.ux.upload"
     ],
     "plugins": [],
     "db": [

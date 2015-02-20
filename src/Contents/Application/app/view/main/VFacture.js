@@ -283,6 +283,9 @@ App.view.define('main.VFacture',
 		hidden: true,
 		xtype: 'textfield',
 		width: "100%"
+	},{
+		xtype: "uploadfilemanager",
+		width: "100%"
 	}
 	]
 
