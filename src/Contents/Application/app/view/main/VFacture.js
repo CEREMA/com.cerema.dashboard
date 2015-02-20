@@ -83,9 +83,18 @@ App.view.define('main.VFacture',
 	items: [
 	{
 		xtype: "panel",
-		itemId: "test",
-		width: 100,
-		height: 100
+		layout: "hbox",
+		border: false,
+		width: "100%",
+		items: [
+			{
+				xtype: "button",
+				enableToggle: true,
+				iconCls: "",
+				iconAlign: "left",
+				width: 50
+			}
+		]
 	},
 	{
 		fieldLabel: 'Prestation',
