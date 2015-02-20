@@ -86,11 +86,11 @@ App.view.define('main.VFacture',
 		layout: "hbox",
 		border: false,
 		width: "100%",
+		bodyStyle: 'background:transparent;',
 		items: [
 			{
 				xtype: "label",
 				text: "Etiquette:",
-				bodyStyle: 'background:transparent;',
 				margin: {
 					left: 1,
 					top:10,
