@@ -154,7 +154,7 @@ App.view.define('main.VFacture',
 		width: "100%"
 	},
 	{
-		fieldLabel: 'Fournisseur/Marché',
+		fieldLabel: 'Marché',
 		name: 'marche',
 		allowBlank: false,
 		hiddenName: 'cbo_marche',
