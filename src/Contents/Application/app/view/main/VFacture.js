@@ -73,6 +73,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
+				text: "Libre",
 				iconCls: "green",
 				iconAlign: "left",
 				margin: {
@@ -86,6 +87,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
+				text: "important",
 				iconCls: "orange",
 				iconAlign: "left",
 				margin: {
@@ -99,6 +101,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
+				text: "obligatoire",
 				iconCls: "red",
 				iconAlign: "left",
 				margin: {
@@ -112,6 +115,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
+				text: "reliquat",
 				iconCls: "black",
 				iconAlign: "left",
 				margin: {
@@ -125,6 +129,7 @@ App.view.define('main.VFacture',
 			{
 				xtype: "button",
 				enableToggle: true,
+				text: "reportable",
 				iconCls: 'grey',
 				iconAlign: "left",
 				margin: {
