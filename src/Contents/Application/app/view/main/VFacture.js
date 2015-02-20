@@ -4,7 +4,7 @@ App.view.define('main.VFacture',
 	alias : 'widget.facture',
 	
     width: 450,
-	labelWidth: 140,
+	labelWidth: 155,
 	closable: true,
 	draggable: true,
 	resizable: false,
