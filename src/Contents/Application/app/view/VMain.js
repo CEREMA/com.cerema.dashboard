@@ -73,19 +73,13 @@ App.view.define('VMain', {
 				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},
 				{header: "DA", width: 90, sortable: true, dataIndex: 'numda'},
-				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum',summaryRenderer:function(v){
-					var t=String(v).split(',');
-					if (t[1]) return t[0]+'.'+t[1].substr(0,2); else return v+'.00';
-				}},
+				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "EJ", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 				{header: "PDF", width: 32, dataIndex: 'DOC', renderer : function(val){
 					if (val!=0)	return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
-				{header: "Mt facture", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum', summaryRenderer:function(v){
-					var t=String(v).split(',');
-					if (t[1]) return t[0]+'.'+t[1].substr(0,2); else return v+'.00';
-				}},
+				{header: "Mt facture", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
 				{header: "Commentaire", width: 200, sortable: true, dataIndex: 'commentaire',flex: 1}			
