@@ -17,7 +17,7 @@ App.controller.define('CMain', {
 				click: "Menu_onClick"
 			},
 			"grid#MainGrid": {
-				itemclick: "grid_onclick"
+				itemdblclick: "grid_onclick"
 			},
 			"combo#cbo_cat": {
 				select: "cbo_cat_select"
