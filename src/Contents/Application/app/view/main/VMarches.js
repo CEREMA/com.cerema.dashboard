@@ -114,9 +114,8 @@ App.view.define('main.VMarches',
 					xtype: 'combo',
 					fieldLabel: 'Cat.',
 					id: 'NEW_CAT_ID',
-					store: new Ext.data.DirectStore({
-						autoLoad: true,
-						directFn: App.Categories.getAll						
+					store: App.store.create('App.Categories.getAll',{
+						autoLoad: true
 					}),
 					typeAhead: true,
 					editable: false,
@@ -137,10 +136,7 @@ App.view.define('main.VMarches',
 			xtype: 'grid',
 			border: false,
 			itemId: "GridMarches",
-			store: new Ext.data.DirectStore({
-				autoLoad: false,
-				directFn: App.Marches.getAll			
-			}),
+			store: App.store.create('App.Marches.getAll'),
 			height:305,
 			//listeners: {
 //				itemclick: grid_marches_click
