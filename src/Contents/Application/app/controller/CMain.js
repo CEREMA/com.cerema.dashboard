@@ -43,9 +43,7 @@ App.controller.define('CMain', {
 			},
 			"button": {
 				toggle: function(p,press) {
-					/*alert('x');*/
-					App.get('button').toggle(false);
-					p.toggle(press);
+					
 				}
 			},
 			"facture": {
