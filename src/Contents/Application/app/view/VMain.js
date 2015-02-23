@@ -59,6 +59,7 @@ App.view.define('VMain', {
 					text: "Marchés",
 					itemId: "win_marches",
 					iconCls: "add-marche",
+					iconAlign: "top",
 					height: 40
 				}
 			],
