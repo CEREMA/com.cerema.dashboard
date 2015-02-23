@@ -51,12 +51,14 @@ App.view.define('VMain', {
 				{
 					text: "Ajouter",
 					itemId: "win_facture",
+					
 					disabled: true,
 					height: 40
 				},
 				{
 					text: "Marchés",
 					itemId: "win_marches",
+					iconCls: "add-marche",
 					height: 40
 				}
 			],
