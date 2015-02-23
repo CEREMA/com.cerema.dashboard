@@ -96,7 +96,7 @@ App.controller.define('CMain', {
 		console.log(record);
 		App.view.create('main.VFacture',{
 			modal: true,
-			facture: record
+			facture: record.data
 		}).show();
 	},
 	GridMarches_menu: function( p, record, item, index, e )
