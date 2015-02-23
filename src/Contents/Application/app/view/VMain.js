@@ -51,7 +51,8 @@ App.view.define('VMain', {
 				{
 					text: "Ajouter",
 					itemId: "win_facture",
-					
+					iconCls: "add-facture",
+					iconAlign: "left",					
 					disabled: true,
 					height: 40
 				},
@@ -59,7 +60,7 @@ App.view.define('VMain', {
 					text: "Marchés",
 					itemId: "win_marches",
 					iconCls: "add-marche",
-					iconAlign: "top",
+					iconAlign: "left",
 					height: 40
 				}
 			],
