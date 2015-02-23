@@ -114,10 +114,7 @@ App.view.define('main.VSaisie',{
 		selectOnFocus:false,			
 		forceSelection:true, 
 		mode: 'local',
-		store: new Ext.data.DirectStore({
-			directFn: App.Marches.getAll,
-			autoLoad: false
-		}),
+		store: App.store.create('App.Marches.getAll'),
 		valueField: 'ID',
 		displayField: 'TITLE'
 	},
