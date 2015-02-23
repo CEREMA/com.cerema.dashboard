@@ -81,6 +81,7 @@ App.controller.define('CMain', {
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
+		
 	},
 	onMarchesClose: function()
 	{
@@ -90,10 +91,12 @@ App.controller.define('CMain', {
 	{
 		App.get('facture').close();
 	},
-	open_facture: function()
+	open_facture: function(p, record, item, index, e)
 	{
+		console.log(record);
 		App.view.create('main.VFacture',{
-			modal: true
+			modal: true,
+			facture: record
 		}).show();
 	},
 	GridMarches_menu: function( p, record, item, index, e )
