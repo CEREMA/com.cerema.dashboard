@@ -76,12 +76,12 @@ App.controller.define('CMain', {
 			};
 		};		
 	},
-	facture_onShow: function()
+	facture_onShow: function(p)
 	{	
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
-		
+		console.log(p.facture);
 	},
 	onMarchesClose: function()
 	{
@@ -93,7 +93,6 @@ App.controller.define('CMain', {
 	},
 	open_facture: function(p, record, item, index, e)
 	{
-		console.log(record);
 		App.view.create('main.VFacture',{
 			modal: true,
 			facture: record.data
