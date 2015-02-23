@@ -49,7 +49,7 @@ App.view.define('VMain', {
 				},
 				'->',
 				{
-					text: "Ajouter",
+					text: "Nouvelle facture",
 					itemId: "win_facture",
 					iconCls: "add-facture",
 					iconAlign: "left",					
