@@ -91,9 +91,4 @@
 .add-marche
 {
 	background-image: url(webapp/add-marche.png);
-	background-repeat:no-repeat;
-	background-position:center center;	
-	background-size: 16px 16px;
-	width: 16px;
-	height: 16px;	
 }
