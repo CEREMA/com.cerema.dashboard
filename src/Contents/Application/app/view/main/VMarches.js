@@ -64,9 +64,8 @@ App.view.define('main.VMarches',
 					itemId: "marches_categories",
 					fieldLabel: 'Catégorie',
 					name: 'CAT_ID',
-					store: new Ext.data.DirectStore({
-						autoLoad: true,
-						directFn: App.Categories.getAll						
+					store: App.store.create('App.Categories.getAll',{
+						autoLoad: true
 					}),
 					typeAhead: true,
 					editable: false,
