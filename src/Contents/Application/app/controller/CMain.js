@@ -90,6 +90,8 @@ App.controller.define('CMain', {
 			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
+			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
+			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 		};
 		console.log(p.facture);
 	},
