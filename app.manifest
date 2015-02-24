@@ -58,7 +58,8 @@
     "plugins": [],
     "db": [
         "bpclight",
-        "dashboard"
+        "dashboard",
+        "data"
     ],
     "api": [
         "Categories",
