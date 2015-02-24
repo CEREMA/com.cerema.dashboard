@@ -244,7 +244,7 @@ App.view.define('main.VFacture',
 		}
 		]
 		
-		this.callParent();
+		this.callParent(arguments);
 	}
 	
 
