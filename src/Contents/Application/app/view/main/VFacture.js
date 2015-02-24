@@ -179,6 +179,7 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Bon de Cde.',
 			name: 'ej',
+			itemId: "ej",
 			xtype: 'textfield',
 			width: "100%"
 		},
