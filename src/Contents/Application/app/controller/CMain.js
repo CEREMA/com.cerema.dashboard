@@ -83,6 +83,7 @@ App.controller.define('CMain', {
 		App.get('combo#cbo_marche').getStore().load();
 		if (p.facture) {
 			App.get('textfield#ej').setValue(p.facture.ej);
+			App.get('textfield#ej').setValue(p.facture.ej);
 		};
 		console.log(p.facture);
 	},

@@ -120,7 +120,7 @@ App.view.define('main.VFacture',
 		this.items = [
 		{
 			fieldLabel: 'Prestation',
-			
+			itemId: "prestation",
 			name: 'prestation',
 			allowBlank: false,
 			xtype: 'textfield',
@@ -129,12 +129,14 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Référence',
 			name: 'reference',
+			itemId: "reference",
 			xtype: 'textfield',
 			width: "100%"
 		},
 		{
 			fieldLabel: 'Code GM',
 			name: 'gim',
+			itemId: "gim",
 			hidden: true,
 			xtype: 'combo',
 			store: App.store.create('App.GM.getAll',{
@@ -147,7 +149,8 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
-			fieldLabel: 'Echéance',		
+			fieldLabel: 'Echéance',	
+			itemId: "echeance",			
 			name: 'echeance',
 			format: 'Y-m-d',
 			xtype: 'datefield',
@@ -173,6 +176,7 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Mt prévisionnel',
 			name: 'montant_prev',
+			itemId: "montant_prev",
 			xtype: 'numberfield',
 			width: "100%"
 		},
@@ -186,19 +190,21 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'N° Facture',
 			name: 'nofacture',
+			itemId: "nofacture",
 			xtype: 'textfield',
 			width: "100%"
 		},
 		{
 			fieldLabel: 'Montant Facture',
 			name: 'montant_facture',
+			itemId: "montant_facture",
 			xtype: 'numberfield',
 			width: "100%"
 		},
 		{
 			fieldLabel: 'Date Facture',
 			name: 'date_facture',
-			id: 'date_facture',
+			itemId: 'date_facture',
 			format: 'Y-m-d',
 			xtype: 'datefield',
 			width: "100%"
@@ -206,7 +212,7 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Service Fait',
 			name: 'date_servicefait',
-			id: 'date_servicefait',
+			itemId: 'date_servicefait',
 			format: 'Y-m-d',
 			xtype: 'datefield',
 			width: "100%"
@@ -214,7 +220,7 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Date Chorus',
 			name: 'date_chorus',
-			id: 'date_chorus',
+			itemId: 'date_chorus',
 			format: 'Y-m-d',
 			xtype: 'datefield',
 			hidden: true,
@@ -223,12 +229,13 @@ App.view.define('main.VFacture',
 		{
 			fieldLabel: 'Commentaire',
 			name: 'commentaire',
+			itemId: 'commentaire',
 			xtype: 'textarea',
 			width: "100%"
 		},
 		{
 			fieldLabel: 'Id',
-			id: 'FacturesId',
+			itemId: 'FacturesId',
 			name: 'id',
 			hidden: true,
 			xtype: 'textfield',
