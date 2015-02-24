@@ -62,6 +62,7 @@
     ],
     "api": [
         "Categories",
+        "",
         "Factures",
         "GM",
         "Marches"
