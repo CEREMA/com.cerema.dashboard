@@ -103,6 +103,7 @@ App.controller.define('CMain', {
 			App.Docs.get(p.facture.DOC,function(err,row){
 				console.log(err);
 				console.log(row);
+				App.get('uploadfilemanager#up').setFiles(row.result.data);
 			});
 		};
 		console.log(p.facture);
