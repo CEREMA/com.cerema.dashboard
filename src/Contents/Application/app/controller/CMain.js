@@ -149,8 +149,10 @@ App.controller.define('CMain', {
 	},
 	grid_onclick: function( p, record, item, index )
 	{
-		console.log(record);
-		App.view.create('main.VFacture',{modal: true}).show();
+		App.view.create('main.VFacture',{
+			modal: true,
+			facture: record.data
+		}).show();
 	}
 		
 });
