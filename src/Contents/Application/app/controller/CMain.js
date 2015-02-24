@@ -149,7 +149,6 @@ App.controller.define('CMain', {
 	},
 	grid_onclick: function( p, record, item, index )
 	{
-		console.log(record.data);
 		App.view.create('main.VFacture',{
 			modal: true,
 			facture: record.data
