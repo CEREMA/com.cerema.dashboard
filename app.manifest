@@ -62,7 +62,7 @@
     ],
     "api": [
         "Categories",
-        "",
+        "Docs",
         "Factures",
         "GM",
         "Marches"

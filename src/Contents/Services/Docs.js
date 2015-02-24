@@ -1,0 +1,5 @@
+Docs = {
+
+};
+
+module.exports=Docs;
