@@ -98,6 +98,9 @@ App.controller.define('CMain', {
 			App.get('datefield#date_facture').setValue(p.facture.date_facture);
 			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
 			App.get('datefield#date_chorus').setValue(p.facture.date_chorus);
+			App.get('textfield#nofacture').setValue(p.facture.nofacture);
+			App.get('textarea#commentaire').setValue(p.facture.comment);
+			
 		};
 		console.log(p.facture);
 	},
