@@ -17,7 +17,7 @@ App.view.define('main.VFacture',
 		this.defaults = {
 			width: "100%"
 		};
-		this.tbar: [
+		this.tbar = [
 			{
 				xtype: "button",
 				enableToggle: true,
