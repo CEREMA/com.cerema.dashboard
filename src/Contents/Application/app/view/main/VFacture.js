@@ -28,6 +28,7 @@ App.view.define('main.VFacture',
 					left: 1
 				},				
 				flex: 1,
+				itemId: "bgreen",
 				toggleGroup: 'colors'
 			},
 			{
@@ -35,6 +36,7 @@ App.view.define('main.VFacture',
 				enableToggle: true,
 				text: "important",
 				iconCls: "orange",
+				itemId: "borange",
 				iconAlign: "left",
 				margin: {
 					left: 1
@@ -47,6 +49,7 @@ App.view.define('main.VFacture',
 				enableToggle: true,
 				text: "obligatoire",
 				iconCls: "red",
+				itemId: "bred",
 				iconAlign: "left",
 				margin: {
 					left: 1
@@ -59,6 +62,7 @@ App.view.define('main.VFacture',
 				enableToggle: true,
 				text: "reliquat",
 				iconCls: "black",
+				itemId: "bblack",
 				iconAlign: "left",
 				margin: {
 					left: 1
@@ -71,6 +75,7 @@ App.view.define('main.VFacture',
 				enableToggle: true,
 				text: "reportable",
 				iconCls: 'grey',
+				itemId: "bgrey",
 				iconAlign: "left",
 				margin: {
 					left: 1
