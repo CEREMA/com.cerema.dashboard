@@ -84,6 +84,8 @@ App.controller.define('CMain', {
 		if (p.facture) {
 			var color=p.facture.etiquette;
 			if (color=="FF9900") App.get('button#borange').toggle(true);
+			if (color=="000000") App.get('button#bblack').toggle(true);
+			if (color=="FF0000") App.get('button#bred').toggle(true);
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 		};
