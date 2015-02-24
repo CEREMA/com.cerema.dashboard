@@ -140,7 +140,7 @@ App.view.define('main.VFacture',
 			name: 'gim',
 			hidden: true,
 			xtype: 'combo',
-			store: App.store.create('App.GM.getAllnew',{
+			store: App.store.create('App.GM.getAll',{
 				autoLoad: true
 			}),
 			allowBlank: false,
