@@ -82,6 +82,8 @@ App.controller.define('CMain', {
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
 		if (p.facture) {
+			var color=p.facture.etiquette;
+			if (color=="FF9900") App.get('button#borange').toggle(true);
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 		};
