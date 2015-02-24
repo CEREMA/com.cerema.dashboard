@@ -101,8 +101,6 @@ App.controller.define('CMain', {
 			App.get('textfield#nofacture').setValue(p.facture.nofacture);
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
 			App.Docs.get(p.facture.DOC,function(err,row){
-				console.log(err);
-				console.log(row);
 				App.get('uploadfilemanager#up').setFiles(row.result.data);
 			});
 		};
