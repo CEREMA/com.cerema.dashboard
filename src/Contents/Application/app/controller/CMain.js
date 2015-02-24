@@ -81,6 +81,9 @@ App.controller.define('CMain', {
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
+		if (p.facture) {
+			App.get('textfield#ej').setValue(p.facture.ej);
+		};
 		console.log(p.facture);
 	},
 	onMarchesClose: function()
