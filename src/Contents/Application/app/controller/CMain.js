@@ -151,7 +151,6 @@ App.controller.define('CMain', {
 			etiquette: p.up('window').state_id,
 			echeance: App.get('datefield#echeance').getValue(),
 			marche:App.get('combo#cbo_marche').getValue(),
-			numda:,
 			montant_prev:App.get('numberfield#montant_prev').getValue(),
 			ej: App.get('textfield#ej').getValue(),
 			commentaire:App.get('textarea#commentaire').getValue(),
@@ -159,12 +158,6 @@ App.controller.define('CMain', {
 			nofacture: App.get('textfield#nofacture').getValue(),
 			date_facture: App.get('datefield#date_facture').getValue(),
 			date_servicefait: App.get('datefield#date_servicefait').getValue()
-			/*
-			,
-			
-
-			
-			DOC: ''*/
 		};
 
 		console.log(data);
