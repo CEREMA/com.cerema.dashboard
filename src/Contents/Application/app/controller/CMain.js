@@ -155,11 +155,14 @@ App.controller.define('CMain', {
 			date_servicefait: App.get('datefield#date_servicefait').getValue(),
 			_BLOB: App.get('uploadfilemanager#up').getFiles()
 		};
-		console.log(data);
+		//console.log(data);
 		if (p.up('window').facture) {
 			// update
-			data.id=p.up('window').facture
-			App.
+			data.id=p.up('window').facture;
+			App.Factures.update(data,function(err,result) {
+				console.log(err);
+				console.log(result);
+			});
 		} else {
 			// create
 			
