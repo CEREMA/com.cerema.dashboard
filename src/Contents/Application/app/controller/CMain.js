@@ -158,6 +158,7 @@ App.controller.define('CMain', {
 		if (p.up('window').facture) {
 			// update
 			data.id=p.up('window').facture;
+			console.log(data);
 			App.Factures.update(data,function(err,result) {
 				console.log(err);
 				console.log(result);
