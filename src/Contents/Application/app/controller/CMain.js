@@ -135,7 +135,53 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
-		alert(p.up('window').facture);
+		/*var color=p.facture.etiquette;
+			
+			App.get('textfield#ej').setValue(p.facture.ej);
+			App.get('textfield#prestation').setValue(p.facture.prestation);
+			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
+			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
+			App.get('textfield#reference').setValue(p.facture.reference);
+			App.get('combo#cbo_marche').setValue(p.facture.marche);
+			App.get('datefield#echeance').setValue(p.facture.echeance);
+			App.get('datefield#date_facture').setValue(p.facture.date_facture);
+			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
+			App.get('datefield#date_chorus').setValue(p.facture.date_chorus);
+			App.get('textfield#nofacture').setValue(p.facture.nofacture);
+			App.get('textarea#commentaire').setValue(p.facture.commentaire);
+			App.Docs.get(p.facture.DOC,function(err,row){
+				App.get('uploadfilemanager#up').setFiles(row.result.data);
+			});		*/
+		var data=[
+			prestation:,
+			reference:,
+			gim:,
+			etiquette: '',
+			echeance:,
+			marche:,
+			numda:,
+			montant_prev:,
+			ej:,
+			nofacture:,
+			montant_facture:,
+			date_facture:,
+			date_servicefait:,
+			commentaire:,
+			DOC: ''
+		];
+		/*if (color=="FF9900") App.get('button#borange').toggle(true);
+			if (color=="000000") App.get('button#bblack').toggle(true);
+			if (color=="FF0000") App.get('button#bred').toggle(true);
+			if (color=="99CC00") App.get('button#bgreen').toggle(true);			
+			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);*/
+		console.log(data);
+		if (p.up('window').facture) {
+			// update
+			
+		} else {
+			// create
+			
+		};
 		p.up('window').close();
 	},
 	open_facture: function(p, record, item, index, e)
