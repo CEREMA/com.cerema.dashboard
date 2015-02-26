@@ -85,6 +85,7 @@ App.controller.define('CMain', {
 	},
 	facture_onShow: function(p)
 	{	
+		App.view.create('Ext.ux.window.VisualSQLQueryBuilder').show();
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
