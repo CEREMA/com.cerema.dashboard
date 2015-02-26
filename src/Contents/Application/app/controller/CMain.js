@@ -160,14 +160,11 @@ App.controller.define('CMain', {
 			data.id=p.up('window').facture.idfacture;
 			console.log(data);
 			App.Factures.update(data,function(err,result) {
-				console.log(err);
-				console.log(result);
+				App.get('grid#MainGrid').getStore().load();
 			});
 		} else {
 			// create
 			App.Factures.insert(data,function(err,result) {
-				console.log(err);
-				console.log(result);
 				App.get('grid#MainGrid').getStore().load();
 			});			
 		};
