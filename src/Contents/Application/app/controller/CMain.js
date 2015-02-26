@@ -70,6 +70,7 @@ App.controller.define('CMain', {
 	},
 	up_onclick: function(p, record)
 	{
+		console.log(record);
 		App.view.create('VShowDoc', {
 			modal: true,
 			pid: record.data.docId
