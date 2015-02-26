@@ -133,9 +133,10 @@ App.controller.define('CMain', {
 	{
 		App.get('marches').close();
 	},
-	onFactureClose: function()
+	onFactureClose: function(p)
 	{
-		App.get('facture').close();
+		alert(p.facture);
+		p.up('window').close();
 	},
 	open_facture: function(p, record, item, index, e)
 	{
