@@ -135,7 +135,7 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
-		alert(p.facture);
+		alert(p.up('window').facture);
 		p.up('window').close();
 	},
 	open_facture: function(p, record, item, index, e)
