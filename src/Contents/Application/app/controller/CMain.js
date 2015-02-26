@@ -60,9 +60,16 @@ App.controller.define('CMain', {
 					alert('tic');
 				}
 			}
+			"uploadfilemanager#up": {
+				itemdblclick: "up_onclick"
+			}
 		});
 		
 		App.init('VMain',this.onLoad);
+		
+	},
+	up_onclick: function()
+	{
 		
 	},
 	Menu_onClick: function()
