@@ -79,6 +79,7 @@ App.controller.define('CMain', {
 		console.log(record);
 		App.view.create('VShowDoc', {
 			modal: true,
+			title: record.data.filename,
 			pid: record.data.docId
 		}).show().center();		
 	},
