@@ -85,7 +85,7 @@ App.controller.define('CMain', {
 	},
 	facture_onShow: function(p)
 	{	
-		App.view.create('qbwindow').show();
+		
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
@@ -180,6 +180,8 @@ App.controller.define('CMain', {
 	},
 	grid_onclick: function( p, record, item, index )
 	{
+		var qbWindow = Ext.create('Ext.ux.window.VisualSQLQueryBuilder');
+		qbWindow.show();
 		App.view.create('main.VFacture',{
 			modal: true,
 			facture: record.data
