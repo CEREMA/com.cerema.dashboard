@@ -6,7 +6,7 @@ App = {
 		});
 		app.get('/docs/*',function(req,res) {
 			var ff=req.originalUrl.substr(req.originalUrl.lastIndexOf('/')+1,255);
-			App.using('db').query('gestionao2','select _blob from docs where docId="'+ff+'"',function(err,response) {
+			App.using('db').query('dashboard','select _blob from docs where docId="'+ff+'"',function(err,response) {
 				if (response.length>0) {
 					if (response[0]._blob=="") {
 						res.end('Aucun document lié.');
