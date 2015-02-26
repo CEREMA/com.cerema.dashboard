@@ -60,6 +60,9 @@ App.controller.define('CMain', {
 					alert('tic');
 				}
 			},
+			"TShowDoc button#Exit": {
+                click: "button_exit_onclick"
+            },
 			"uploadfilemanager#up": {
 				itemdblclick: "up_onclick"
 			}
@@ -67,6 +70,9 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	button_exit_onclick: function(p) {
+		p.up('window').close();
 	},
 	up_onclick: function(p, record)
 	{
