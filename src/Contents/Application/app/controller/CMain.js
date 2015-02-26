@@ -135,6 +135,7 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
+		alert(p.up('window').state_id);
 		/*var color=p.facture.etiquette;
 			
 			App.get('textfield#ej').setValue(p.facture.ej);
