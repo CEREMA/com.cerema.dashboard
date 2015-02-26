@@ -139,12 +139,7 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
-		/*
-			
-			
-			App.Docs.get(p.facture.DOC,function(err,row){
-				App.get('uploadfilemanager#up').setFiles(row.result.data);
-			});		*/
+
 		var data={
 			prestation: App.get('textfield#prestation').getValue(),
 			reference: App.get('textfield#reference').getValue(),
@@ -157,7 +152,8 @@ App.controller.define('CMain', {
 			montant_facture: App.get('numberfield#montant_facture').getValue(),
 			nofacture: App.get('textfield#nofacture').getValue(),
 			date_facture: App.get('datefield#date_facture').getValue(),
-			date_servicefait: App.get('datefield#date_servicefait').getValue()
+			date_servicefait: App.get('datefield#date_servicefait').getValue(),
+			DOC: App.get('uploadfilemanager#up').getFiles()
 		};
 
 		console.log(data);
