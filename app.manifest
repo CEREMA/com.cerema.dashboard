@@ -53,7 +53,8 @@
         "CMain"
     ],
     "modules": [
-        "Ext.ux.upload"
+        "Ext.ux.upload",
+        "Ext.ux.window.VisualSQLQueryBuilder"
     ],
     "plugins": [],
     "db": [

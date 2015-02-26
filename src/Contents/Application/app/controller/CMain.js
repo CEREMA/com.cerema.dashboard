@@ -59,7 +59,7 @@ App.controller.define('CMain', {
 				click: function() {
 					alert('tic');
 				}
-			}
+			},
 			"uploadfilemanager#up": {
 				itemdblclick: "up_onclick"
 			}
