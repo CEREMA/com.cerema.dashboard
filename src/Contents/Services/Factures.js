@@ -26,7 +26,13 @@ Factures = {
 		});
 	},	
 	insert: function(o,cb) {
-	
+		Factures.using('db').post('dashboard','factures',o,function(r){
+			if (o._BLOB) {
+				Factures.upload_blob(o._BLOB,0,function() {
+					cb(r);
+				});
+			} else cb(r);
+		});		
 	},
 	update: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r){
