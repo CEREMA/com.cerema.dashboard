@@ -101,6 +101,7 @@ App.controller.define('CMain', {
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().load();
 		if (p.facture) {
+			// update
 			var color=p.facture.etiquette;
 			if (color=="FF9900") App.get('button#borange').toggle(true);
 			if (color=="000000") App.get('button#bblack').toggle(true);
@@ -121,9 +122,12 @@ App.controller.define('CMain', {
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
 			App.Docs.get(p.facture.DOC,function(err,row){
 				App.get('uploadfilemanager#up').setFiles(row.result.data);
-			});
-		};
-		console.log(p.facture);
+			});			
+		} else {
+			// create
+			
+		}
+		
 	},
 	onMarchesClose: function()
 	{
