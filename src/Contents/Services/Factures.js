@@ -13,6 +13,7 @@ Factures = {
 	upload_blob: function(list,ndx,cb)
 	{
 		if (!list[ndx]) {cb();return;}
+		console.log(list[ndx]);
 		Factures.using('db').query('dashboard','insert into docs VALUES ("'+list[ndx].docId+'","-1","-1","-1","-1")',function() {
 			Factures.using('db').post('dashboard','docs',{
 				docId: list[ndx].docId,
