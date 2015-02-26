@@ -43,7 +43,11 @@ App.controller.define('CMain', {
 			},
 			"button": {
 				toggle: function(p,press) {
-					p.up('window').state_id=p.iconCls;
+					if (p.iconCls=="orange") p.up('window').state_id="FF9900";
+					if (p.iconCls=="black") p.up('window').state_id="000000";
+					if (p.iconCls=="red") p.up('window').state_id="FF0000";
+					if (p.iconCls=="green") p.up('window').state_id="99CC00";
+					if (p.iconCls=="grey") p.up('window').state_id="C0C0C0";
 				}
 			},
 			"facture": {
