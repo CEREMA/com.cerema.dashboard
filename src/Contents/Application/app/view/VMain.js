@@ -80,7 +80,7 @@ App.view.define('VMain', {
 				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "EJ", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
-				{header: "PDF", width: 32, dataIndex: 'DOC', renderer : function(val){
+				{header: "PDF", width: 32, dataIndex: '_BLOB', renderer : function(val){
 					if (val!=0)	return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
 				{header: "Mt facture", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},

@@ -18,7 +18,6 @@ SELECT 	factures.id idfacture,
 		business._DESC,
 		business.PRICE,
 		categories.LIBELLE,
-		factures.DOC,
 		factures._BLOB
 		FROM    (   
 			(   business business
