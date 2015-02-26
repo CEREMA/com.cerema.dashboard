@@ -180,8 +180,6 @@ App.controller.define('CMain', {
 	},
 	grid_onclick: function( p, record, item, index )
 	{
-		var qbWindow = Ext.create('Ext.ux.window.VisualSQLQueryBuilder');
-		qbWindow.show();
 		App.view.create('main.VFacture',{
 			modal: true,
 			facture: record.data
