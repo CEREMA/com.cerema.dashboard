@@ -13,10 +13,10 @@ Factures = {
 	upload_blob: function(list,ndx,cb)
 	{
 		if (!list[ndx]) {cb();return;}
-		Factures.using('db').query('dashboard','insert into docs VALUES ("'+list[ndx].tmpfilename+'","-1","-1","-1","-1")',function() {
+		Factures.using('db').query('dashboard','insert into docs VALUES ("'+list[ndx].docId+'","-1","-1","-1","-1")',function() {
 			Factures.using('db').post('dashboard','docs',{
 				docId: list[ndx].docId,
-				_blob: App.upload.toBase64(list[ndx].tmpfilename),
+				_blob: App.upload.toBase64(list[ndx].docId),
 				filename: list[ndx].filename,
 				type: list[ndx].filetype,
 				size: list[ndx].filesize
