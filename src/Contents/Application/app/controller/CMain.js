@@ -165,7 +165,10 @@ App.controller.define('CMain', {
 			});
 		} else {
 			// create
-			
+			App.Factures.insert(data,function(err,result) {
+				console.log(err);
+				console.log(result);
+			});			
 		};
 		p.up('window').close();
 	},
