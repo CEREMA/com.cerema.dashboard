@@ -153,13 +153,13 @@ App.controller.define('CMain', {
 			nofacture: App.get('textfield#nofacture').getValue(),
 			date_facture: App.get('datefield#date_facture').getValue(),
 			date_servicefait: App.get('datefield#date_servicefait').getValue(),
-			DOC: App.get('uploadfilemanager#up').getFiles()
+			_BLOB: App.get('uploadfilemanager#up').getFiles()
 		};
-
 		console.log(data);
 		if (p.up('window').facture) {
 			// update
-			
+			data.id=p.up('window').facture
+			App.
 		} else {
 			// create
 			
