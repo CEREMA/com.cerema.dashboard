@@ -68,9 +68,12 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
-	up_onclick: function()
+	up_onclick: function(p, record)
 	{
-		
+		App.view.create('VShowDoc', {
+			modal: true,
+			pid: record.data.docId
+		}).show().center();		
 	},
 	Menu_onClick: function()
 	{
