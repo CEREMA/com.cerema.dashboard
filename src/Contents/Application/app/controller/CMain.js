@@ -43,7 +43,7 @@ App.controller.define('CMain', {
 			},
 			"button": {
 				toggle: function(p,press) {
-					console.log(p);
+					p.up('window').state_id=p.iconCls;
 				}
 			},
 			"facture": {
