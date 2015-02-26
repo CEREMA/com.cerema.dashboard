@@ -100,7 +100,7 @@ App.view.define('main.VFacture',
 		},
 		'->',
 		{ 
-			text:'Fermer', 
+			text:'Valider', 
 			itemId: "Facture_close",
 			formBind:true, 
 			scope:this
