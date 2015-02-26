@@ -168,6 +168,7 @@ App.controller.define('CMain', {
 			App.Factures.insert(data,function(err,result) {
 				console.log(err);
 				console.log(result);
+				App.get('grid#MainGrid').getStore().load();
 			});			
 		};
 		p.up('window').close();
