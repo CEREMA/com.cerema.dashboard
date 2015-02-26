@@ -157,11 +157,11 @@ App.controller.define('CMain', {
 			App.Docs.get(p.facture.DOC,function(err,row){
 				App.get('uploadfilemanager#up').setFiles(row.result.data);
 			});		*/
-		/*var data=[
-			prestation:,
+		var data=[
+			/*prestation:,
 			reference:,
-			gim:,
-			etiquette: '',
+			gim:,*/
+			etiquette: p.up('window').state_id/*,
 			echeance:,
 			marche:,
 			numda:,
@@ -172,8 +172,8 @@ App.controller.define('CMain', {
 			date_facture:,
 			date_servicefait:,
 			commentaire:,
-			DOC: ''
-		];*/
+			DOC: ''*/
+		];
 		/*if (color=="FF9900") App.get('button#borange').toggle(true);
 			if (color=="000000") App.get('button#bblack').toggle(true);
 			if (color=="FF0000") App.get('button#bred').toggle(true);
