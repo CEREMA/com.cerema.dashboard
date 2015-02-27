@@ -15,6 +15,8 @@ Factures = {
 		if (tab.length>=ndx) cb(); else {
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
 			db.post('dashboard','factures',tab[ndx],function(err,response) {
+				console.log(err);
+				console.log(response);
 				Factures.duplicateme(tab,ndx+1,cb);
 			});
 		}
