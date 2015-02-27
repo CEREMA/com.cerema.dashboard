@@ -179,7 +179,7 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
-			fieldLabel: 'Mt prévisionnel (HT)',
+			fieldLabel: 'Mt prévisionnel <small>HT</small>',
 			name: 'montant_prev',
 			itemId: "montant_prev",
 			xtype: 'numberfield',
@@ -200,7 +200,7 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
-			fieldLabel: 'Montant Facture (HT)',
+			fieldLabel: 'Montant Facture <small>HT</small>',
 			name: 'montant_facture',
 			itemId: "montant_facture",
 			xtype: 'numberfield',
