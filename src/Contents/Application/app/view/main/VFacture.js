@@ -232,6 +232,13 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
+			fieldLabel: 'immoNET',
+			name: 'immonet',
+			itemId: 'immonet',
+			xtype: 'textfield',
+			width: "100%"
+		},
+		{
 			fieldLabel: 'Commentaire',
 			name: 'commentaire',
 			itemId: 'commentaire',
