@@ -88,7 +88,6 @@ App.view.define('main.VFacture',
 		this.bbar = [
 		{
 			xtype: 'numberfield',
-			style: 'text-align: right',
 			width:50,
 			value: 1,
 			minValue: 0,
@@ -183,7 +182,6 @@ App.view.define('main.VFacture',
 			fieldLabel: 'Mt prévisionnel',
 			name: 'montant_prev',
 			itemId: "montant_prev",
-			style: 'text-align: right',
 			xtype: 'numberfield',
 			width: "100%"
 		},
@@ -205,7 +203,6 @@ App.view.define('main.VFacture',
 			fieldLabel: 'Montant Facture',
 			name: 'montant_facture',
 			itemId: "montant_facture",
-			style: 'text-align: right',
 			xtype: 'numberfield',
 			width: "100%"
 		},
