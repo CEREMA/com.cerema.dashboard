@@ -11,6 +11,7 @@ Factures = {
 		db.model('dashboard',db.sql('factures_get',{ID: o.id}),cb);
 	},
 	duplicate: function(o,cb) {
+		console.log(o);
 		var db=Factures.using('db');
 		db.query('dashboard','select * from factures where id="'+o.id+'"',function(err,result) {
 			console.log(result);
