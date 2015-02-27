@@ -78,7 +78,7 @@ App.view.define('VMain', {
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
 				{header: "Mt prév. <small>HT</small>", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Mt prév. <small>TTC</small>", width: 100, sortable: true, align:"right", renderer:  function(v){
-					console.log(v*1.2);
+					return v*1.2;
 				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
