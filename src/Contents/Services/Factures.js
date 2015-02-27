@@ -10,6 +10,12 @@ Factures = {
 		var db=Factures.using('db');		
 		db.model('dashboard',db.sql('factures_get',{ID: o.id}),cb);
 	},
+	duplicate: function(o,cb) {
+		var db=Factures.using('db');
+		db.query('dashboard',db.sql('select * from factures where id="'+o.id+'"'),function(err,result) {
+			console.log(result);
+		});
+	},
 	upload_blob: function(list,ndx,cb)
 	{
 		if (!list[ndx]) {cb();return;}

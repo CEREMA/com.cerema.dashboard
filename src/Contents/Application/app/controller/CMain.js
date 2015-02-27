@@ -73,10 +73,12 @@ App.controller.define('CMain', {
 		
 	},
 	facture_duplicate: function(p) {
-		var nn=App.get('numberfield#duplicate_number').getValue();
-		console.log(p.up('window').facture);
-		//App.Factures.duplicate(
-		alert(nn);
+		App.Factures.duplicate({
+			id: p.up('window').idfacture,
+			n: App.get('numberfield#duplicate_number').getValue()
+		},function(err,r) {
+		
+		});
 	},
 	toggle_buttons: function(p,press) {
 		if (p.iconCls=="orange") p.up('window').state_id="FF9900";
