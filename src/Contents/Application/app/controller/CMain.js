@@ -123,6 +123,7 @@ App.controller.define('CMain', {
 			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
 			App.get('datefield#date_chorus').setValue(p.facture.date_chorus);
 			App.get('textfield#nofacture').setValue(p.facture.nofacture);
+			App.get('textfield#immoNET').setValue(p.facture.immonet);
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
 			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));
 			
