@@ -4,7 +4,7 @@ App.view.define('main.VFacture',
 	alias : 'widget.facture',
 	
 	initComponent: function() {
-		this.width = 450;
+		this.width = 470;
 		this.labelWidth = 155;
 		this.closable = true;
 		this.draggable = true;
