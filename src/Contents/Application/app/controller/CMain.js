@@ -72,8 +72,10 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
-	facture_duplicate: function() {
+	facture_duplicate: function(p) {
 		var nn=App.get('numberfield#duplicate_number').getValue();
+		console.log(p.facture);
+		//App.Factures.duplicate(
 		alert(nn);
 	},
 	toggle_buttons: function(p,press) {
