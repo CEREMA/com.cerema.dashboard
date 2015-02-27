@@ -76,8 +76,8 @@ App.view.define('VMain', {
 				}},
 				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
-				{header: "Mt prév. <small>HT</small>", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
-				{header: "Mt prév. <small>TTC</small>", width: 100, sortable: true, align:"right", renderer:  function(v){
+				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
+				{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v){
 					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
 				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
@@ -86,7 +86,10 @@ App.view.define('VMain', {
 					val=JSON.parse(val);
 					if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
-				{header: "Mt facture", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
+				{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
+				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v) {
+					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';				
+				}, dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
 				{header: "ImmoNET", width: 90, sortable: true, dataIndex: 'immonet'},
