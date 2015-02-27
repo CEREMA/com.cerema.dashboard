@@ -91,12 +91,12 @@ App.view.define('main.VFacture',
 			width:50,
 			value: 1,
 			minValue: 0,
-			id: 'duplicate_number'
+			itemId: 'duplicate_number'
 		},	
 		{
 			xtype: 'button',
-			text: 'Dupliquer'/*,
-			handler: factures_duplicate*/
+			itemId: 'duplicate',
+			text: 'Dupliquer'
 		},
 		'->',
 		{ 
@@ -106,20 +106,11 @@ App.view.define('main.VFacture',
 			scope:this
 		},
 		{ 
-			text: 'Supprimer', 
-			id: 'TFactureDelete',
-			hidden: true,
-			formBind: true, 
-			scope: this/*, 
-			handler: myform_delete*/
-		},
-		{ 
 			text: 'Enregistrer', 
 			formBind: true, 
 			hidden: true,
 			id: 'TFactureRecord',
-			scope: this/*, 
-			handler: myform_post*/
+			scope: this
 		}
 		];
 		this.items = [
