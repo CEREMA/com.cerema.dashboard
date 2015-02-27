@@ -47,6 +47,9 @@ App.controller.define('CMain', {
 			"facture": {
 				show: "facture_onShow"
 			},
+			"button#duplicate": {
+				click: "facture_duplicate"
+			},
 			"facture>button#MnuMarchesDelete": {
 				click: function()
 				{
@@ -68,6 +71,10 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	facture_duplicate: function() {
+		var nn=App.get('numberfield#duplicate_number').getValue();
+		alert(nn);
 	},
 	toggle_buttons: function(p,press) {
 		if (p.iconCls=="orange") p.up('window').state_id="FF9900";
