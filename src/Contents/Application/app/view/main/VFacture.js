@@ -5,7 +5,7 @@ App.view.define('main.VFacture',
 	
 	initComponent: function() {
 		this.width = 470;
-		this.labelWidth = 170;
+		this.labelWidth = 190;
 		this.closable = true;
 		this.draggable = true;
 		this.resizable = false;
