@@ -76,7 +76,10 @@ App.view.define('VMain', {
 				}},
 				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
-				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
+				{header: "Mt prév. <small>HT</small>", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
+				{header: "Mt prév. <small>TTC</small>", width: 100, sortable: true, align:"right", renderer:  function(v){
+					console.log(v);
+				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 				{header: "PDF", width: 32, dataIndex: '_BLOB', renderer : function(val){
