@@ -92,7 +92,7 @@ App.view.define('VMain', {
 				}, dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
-				{header: "ImmoNET", width: 90, sortable: true, dataIndex: 'immonet'},
+				{header: "ImmoNET", width: 55, sortable: true, dataIndex: 'immonet'},
 				{header: "Commentaire", width: 200, sortable: true, dataIndex: 'commentaire',flex: 1}			
 			],
 			features: [
