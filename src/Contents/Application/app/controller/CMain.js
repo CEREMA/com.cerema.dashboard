@@ -73,10 +73,12 @@ App.controller.define('CMain', {
 		
 	},
 	facture_duplicate: function(p) {
-		App.Factures.duplicate({
+		var o={
 			ID: p.up('window').idfacture,
 			n: App.get('numberfield#duplicate_number').getValue()
-		},function(err,r) {
+		};
+		console.log(o);
+		App.Factures.duplicate(o,function(err,r) {
 		
 		});
 	},
