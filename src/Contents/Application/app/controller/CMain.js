@@ -127,10 +127,7 @@ App.controller.define('CMain', {
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
 			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));
 			
-		} else {
-			// create
-			
-		}
+		} 
 		
 	},
 	onMarchesClose: function()
@@ -153,6 +150,7 @@ App.controller.define('CMain', {
 			nofacture: App.get('textfield#nofacture').getValue(),
 			date_facture: App.get('datefield#date_facture').getValue(),
 			date_servicefait: App.get('datefield#date_servicefait').getValue(),
+			immonet: App.get('textfield#immonet').getValue(),
 			_BLOB: App.get('uploadfilemanager#up').getFiles()
 		};
 		//console.log(data);
