@@ -15,7 +15,7 @@ App.view.define('main.VFacture',
 		this.bodyStyle = 'padding:5px 5px 0';
 		this.layout = 'form';
 		this.defaults = {
-			width: "100%"
+			width: "95%"
 		};
 		this.tbar = [
 			{
