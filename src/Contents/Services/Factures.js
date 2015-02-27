@@ -13,7 +13,7 @@ Factures = {
 	upload_blob: function(list,ndx,cb)
 	{
 		if (!list[ndx]) {cb();return;}
-		Factures.using('db').query('dashboard','select * from docs where docId="'+list[ndx].docId+'"',function(err,result) {
+		Factures.using('db').query('dashboard','select docId from docs where docId="'+list[ndx].docId+'"',function(err,result) {
 			if (result.length>0) {
 				// déjà uploadé
 				Factures.upload_blob(list,ndx+1,cb);
