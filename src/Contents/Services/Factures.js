@@ -31,6 +31,7 @@ Factures = {
 				delete r.id;
 				var tab=[];
 				for (var i=0;i<o.n;i++) tab.push(r);
+				console.log(tab);
 				Factures.duplicateme(tab,0,cb);
 			}
 		});
