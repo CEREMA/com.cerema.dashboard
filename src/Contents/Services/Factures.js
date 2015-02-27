@@ -10,15 +10,24 @@ Factures = {
 		var db=Factures.using('db');		
 		db.model('dashboard',db.sql('factures_get',{ID: o.id}),cb);
 	},
+	duplicateme: function(tab,ndx,cb) {
+		if (tab.length>=ndx) cb(); else {
+			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
+			db.post('dashboard','factures',tab[ndx],function(err,response) {
+				Factures.duplicateme(tab,ndx+1,cb);
+			});
+		}
+	},
 	duplicate: function(o,cb) {
-		console.log(o);
 		var db=Factures.using('db');
 		db.query('dashboard','select * from factures where id="'+o.ID+'"',function(err,result) {
 			if (result.length>0) {
 				var r=result[0];
 				delete r._BLOB;
 				delete r.id;
-				console.log(r);
+				var tab=[];
+				for (var i=0;i<o.n;i++) tab.push(r);
+				Factures.duplicateme(tab,0,cb);
 			}
 		});
 	},
