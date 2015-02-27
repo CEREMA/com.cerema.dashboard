@@ -14,6 +14,7 @@ Factures = {
 		var db=Factures.using('db');
 		if (tab.length>=ndx) cb(); else {
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
+			console.log(tab);
 			db.post('dashboard','factures',tab[ndx],function(err,response) {
 				console.log(err);
 				console.log(response);
