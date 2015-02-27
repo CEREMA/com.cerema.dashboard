@@ -75,8 +75,7 @@ App.view.define('VMain', {
 					return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
 				}},
 				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
-				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},
-				{header: "DA", width: 90, sortable: true, dataIndex: 'numda'},
+				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
 				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
@@ -87,6 +86,7 @@ App.view.define('VMain', {
 				{header: "Mt facture", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
+				{header: "ImmoNET", width: 90, sortable: true, dataIndex: 'immonet'},
 				{header: "Commentaire", width: 200, sortable: true, dataIndex: 'commentaire',flex: 1}			
 			],
 			features: [
