@@ -74,7 +74,7 @@ App.controller.define('CMain', {
 	},
 	facture_duplicate: function(p) {
 		App.Factures.duplicate({
-			id: p.up('window').idfacture,
+			ID: p.up('window').idfacture,
 			n: App.get('numberfield#duplicate_number').getValue()
 		},function(err,r) {
 		
