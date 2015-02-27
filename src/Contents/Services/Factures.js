@@ -12,8 +12,9 @@ Factures = {
 	},
 	duplicateme: function(tab,ndx,cb) {
 		var db=Factures.using('db');
-		console.log(tab);
+		
 		if (tab.length>=ndx) cb(); else {
+			console.log('-----------------------------------');
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
 			console.log(tab);
 			db.post('dashboard','factures',tab[ndx],function(err,response) {
