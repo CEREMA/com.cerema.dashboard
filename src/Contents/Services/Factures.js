@@ -13,7 +13,7 @@ Factures = {
 	duplicateme: function(tab,ndx,cb) {
 		var db=Factures.using('db');
 		
-		if (tab.length>=ndx) cb(); else {
+		if (tab.length>ndx) cb(); else {
 			console.log('-----------------------------------');
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
 			console.log(tab);
