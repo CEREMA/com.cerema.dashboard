@@ -42,13 +42,7 @@ App.controller.define('CMain', {
 				click: "onMarchesClose"
 			},
 			"button": {
-				toggle: function(p,press) {
-					if (p.iconCls=="orange") p.up('window').state_id="FF9900";
-					if (p.iconCls=="black") p.up('window').state_id="000000";
-					if (p.iconCls=="red") p.up('window').state_id="FF0000";
-					if (p.iconCls=="green") p.up('window').state_id="99CC00";
-					if (p.iconCls=="grey") p.up('window').state_id="C0C0C0";
-				}
+				toggle: "toggle_buttons"
 			},
 			"facture": {
 				show: "facture_onShow"
@@ -74,6 +68,13 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	toggle_buttons: function(p,press) {
+		if (p.iconCls=="orange") p.up('window').state_id="FF9900";
+		if (p.iconCls=="black") p.up('window').state_id="000000";
+		if (p.iconCls=="red") p.up('window').state_id="FF0000";
+		if (p.iconCls=="green") p.up('window').state_id="99CC00";
+		if (p.iconCls=="grey") p.up('window').state_id="C0C0C0";
 	},
 	button_exit_onclick: function(p) {
 		p.up('window').close();
