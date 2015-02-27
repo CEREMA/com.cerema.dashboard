@@ -11,8 +11,7 @@ Factures = {
 		db.model('dashboard',db.sql('factures_get',{ID: o.id}),cb);
 	},
 	duplicateme: function(tab,ndx,cb) {
-		console.log(tab.length);
-		console.log(ndx);
+		var db=Factures.using('db');
 		if (tab.length>=ndx) cb(); else {
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
 			db.post('dashboard','factures',tab[ndx],function(err,response) {
