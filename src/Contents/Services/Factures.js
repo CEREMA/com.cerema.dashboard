@@ -14,7 +14,12 @@ Factures = {
 		console.log(o);
 		var db=Factures.using('db');
 		db.query('dashboard','select * from factures where id="'+o.ID+'"',function(err,result) {
-			console.log(result);
+			if (result.length>0) {
+				var r=result[0];
+				delete r._BLOB;
+				delete r.id;
+				console.log(r);
+			}
 		});
 	},
 	upload_blob: function(list,ndx,cb)
