@@ -78,7 +78,7 @@ App.view.define('VMain', {
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},
 				{header: "DA", width: 90, sortable: true, dataIndex: 'numda'},
 				{header: "Mt prév.", width: 100, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
-				{header: "EJ", width: 100, sortable: true, dataIndex: 'ej'},
+				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 				{header: "PDF", width: 32, dataIndex: '_BLOB', renderer : function(val){
 					val=JSON.parse(val);
