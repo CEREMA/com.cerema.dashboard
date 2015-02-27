@@ -31,7 +31,6 @@ Factures = {
 				});			
 			}
 		});
-		/**/
 	},	
 	insert: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r){
