@@ -25,6 +25,7 @@ Factures = {
 		} else cb();
 	},
 	duplicate: function(o,cb) {
+		console.log('duplicate');
 		var db=Factures.using('db');
 		console.log(o);
 		db.query('dashboard','select * from factures where id="'+o.ID+'"',function(err,result) {
