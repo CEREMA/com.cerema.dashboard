@@ -27,6 +27,8 @@ Factures = {
 	duplicate: function(o,cb) {
 		var db=Factures.using('db');
 		db.query('dashboard','select * from factures where id="'+o.ID+'"',function(err,result) {
+			console.log(err);
+			console.log(result);
 			if (result.length>0) {
 				var r=result[0];
 				delete r._BLOB;
