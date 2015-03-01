@@ -13,7 +13,7 @@ Factures = {
 	duplicateme: function(tab,ndx,cb) {
 		var db=Factures.using('db');
 		
-		if (tab.length>ndx) cb(); else {
+		if (ndx<tab.length) {
 			console.log('-----------------------------------');
 			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
 			console.log(tab);
@@ -22,7 +22,7 @@ Factures = {
 				console.log(response);
 				Factures.duplicateme(tab,ndx+1,cb);
 			});
-		}
+		} else cb();
 	},
 	duplicate: function(o,cb) {
 		var db=Factures.using('db');
