@@ -119,6 +119,7 @@ App.controller.define('CMain', {
 	Menu_onClick: function(p)
 	{
 		if (p.itemId) {
+			console.log(p.itemId);
 			switch (p.itemId) 
 			{
 				case "MnuFactureDelete" :
