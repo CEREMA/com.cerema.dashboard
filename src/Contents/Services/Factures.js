@@ -73,6 +73,9 @@ Factures = {
 			} else cb(r);
 		});		
 	},
+	del: function(o,cb) {
+	
+	},
 	update: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r){
 			if (o._BLOB) {
