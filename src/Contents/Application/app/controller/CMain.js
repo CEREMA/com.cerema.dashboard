@@ -119,6 +119,7 @@ App.controller.define('CMain', {
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		if (sel.selected.items.length>0) {
+			alert(sel.selected.items[0].idfacture);
 			App.Factures.del(sel.selected.items[0].idfacture,function(err,result) {
 				console.log(err);
 				console.log(result);
