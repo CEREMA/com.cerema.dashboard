@@ -28,7 +28,7 @@ Factures = {
 			console.log(result);
 			if (result.length>0) {
 				var r=result[0];
-				delete r._BLOB;
+				r._BLOB=[];
 				delete r.id;
 				var tab=[];
 				for (var i=0;i<o.n;i++) tab.push(r);
