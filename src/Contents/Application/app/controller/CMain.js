@@ -92,9 +92,9 @@ App.controller.define('CMain', {
 			ID: p.up('window').facture.idfacture,
 			n: App.get('numberfield#duplicate_number').getValue()
 		};
-		console.log(o);
 		App.Factures.duplicate(o,function(err,r) {
-		
+			App.notify('La facture a été dupliquée.');
+			App.get('grid#MainGrid').getStore().load();
 		});
 	},
 	toggle_buttons: function(p,press) {
