@@ -116,7 +116,7 @@ App.controller.define('CMain', {
 			pid: record.data.docId
 		}).show().center();		
 	},
-	Menu_onClick: function()
+	Menu_onClick: function(p)
 	{
 		if (p.itemId) {
 			switch (p.itemId) 
