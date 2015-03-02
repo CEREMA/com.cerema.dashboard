@@ -122,10 +122,10 @@ App.controller.define('CMain', {
 			switch (p.itemId) 
 			{
 				case "MnuFactureDelete" :
-					alert('bidon');
+					this.doFactureDelete();
 					break;
 				case "MnuMarchesDelete" :
-					alert('marches delete');
+					alert('Fonction non implémentée');
 					break;
 			};
 		};		
