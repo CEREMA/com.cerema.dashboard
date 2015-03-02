@@ -119,6 +119,7 @@ App.controller.define('CMain', {
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		console.log(sel);
+		console.log(sel.getSelected());
 	},
 	Menu_onClick: function(p)
 	{
