@@ -62,12 +62,12 @@ App.controller.define('CMain', {
 			"uploadfilemanager#up": {
 				itemdblclick: "up_onclick"
 			},
-			"button MnuMarchesDelete": {
+			"button#MnuMarchesDelete": {
 				click: function() {
 					alert('delete');
 				}
 			},
-			"button MnuFactureDelete": {
+			"button#MnuFactureDelete": {
 				click: function() {
 					alert('delete facture');
 				}
