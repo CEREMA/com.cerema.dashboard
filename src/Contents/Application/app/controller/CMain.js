@@ -117,7 +117,8 @@ App.controller.define('CMain', {
 	},
 	doFactureDelete: function()
 	{
-	
+		var sel=App.get('grid#MainGrid').getSelectionModel();
+		console.log(sel);
 	},
 	Menu_onClick: function(p)
 	{
