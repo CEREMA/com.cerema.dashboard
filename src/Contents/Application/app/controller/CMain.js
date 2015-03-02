@@ -121,7 +121,9 @@ App.controller.define('CMain', {
 		if (p.itemId) {
 			switch (p.itemId) 
 			{
-
+				case "" :
+					alert('bidon');
+					break;
 			};
 		};		
 	},
