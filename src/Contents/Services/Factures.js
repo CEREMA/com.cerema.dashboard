@@ -74,7 +74,7 @@ Factures = {
 		});		
 	},
 	del: function(o,cb) {
-	
+		Factures.using('db').del('dashboard','factures',o,cb);
 	},
 	update: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r){
