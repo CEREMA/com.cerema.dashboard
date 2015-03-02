@@ -17,7 +17,8 @@ App.controller.define('CMain', {
 				click: "Menu_onClick"
 			},
 			"grid#MainGrid": {
-				itemdblclick: "grid_onclick"
+				itemdblclick: "grid_onclick",
+				itemcontextmenu: "MainGrid_menu"
 			},
 			"combo#cbo_cat": {
 				select: "cbo_cat_select"
@@ -71,6 +72,16 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	MainGrid_menu: function( p, record, item, index, e )
+	{
+		e.stopEvent();
+		new Ext.menu.Menu({
+			items: [{
+				itemId: 'MnuFactureDelete',
+				text: 'Supprimer la facture'
+			}]
+		}).showAt(e.xy);
 	},
 	facture_duplicate: function(p) {
 		var o={
