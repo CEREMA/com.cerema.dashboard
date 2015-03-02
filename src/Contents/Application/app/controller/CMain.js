@@ -120,8 +120,8 @@ App.controller.define('CMain', {
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		if (sel.selected.items.length>0) {
 			App.Factures.del(sel.selected.items[0].data.idfacture,function(err,result) {
-				console.log(err);
-				console.log(result);
+				App.notify("La facture a été supprimée");
+				App.get('grid#MainGrid').getStore().load();
 			});
 		}
 	},
