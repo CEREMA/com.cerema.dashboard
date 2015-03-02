@@ -118,8 +118,11 @@ App.controller.define('CMain', {
 	doFactureDelete: function()
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
-		console.log(sel);
-		console.log(sel.getSelected());
+		if (sel.selected.items.length>0) {
+			App.Factures.del(sel.selected.items[0].idfacture,function(err,result) {
+			
+			});
+		}
 	},
 	Menu_onClick: function(p)
 	{
