@@ -12,14 +12,9 @@ Factures = {
 	},
 	duplicateme: function(tab,ndx,cb) {
 		var db=Factures.using('db');
-		
 		if (ndx<tab.length) {
-			console.log('-----------------------------------');
-			tab[ndx].prestation=tab[ndx].prestation+' (X'+ndx+')';
-			console.log(tab);
+			tab[ndx].prestation=tab[ndx].prestation;
 			db.post('dashboard','factures',tab[ndx],function(err,response) {
-				console.log(err);
-				console.log(response);
 				Factures.duplicateme(tab,ndx+1,cb);
 			});
 		} else cb();
@@ -37,7 +32,6 @@ Factures = {
 				delete r.id;
 				var tab=[];
 				for (var i=0;i<o.n;i++) tab.push(r);
-				console.log(tab);
 				Factures.duplicateme(tab,0,cb);
 			}
 		});
