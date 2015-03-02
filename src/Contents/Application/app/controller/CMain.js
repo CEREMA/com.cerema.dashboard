@@ -109,12 +109,15 @@ App.controller.define('CMain', {
 	},
 	up_onclick: function(p, record)
 	{
-		console.log(record);
 		App.view.create('VShowDoc', {
 			modal: true,
 			title: record.data.filename,
 			pid: record.data.docId
 		}).show().center();		
+	},
+	doFactureDelete: function()
+	{
+	
 	},
 	Menu_onClick: function(p)
 	{
