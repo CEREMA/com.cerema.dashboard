@@ -51,10 +51,7 @@ App.controller.define('CMain', {
 			"button#duplicate": {
 				click: "facture_duplicate"
 			},
-			"button MnuFactureDelete": {
-				click: function
-			},
-			"marches>button TMarcheNew": {
+			"marches button TMarcheNew": {
 				click: function() {
 					alert('tic');
 				}
