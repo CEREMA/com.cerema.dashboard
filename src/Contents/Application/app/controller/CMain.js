@@ -94,6 +94,7 @@ App.controller.define('CMain', {
 		};
 		App.Factures.duplicate(o,function(err,r) {
 			App.notify('La facture a été dupliquée.');
+			p.up('window').close();
 			App.get('grid#MainGrid').getStore().load();
 		});
 	},
