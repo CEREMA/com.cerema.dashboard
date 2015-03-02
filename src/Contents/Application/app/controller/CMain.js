@@ -51,11 +51,8 @@ App.controller.define('CMain', {
 			"button#duplicate": {
 				click: "facture_duplicate"
 			},
-			"facture>button#MnuMarchesDelete": {
-				click: function()
-				{
-					alert('sddfsklj');
-				}
+			"button MnuFactureDelete": {
+				click: function
 			},
 			"marches>button TMarcheNew": {
 				click: function() {
@@ -67,6 +64,16 @@ App.controller.define('CMain', {
             },
 			"uploadfilemanager#up": {
 				itemdblclick: "up_onclick"
+			},
+			"button MnuMarchesDelete": {
+				click: function() {
+					alert('delete');
+				}
+			},
+			"button MnuFactureDelete": {
+				click: function() {
+					alert('delete facture');
+				}
 			}
 		});
 		
@@ -117,8 +124,6 @@ App.controller.define('CMain', {
 		if (p.itemId) {
 			switch (p.itemId) 
 			{
-				case "MnuMarchesDelete":
-					this.doMarchesDelete();
 				break;
 			};
 		};		
