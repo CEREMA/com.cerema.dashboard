@@ -121,8 +121,11 @@ App.controller.define('CMain', {
 		if (p.itemId) {
 			switch (p.itemId) 
 			{
-				case "" :
+				case "MnuFactureDelete" :
 					alert('bidon');
+					break;
+				case "MnuMarchesDelete" :
+					alert('marches delete');
 					break;
 			};
 		};		
