@@ -54,6 +54,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
 					itemId: "totalprevht",
+					fieldStyle: 'text-align: right;'
 					width: 130,
 					margin: {
 						right:5
@@ -64,6 +65,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>TTC</small>",
 					itemId: "totalprevttc",
+					fieldStyle: 'text-align: right;'
 					width: 130,
 					margin: {
 						right:5
@@ -74,6 +76,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>HT</small>",
 					itemId: "totalfactureht",
+					fieldStyle: 'text-align: right;'
 					width: 130,
 					margin: {
 						right:5
@@ -84,6 +87,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>TTC</small>",
 					itemId: "totalfacturettc",
+					fieldStyle: 'text-align: right;'
 					width: 130,
 					margin: {
 						right:5
@@ -120,6 +124,7 @@ App.view.define('VMain', {
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
 				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v){
+					
 					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
 				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
