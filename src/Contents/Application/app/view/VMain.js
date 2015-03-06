@@ -140,7 +140,7 @@ App.view.define('VMain', {
 					if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
 				{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
-				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v) {
+				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
 					var total=App.get('textfield#totalfacturettc').getValue()*1;
 					if (r.recordIndex!=-1) total+=v*1.2;
 					App.get('textfield#totalfacturettc').setValue(Ext.util.Format.number(total, '0.00'));
