@@ -116,7 +116,7 @@ App.view.define('VMain', {
 					disabled: true,
 					width: 100,
 					height: 40,
-					padding: 5
+					margin: 5
 				},
 				{
 					xtype: "button",
@@ -126,7 +126,7 @@ App.view.define('VMain', {
 					iconAlign: "left",
 					width: 100,
 					height: 40,
-					padding: 5
+					margin: 5
 				}			
 			]
 		},
