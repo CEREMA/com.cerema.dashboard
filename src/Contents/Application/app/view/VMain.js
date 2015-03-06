@@ -60,7 +60,7 @@ App.view.define('VMain', {
 					fieldStyle: 'text-align: right;',
 					readOnly: true,
 					width: 130,
-					height: 40,
+					height: 35,
 					margin: {
 						right:5,
 						bottom: 5
