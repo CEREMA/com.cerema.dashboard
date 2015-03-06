@@ -48,7 +48,7 @@ App.view.define('VMain', {
 					editable: false,
 					margin: {
 						left:10,
-						right:5,
+						right:20,
 						bottom: 5
 					}
 				},
