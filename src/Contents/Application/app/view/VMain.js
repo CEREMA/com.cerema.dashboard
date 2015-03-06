@@ -131,7 +131,6 @@ App.view.define('VMain', {
 					var total=App.get('textfield#totalprevttc').getValue()*1;
 					if (r.recordIndex!=-1) total+=v*1.2;
 					App.get('textfield#totalprevttc').setValue(total);
-					alert(total);
 					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
 				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
