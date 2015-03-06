@@ -24,6 +24,7 @@ App.view.define('VMain', {
 			width: "100%",
 			layout: "hbox",
 			border: false,
+			bodyCls: "lightblue",
 			items: [
 				{
 					xtype: "combo",
