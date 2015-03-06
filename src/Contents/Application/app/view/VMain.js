@@ -133,8 +133,8 @@ App.view.define('VMain', {
 		{
 			region: "center",
 			xtype: "grid",
+			layout: "fit",
 			preserveScrollOnRefresh: true,
-			height: "100%",
 			width: "100%",
 			border: false,
 			itemId: "MainGrid",
