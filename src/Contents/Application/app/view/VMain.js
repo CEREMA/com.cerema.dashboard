@@ -55,6 +55,7 @@ App.view.define('VMain', {
 					fieldLabel: "Total Prév. <small>HT</small>",
 					itemId: "totalprevht",
 					fieldStyle: 'text-align: right;',
+					readOnly: true,
 					width: 130,
 					margin: {
 						right:5
@@ -66,6 +67,7 @@ App.view.define('VMain', {
 					fieldLabel: "Total Prév. <small>TTC</small>",
 					itemId: "totalprevttc",
 					fieldStyle: 'text-align: right;color: blue',
+					readOnly: true,
 					width: 130,
 					margin: {
 						right:5
@@ -76,6 +78,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>HT</small>",
 					itemId: "totalfactureht",
+					readOnly: true,
 					fieldStyle: 'text-align: right;',
 					width: 130,
 					margin: {
@@ -87,6 +90,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>TTC</small>",
 					itemId: "totalfacturettc",
+					readOnly: true,
 					fieldStyle: 'text-align: right;color: blue',
 					width: 130,
 					margin: {
