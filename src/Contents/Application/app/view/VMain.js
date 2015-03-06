@@ -133,7 +133,7 @@ App.view.define('VMain', {
 				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
-				{header: "PDF", width: 32, dataIndex: '_BLOB', renderer : function(val){
+				{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
 					val=JSON.parse(val);
 					if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
@@ -144,7 +144,8 @@ App.view.define('VMain', {
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
 				{header: "ImmoNET", width: 65, sortable: true, dataIndex: 'immonet'},
-				{header: "Commentaire", width: 200, sortable: true, dataIndex: 'commentaire',flex: 1}			
+				{header: "Commentaire", sortable: true, dataIndex: 'commentaire',flex: 1},
+				{header: "", width: 50, sortable: true, dataIndex: 'commentaire',type: "checkColumn"}			
 			],
 			features: [
 				{
