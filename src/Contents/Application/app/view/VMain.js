@@ -145,7 +145,7 @@ App.view.define('VMain', {
 				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
 				{header: "ImmoNET", width: 65, sortable: true, dataIndex: 'immonet'},
 				{header: "Commentaire", sortable: true, dataIndex: 'commentaire',flex: 1},
-				{header: "", width: 50, sortable: true, dataIndex: 'commentaire',xtype: "checkColumn"}			
+				{header: "", width: 50, sortable: true, dataIndex: 'commentaire',xtype: "checkcolumn"}			
 			],
 			features: [
 				{
