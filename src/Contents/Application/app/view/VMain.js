@@ -53,6 +53,7 @@ App.view.define('VMain', {
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
+					itemId: "totalprevht",
 					width: 130,
 					margin: {
 						right:5
@@ -62,6 +63,7 @@ App.view.define('VMain', {
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>TTC</small>",
+					itemId: "totalprevttc",
 					width: 130,
 					margin: {
 						right:5
@@ -71,6 +73,7 @@ App.view.define('VMain', {
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>HT</small>",
+					itemId: "totalfactureht",
 					width: 130,
 					margin: {
 						right:5
@@ -80,6 +83,7 @@ App.view.define('VMain', {
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>TTC</small>",
+					itemId: "totalfacturettc",
 					width: 130,
 					margin: {
 						right:5
