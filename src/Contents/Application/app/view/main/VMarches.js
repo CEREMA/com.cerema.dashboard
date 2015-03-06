@@ -53,11 +53,10 @@ App.view.define('main.VMarches',
 	},
 	items: [
 		{
-			xtype:'form',
+			xtype:'hbox',
 			border: false,
 			itemId: 'TFormMarche',
-			bodyStyle:'padding:5px 5px 0',
-			defaults: {width: 450},			
+			bodyStyle:'padding:5px 5px 0',		
 			items: [
 				{
 					xtype: 'combo',
