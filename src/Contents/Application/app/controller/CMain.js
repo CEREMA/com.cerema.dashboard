@@ -252,7 +252,7 @@ App.controller.define('CMain', {
 		var grid=App.get('grid#MainGrid');
 		grid.getStore().getProxy().extraParams.id=d.id;
 		grid.getStore().load();
-		grid.getStore().on('load,function() {
+		grid.getStore().on('load',function() {
 			// totals
 			App.get('textfield#totalprevht').setValue('0.00');
 			App.get('textfield#totalprevttc').setValue('0.00');
