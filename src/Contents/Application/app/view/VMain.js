@@ -43,7 +43,7 @@ App.view.define('VMain', {
 					emptyText:'Sélectionner une catégorie',
 					selectOnFocus:true,
 					width:300,
-					height: 50,
+					height: 40,
 					readonly:true,
 					editable: false,
 					margin: {
