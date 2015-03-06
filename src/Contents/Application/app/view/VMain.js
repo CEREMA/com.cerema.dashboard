@@ -29,7 +29,7 @@ App.view.define('VMain', {
 				{
 					xtype: "combo",
 					labelAlign: "top",
-					fieldLabel: "Rubriques",
+					fieldLabel: "Rubrique",
 					itemId: "cbo_cat",
 					store: new Ext.data.DirectStore({
 						autoLoad: true,
