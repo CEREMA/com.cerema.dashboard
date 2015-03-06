@@ -54,8 +54,8 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
 					width: 130,
-					{
-						margin-right:5
+					margin: {
+						right:5
 					}
 				},
 				{
@@ -63,8 +63,8 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>TTC</small>",
 					width: 130,
-					{
-						margin-right:5
+					margin: {
+						right:5
 					}
 				},
 				{
@@ -72,8 +72,8 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>HT</small>",
 					width: 130,
-					{
-						margin-right:5
+					margin: {
+						right:5
 					}
 				},
 				{
@@ -81,8 +81,8 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>TTC</small>",
 					width: 130,
-					{
-						margin-right:5
+					margin: {
+						right:5
 					}
 				},
 				'->',
