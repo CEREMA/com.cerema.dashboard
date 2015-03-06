@@ -74,6 +74,7 @@ App.view.define('VMain', {
 					fieldStyle: 'text-align: right;color: blue',
 					readOnly: true,
 					width: 130,
+					height: 36,
 					margin: {
 						right:5,
 						bottom: 5
@@ -87,6 +88,7 @@ App.view.define('VMain', {
 					readOnly: true,
 					fieldStyle: 'text-align: right;',
 					width: 130,
+					height: 36,
 					margin: {
 						right:5,
 						bottom: 5
@@ -100,6 +102,7 @@ App.view.define('VMain', {
 					readOnly: true,
 					fieldStyle: 'text-align: right;color: blue',
 					width: 130,
+					height: 36,
 					margin: {
 						right:5,
 						bottom: 5
