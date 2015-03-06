@@ -143,7 +143,7 @@ App.view.define('VMain', {
 				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
 					var total=App.get('textfield#totalfacturettc').getValue()*1;
 					if (r.recordIndex!=-1) total+=v*1.2;
-					App.get('textfield#totalfacturettc').setValue(Ext.util.Format.number(total, '0.00'));
+					App.get('textfield#totalfacturettc').setValue(total);
 					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';				
 				}, dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
