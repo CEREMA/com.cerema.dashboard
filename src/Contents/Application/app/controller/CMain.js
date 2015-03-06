@@ -20,7 +20,7 @@ App.controller.define('CMain', {
 				itemdblclick: "grid_onclick",
 				itemcontextmenu: "MainGrid_menu"
 			},
-			"checkcolumn": {
+			"grid#MainGrid checkcolumn": {
 				checkchange: function(column, rowIdx, checked, eOpts){
 					alert('x');
 				}			
