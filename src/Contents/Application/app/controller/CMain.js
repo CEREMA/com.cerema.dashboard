@@ -250,7 +250,9 @@ App.controller.define('CMain', {
 		var d=records[0].data;
 		// totals
 		App.get('textfield#totalprevht').setValue('0.00');
-		App.get('textfield#totalprevht').setValue('0.00');
+		App.get('textfield#totalprevttc').setValue('0.00');
+		App.get('textfield#totalfactureht').setValue('0.00');
+		App.get('textfield#totalfacturettc').setValue('0.00');
 		// refresh the grid
 		var grid=App.get('grid#MainGrid');
 		grid.getStore().getProxy().extraParams.id=d.id;
