@@ -20,6 +20,11 @@ App.controller.define('CMain', {
 				itemdblclick: "grid_onclick",
 				itemcontextmenu: "MainGrid_menu"
 			},
+			"checkcolumn": {
+				checkchange: function(column, rowIdx, checked, eOpts){
+					alert('x');
+				}			
+			},
 			"combo#cbo_cat": {
 				select: "cbo_cat_select"
 			},
