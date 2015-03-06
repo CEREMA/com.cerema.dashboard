@@ -62,7 +62,7 @@ App.view.define('main.VMarches',
 				{
 					xtype: 'combo',
 					itemId: "marches_categories",
-					fieldLabel: 'Catégorie',
+					fieldLabel: 'Rubrique',
 					name: 'CAT_ID',
 					store: App.store.create('App.Categories.getAll',{
 						autoLoad: true
@@ -91,7 +91,7 @@ App.view.define('main.VMarches',
 				},
 				{
 					xtype: 'numberfield',
-					fieldLabel: 'Prix',
+					fieldLabel: 'Montant',
 					id: 'TMarchePrix',
 					name: 'PRICE'			
 				},
@@ -112,7 +112,7 @@ App.view.define('main.VMarches',
 				},
 				{
 					xtype: 'combo',
-					fieldLabel: 'Cat.',
+					fieldLabel: 'Rubrique',
 					id: 'NEW_CAT_ID',
 					store: App.store.create('App.Categories.getAll',{
 						autoLoad: true
