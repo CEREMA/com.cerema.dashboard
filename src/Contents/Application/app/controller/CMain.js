@@ -66,11 +66,6 @@ App.controller.define('CMain', {
 				click: function() {
 					alert('delete');
 				}
-			},
-			"button#MnuFactureDelete": {
-				click: function() {
-					alert('delete facture');
-				}
 			}
 		});
 		
