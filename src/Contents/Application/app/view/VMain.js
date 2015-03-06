@@ -54,7 +54,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
 					itemId: "totalprevht",
-					fieldStyle: 'text-align: right;'
+					fieldStyle: 'text-align: right;',
 					width: 130,
 					margin: {
 						right:5
