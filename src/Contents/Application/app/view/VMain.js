@@ -53,25 +53,25 @@ App.view.define('VMain', {
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
-					width: 100
+					width: 150
 				},
 				{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>TTC</small>",
-					width: 100
+					width: 150
 				},
 				{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>HT</small>",
-					width: 100
+					width: 150
 				},
 				{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Facture <small>TTC</small>",
-					width: 100
+					width: 150
 				},
 				'->',
 				{
