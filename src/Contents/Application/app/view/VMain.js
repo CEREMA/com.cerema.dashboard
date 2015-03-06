@@ -119,7 +119,7 @@ App.view.define('VMain', {
 					iconCls: "add-facture",
 					iconAlign: "left",					
 					disabled: true,
-					width: 100,
+					width: 130,
 					height: 40,
 					margin: 5
 				},
