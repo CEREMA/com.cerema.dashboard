@@ -22,6 +22,7 @@ App.view.define('VMain', {
 		{
 			region: "north",
 			height: 150,
+			width: "100%",
 			border: false,
 			items: [
 				{
