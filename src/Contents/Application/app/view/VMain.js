@@ -20,14 +20,10 @@ App.view.define('VMain', {
 			]		
 		},
 		{
-			region: "center",
-			xtype: "grid",
-			preserveScrollOnRefresh: true,
-			height: "100%",
-			width: "100%",
+			region: "north",
+			height: 150,
 			border: false,
-			itemId: "MainGrid",
-			tbar: [
+			items: [
 				{
 					xtype: "combo",
 					labelAlign: "top",
@@ -102,7 +98,9 @@ App.view.define('VMain', {
 						right:5
 					}
 				},
-				'->',
+				{
+					flex: 1
+				},
 				{
 					text: "Nouvelle facture",
 					itemId: "win_facture",
@@ -117,7 +115,18 @@ App.view.define('VMain', {
 					iconCls: "add-marche",
 					iconAlign: "left",
 					height: 40
-				}
+				}			
+			]
+		},
+		{
+			region: "center",
+			xtype: "grid",
+			preserveScrollOnRefresh: true,
+			height: "100%",
+			width: "100%",
+			border: false,
+			itemId: "MainGrid",
+			tbar: [
 			],
 			columns:[
 				{header: "ID Facture", width: 80, sortable: true, dataIndex: 'idfacture',hidden: true},
