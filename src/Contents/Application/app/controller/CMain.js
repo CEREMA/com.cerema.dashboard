@@ -248,9 +248,14 @@ App.controller.define('CMain', {
 	cbo_cat_select: function(p, records, eOpts)
 	{
 		var d=records[0].data;
+		// totals
+		App.get('textfield#totalprevht').setValue('0.00');
+		App.get('textfield#totalprevht').setValue('0.00');
+		// refresh the grid
 		var grid=App.get('grid#MainGrid');
 		grid.getStore().getProxy().extraParams.id=d.id;
 		grid.getStore().load();
+		// refresh.
 		App.get('button#win_facture').setDisabled(false);
 		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=d.id;
 		App.get('combo#cbo_marche').getStore().load();*/
