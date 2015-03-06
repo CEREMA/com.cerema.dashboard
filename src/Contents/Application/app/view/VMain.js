@@ -31,7 +31,7 @@ App.view.define('VMain', {
 				{
 					xtype: "combo",
 					labelAlign: "top",
-					fieldLabel: "Catégorie",
+					fieldLabel: "Rubriques",
 					itemId: "cbo_cat",
 					store: new Ext.data.DirectStore({
 						autoLoad: true,
@@ -47,7 +47,10 @@ App.view.define('VMain', {
 					selectOnFocus:true,
 					width:300,
 					readonly:true,
-					editable: false
+					editable: false,
+					margin: {
+						right:5
+					}
 				},
 				{
 					xtype: "textfield",
@@ -107,7 +110,7 @@ App.view.define('VMain', {
 					height: 40
 				},
 				{
-					text: "Marchés",
+					text: "Sous rubriques",
 					itemId: "win_marches",
 					iconCls: "add-marche",
 					iconAlign: "left",
