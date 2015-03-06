@@ -82,6 +82,9 @@ App.controller.define('CMain', {
 		e.stopEvent();
 		new Ext.menu.Menu({
 			items: [{
+				itemId: 'MnuFactureDuplicate',
+				text: 'Dupliquer la facture'
+			},{
 				itemId: 'MnuFactureDelete',
 				text: 'Supprimer la facture'
 			}]
