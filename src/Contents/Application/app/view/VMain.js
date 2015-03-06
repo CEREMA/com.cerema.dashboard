@@ -126,7 +126,12 @@ App.view.define('VMain', {
 				}},
 				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
 				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
-				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
+				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
+					var total=App.get('textfield#totalprevht').getValue()*1;
+					if (r.recordIndex!=-1) total+=v;
+					App.get('textfield#totalprevht').setValue(total.toFixed(2));
+					return v.toFixed(2);
+				}, dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r){
 					var total=App.get('textfield#totalprevttc').getValue()*1;
 					if (r.recordIndex!=-1) total+=v*1.2;
@@ -139,7 +144,12 @@ App.view.define('VMain', {
 					val=JSON.parse(val);
 					if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
 				}},
-				{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_facture', summaryType:'sum'},
+				{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r) {
+					var total=App.get('textfield#totalfactureht').getValue()*1;
+					if (r.recordIndex!=-1) total+=v;
+					App.get('textfield#totalfactureht').setValue(total.toFixed(2));
+					return v.toFixed(2);				
+				}, dataIndex: 'montant_facture', summaryType:'sum'},
 				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
 					var total=App.get('textfield#totalfacturettc').getValue()*1;
 					if (r.recordIndex!=-1) total+=v*1.2;
