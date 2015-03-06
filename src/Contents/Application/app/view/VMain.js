@@ -30,6 +30,8 @@ App.view.define('VMain', {
 			tbar: [
 				{
 					xtype: "combo",
+					labelAlign: "top",
+					fieldLabel: "Catégorie",
 					itemId: "cbo_cat",
 					store: new Ext.data.DirectStore({
 						autoLoad: true,
