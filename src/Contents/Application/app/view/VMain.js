@@ -50,12 +50,22 @@ App.view.define('VMain', {
 				{
 					type: "textfield",
 					labelAlign: "top",
-					fieldLabel: "Total Prév."
+					fieldLabel: "Total Prév. <small>HT</small>"
 				},
 				{
 					type: "textfield",
 					labelAlign: "top",
-					fieldLabel: "Total Facture"
+					fieldLabel: "Total Prév. <small>TTC</small>"
+				},
+				{
+					type: "textfield",
+					labelAlign: "top",
+					fieldLabel: "Total Facture <small>HT</small>"
+				},
+				{
+					type: "textfield",
+					labelAlign: "top",
+					fieldLabel: "Total Facture <small>TTC</small>"
 				},
 				'->',
 				{
