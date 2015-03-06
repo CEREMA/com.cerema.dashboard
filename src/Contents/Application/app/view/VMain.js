@@ -21,7 +21,6 @@ App.view.define('VMain', {
 		},
 		{
 			region: "north",
-			height: 150,
 			width: "100%",
 			layout: "hbox",
 			border: false,
@@ -61,7 +60,8 @@ App.view.define('VMain', {
 					readOnly: true,
 					width: 130,
 					margin: {
-						right:5
+						right:5,
+						bottom: 5
 					}
 				},
 				{
@@ -73,7 +73,8 @@ App.view.define('VMain', {
 					readOnly: true,
 					width: 130,
 					margin: {
-						right:5
+						right:5,
+						bottom: 5
 					}
 				},
 				{
@@ -85,7 +86,8 @@ App.view.define('VMain', {
 					fieldStyle: 'text-align: right;',
 					width: 130,
 					margin: {
-						right:5
+						right:5,
+						bottom: 5
 					}
 				},
 				{
@@ -97,7 +99,8 @@ App.view.define('VMain', {
 					fieldStyle: 'text-align: right;color: blue',
 					width: 130,
 					margin: {
-						right:5
+						right:5,
+						bottom: 5
 					}
 				},
 				{
@@ -112,7 +115,8 @@ App.view.define('VMain', {
 					iconAlign: "left",					
 					disabled: true,
 					width: 100,
-					height: 40
+					height: 40,
+					padding: 5
 				},
 				{
 					xtype: "button",
@@ -121,7 +125,8 @@ App.view.define('VMain', {
 					iconCls: "add-marche",
 					iconAlign: "left",
 					width: 100,
-					height: 40
+					height: 40,
+					padding: 5
 				}			
 			]
 		},
