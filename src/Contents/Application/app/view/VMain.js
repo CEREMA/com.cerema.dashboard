@@ -43,7 +43,6 @@ App.view.define('VMain', {
 					emptyText:'Sélectionner une catégorie',
 					selectOnFocus:true,
 					width:300,
-					height: 40,
 					readonly:true,
 					editable: false,
 					margin: {
@@ -60,6 +59,7 @@ App.view.define('VMain', {
 					fieldStyle: 'text-align: right;',
 					readOnly: true,
 					width: 130,
+					height: 30,
 					margin: {
 						right:5,
 						bottom: 5
