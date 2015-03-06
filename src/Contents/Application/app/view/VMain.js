@@ -47,6 +47,16 @@ App.view.define('VMain', {
 					readonly:true,
 					editable: false
 				},
+				{
+					type: "textfield",
+					labelAlign: "top",
+					fieldLabel: "Total Prév."
+				},
+				{
+					type: "textfield",
+					labelAlign: "top",
+					fieldLabel: "Total Facture"
+				},
 				'->',
 				{
 					text: "Nouvelle facture",
