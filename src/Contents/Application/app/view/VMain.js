@@ -101,9 +101,11 @@ App.view.define('VMain', {
 					}
 				},
 				{
-					flex: 1
+					flex: 1,
+					border: false
 				},
 				{
+					xtype: "button",
 					text: "Nouvelle facture",
 					itemId: "win_facture",
 					iconCls: "add-facture",
@@ -112,6 +114,7 @@ App.view.define('VMain', {
 					height: 40
 				},
 				{
+					xtype: "button",
 					text: "Sous rubriques",
 					itemId: "win_marches",
 					iconCls: "add-marche",
