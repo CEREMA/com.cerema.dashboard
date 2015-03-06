@@ -129,7 +129,7 @@ App.view.define('VMain', {
 				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  Ext.util.Format.numberRenderer('0.00'), dataIndex: 'montant_prev',summaryType: 'sum'},
 				{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v){
 					var total=App.get('textfield#totalprevttc').getValue()*1;
-					total+=Ext.util.Format.number(v*1.2, '0.00')*1;
+					total+=v*1.2;
 					App.get('textfield#totalprevttc').setValue(total);
 					//alert(total);
 					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
