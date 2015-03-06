@@ -10,7 +10,7 @@ App.view.define('main.VMarches',
 	draggable: true,
 	resizable: false,
 	closeAction: 'destroy',
-	title: 'Marchés',
+	title: 'Sous rubriques',
 	tbar:[
 	{ 
 		text:'Nouveau', 
