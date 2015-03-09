@@ -253,7 +253,7 @@ App.controller.define('CMain', {
 		App.view.create('main.VMarches',{
 			modal:true,
 			listeners: {
-				load: function() {
+				show: function() {
 					App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat;
 					App.get('grid#GridMarches').getStore().load();								
 				}
