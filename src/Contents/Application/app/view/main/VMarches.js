@@ -53,7 +53,7 @@ App.view.define('main.VMarches',
 	},
 	items: [
 		{
-			layout:'hbox',
+			layout:'forms',
 			border: false,
 			itemId: 'TFormMarche',
 			bodyStyle:'padding:5px 5px 0',		
