@@ -66,7 +66,7 @@ App.view.define('main.VMarches',
 				{
 					header   : 'Rubrique', 
 					width    : 250,
-					itemId	 : "rubrik",
+					dataIndex: "CAT_ID",
 					field: {
 						xtype: 'combo',
 						margin: 5,
