@@ -62,6 +62,7 @@ App.controller.define('CMain', {
 			},
 			"marches": {
 				show: function() {
+					alert('x');
 					App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat;
 					App.get('grid#GridMarches').getStore().load();				
 				}
