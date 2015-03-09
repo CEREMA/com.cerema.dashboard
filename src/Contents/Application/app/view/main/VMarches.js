@@ -9,6 +9,7 @@ App.view.define('main.VMarches',
 	closable: true,
 	draggable: true,
 	resizable: false,
+	layout: "vbox",
 	closeAction: 'destroy',
 	title: 'Sous rubriques',
 	items: [
@@ -19,6 +20,7 @@ App.view.define('main.VMarches',
 			bodyCls: "white",
 			itemId: "marches_categories",
 			fieldLabel: 'Rubrique',
+			labelWidth: 150,
 			name: 'CAT_ID',
 			store: App.store.create('App.Categories.getAll',{
 				autoLoad: true
