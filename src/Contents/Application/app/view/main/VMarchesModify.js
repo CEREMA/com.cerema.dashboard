@@ -2,15 +2,20 @@ App.view.define('main.VMarchesModify',
 {
     extend: 'Ext.window.Window',
 	alias : 'widget.marchesmod',
-    height: 535,
-    width: 235,
+    height: 235,
+    width: 435,
 	closable: true,
 	draggable: true,
 	resizable: false,
 	layout: "form",
+	margin: {
+		left: 10,
+		top: 10,
+		bottom: 10,
+		right: 10
+	},
 	closeAction: 'destroy',
 	title: 'Sous rubrique',
-	padding: 5,
 	bbar: [
 		'->',
 		{
