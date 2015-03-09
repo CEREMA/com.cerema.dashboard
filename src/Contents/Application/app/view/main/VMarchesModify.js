@@ -8,7 +8,7 @@ App.view.define('main.VMarchesModify',
 	draggable: true,
 	resizable: false,
 	layout: "fit",
-	bodyCls: "white",
+	bodyStyle: "background-color: white",
 	closeAction: 'destroy',
 	title: 'Sous rubrique',
 	bbar: [
