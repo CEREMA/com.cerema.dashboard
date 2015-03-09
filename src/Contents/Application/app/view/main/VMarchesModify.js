@@ -7,7 +7,7 @@ App.view.define('main.VMarchesModify',
 	closable: true,
 	draggable: true,
 	resizable: false,
-	layout: "form",
+	layout: "fit",
 	closeAction: 'destroy',
 	title: 'Sous rubrique',
 	bbar: [
@@ -19,40 +19,50 @@ App.view.define('main.VMarchesModify',
 	],
 	items: [
 		{
-			xtype: 'combo',
-			itemId: "marches_categories",
-			fieldLabel: 'Rubrique',
-			name: 'CAT_ID',
-			store: App.store.create('App.Categories.getAll',{
-				autoLoad: true
-			}),
-			typeAhead: true,
-			editable: false,
-			triggerAction: 'all',
-			mode: 'remote',
-			emptyText:'Sélectionner une catégorie',
-			selectOnFocus:true,
-			readonly:true,
-			displayField:'libelle',
-			valueField: 'id'
-		},
-		{
-			xtype: 'textfield',
-			fieldLabel: 'Nom',
-			id: 'TMarcheNom',
-			name: 'TITLE'
-		},
-		{
-			xtype: 'textfield',
-			fieldLabel: 'Description',
-			id: 'TMarcheDescription',
-			name: '_DESC'
-		},
-		{
-			xtype: 'numberfield',
-			fieldLabel: 'Montant',
-			id: 'TMarchePrix',
-			name: 'PRICE'			
-		}				
+			layout: "form",
+			width: "100%",
+			flex: 1,
+			border: false,
+			padding: 10,
+			items: [
+			{
+				xtype: 'combo',
+				itemId: "marches_categories",
+				fieldLabel: 'Rubrique',
+				name: 'CAT_ID',
+				store: App.store.create('App.Categories.getAll',{
+					autoLoad: true
+				}),
+				typeAhead: true,
+				editable: false,
+				triggerAction: 'all',
+				mode: 'remote',
+				emptyText:'Sélectionner une catégorie',
+				selectOnFocus:true,
+				readonly:true,
+				displayField:'libelle',
+				valueField: 'id'
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Nom',
+				id: 'TMarcheNom',
+				name: 'TITLE'
+			},
+			{
+				xtype: 'textfield',
+				fieldLabel: 'Description',
+				id: 'TMarcheDescription',
+				name: '_DESC'
+			},
+			{
+				xtype: 'numberfield',
+				fieldLabel: 'Montant',
+				id: 'TMarchePrix',
+				name: 'PRICE'			
+			}				
+			
+			]
+		}
 	]
 });
