@@ -15,6 +15,8 @@ App.view.define('main.VMarches',
 		{
 			xtype: 'combo',
 			margin: 5,
+			width: "100%",
+			bodyCls: "white",
 			itemId: "marches_categories",
 			fieldLabel: 'Rubrique',
 			name: 'CAT_ID',
