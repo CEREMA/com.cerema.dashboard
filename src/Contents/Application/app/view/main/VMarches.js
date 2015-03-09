@@ -52,7 +52,5 @@ App.view.define('main.VMarches',
 		}
 	},
 	items: [
-			]			
-		}
 	]
 });
