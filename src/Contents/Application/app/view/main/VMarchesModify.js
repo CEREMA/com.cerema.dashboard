@@ -7,9 +7,9 @@ App.view.define('main.VMarchesModify',
 	closable: true,
 	draggable: true,
 	resizable: false,
-	layout: "vbox",
+	layout: "form",
 	closeAction: 'destroy',
-	title: 'Marchés',
+	title: 'Sous rubrique',
 	bbar: [
 		'->',
 		{
@@ -18,5 +18,41 @@ App.view.define('main.VMarchesModify',
 		}
 	],
 	items: [
+		{
+			xtype: 'combo',
+			itemId: "marches_categories",
+			fieldLabel: 'Rubrique',
+			name: 'CAT_ID',
+			store: App.store.create('App.Categories.getAll',{
+				autoLoad: true
+			}),
+			typeAhead: true,
+			editable: false,
+			triggerAction: 'all',
+			mode: 'remote',
+			emptyText:'Sélectionner une catégorie',
+			selectOnFocus:true,
+			readonly:true,
+			displayField:'libelle',
+			valueField: 'id'
+		},
+		{
+			xtype: 'textfield',
+			fieldLabel: 'Nom',
+			id: 'TMarcheNom',
+			name: 'TITLE'
+		},
+		{
+			xtype: 'textfield',
+			fieldLabel: 'Description',
+			id: 'TMarcheDescription',
+			name: '_DESC'
+		},
+		{
+			xtype: 'numberfield',
+			fieldLabel: 'Montant',
+			id: 'TMarchePrix',
+			name: 'PRICE'			
+		}				
 	]
 });
