@@ -257,7 +257,7 @@ App.controller.define('CMain', {
 	{
 		App.view.create('main.VMarches',{
 			modal:true
-		}).show();
+		}).show();		
 	},
 	cbo_cat_select: function(p, records, eOpts)
 	{
