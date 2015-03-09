@@ -61,14 +61,20 @@ App.view.define('main.VMarches',
 				{
 					header   : 'Titre', 
 					width    : 160, 
-					sortable : true, 
+					sortable : true,
+					field: {
+						xtype: "textfield"
+					}, 
 					dataIndex: 'TITLE'
 				},
 				{
 					header   : 'Description', 
 					width    : 250,
 					flex	 : 1,					
-					sortable : true, 
+					sortable : true,
+					field: {
+						xtype: "textfield"
+					},
 					dataIndex: '_DESC'
 				},			
 				{
