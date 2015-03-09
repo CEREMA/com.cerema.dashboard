@@ -200,7 +200,7 @@ App.controller.define('CMain', {
 			immonet: App.get('textfield#immonet').getValue(),
 			_BLOB: App.get('uploadfilemanager#up').getFiles()
 		};
-		//console.log(data);
+		console.log(data);
 		if (p.up('window').facture) {
 			// update
 			data.id=p.up('window').facture.idfacture;
