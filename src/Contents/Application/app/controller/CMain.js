@@ -160,6 +160,7 @@ App.controller.define('CMain', {
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 			App.get('textfield#da').setValue(p.facture.numda);
+			App.get('textfield#engagement').setValue(p.facture.engagement);
 			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 			App.get('textfield#reference').setValue(p.facture.reference);
@@ -188,6 +189,7 @@ App.controller.define('CMain', {
 			echeance: App.get('datefield#echeance').getValue(),
 			marche:App.get('combo#cbo_marche').getValue(),
 			numda: App.get('textfield#da').getValue(),
+			engagement: App.get('textfield#engagement').getValue(),
 			montant_prev:App.get('numberfield#montant_prev').getValue(),
 			ej: App.get('textfield#ej').getValue(),
 			commentaire:App.get('textarea#commentaire').getValue(),
