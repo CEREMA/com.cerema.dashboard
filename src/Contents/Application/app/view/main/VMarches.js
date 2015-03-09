@@ -5,7 +5,7 @@ App.view.define('main.VMarches',
 	x:50,
 	y:50,
     height: 535,
-    width: 530,
+    width: 830,
 	closable: true,
 	draggable: true,
 	resizable: false,
@@ -52,14 +52,8 @@ App.view.define('main.VMarches',
 			//},/
 			columns: [
 				{
-					header   : 'ID', 
-					width    : 1, 
-					sortable : true, 
-					dataIndex: 'ID',
-					hidden	: true
-				},
-				{
 					header   : 'Titre', 
+					flex	 : 1,
 					width    : 160, 
 					sortable : true,
 					field: {
