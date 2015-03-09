@@ -81,7 +81,7 @@ App.view.define('main.VMarches',
 						selectOnFocus:true,
 						readonly:true,
 						displayField:'libelle',
-						valueField: 'id'
+						valueField: 'id',
 						typeAhead: true,
 						selectOnTab: true,
 						editable: false,
