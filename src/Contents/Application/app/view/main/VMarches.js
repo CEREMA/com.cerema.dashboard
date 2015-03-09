@@ -76,6 +76,9 @@ App.view.define('main.VMarches',
 					width    : 90, 
 					sortable : true, 
 					align: 'right',
+					field: {
+						xtype: "numberfield"
+					},
 					renderer : Ext.util.Format.Euro, 
 					dataIndex: 'PRICE'
 				}			
