@@ -145,6 +145,20 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
+			fieldLabel: 'DA',	
+			itemId: "da",			
+			name: 'da',
+			xtype: 'textfield',
+			width: "100%"
+		},
+		{
+			fieldLabel: 'Engagement',
+			itemId: "engagement",
+			name: 'engagement',
+			xtype: 'textfield',
+			width: "100%"
+		},
+		{
 			fieldLabel: 'Echéance',	
 			itemId: "echeance",			
 			name: 'echeance',
