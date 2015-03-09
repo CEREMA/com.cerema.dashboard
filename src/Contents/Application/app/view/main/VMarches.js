@@ -58,22 +58,7 @@ App.view.define('main.VMarches',
 			itemId: 'TFormMarche',
 			bodyStyle:'padding:5px 5px 0',		
 			items: [
-				{
-					xtype: 'combo',
-					itemId: "marches_categories",
-					fieldLabel: 'Rubrique',
-					name: 'CAT_ID',
-
-					typeAhead: true,
-					editable: false,
-					triggerAction: 'all',
-					mode: 'remote',
-					emptyText:'Sélectionner une catégorie',
-					selectOnFocus:true,
-					readonly:true,
-					displayField:'libelle',
-					valueField: 'id'
-				}
+				
 			]
 		}	
 	]
