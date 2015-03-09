@@ -251,10 +251,13 @@ App.controller.define('CMain', {
 	open_marches: function()
 	{
 		App.view.create('main.VMarches',{
-			modal:true
-		}).on('load',function() {
-			App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat;
-			App.get('grid#GridMarches').getStore().load();				
+			modal:true,
+			listeners: {
+				load: function() {
+					App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat;
+					App.get('grid#GridMarches').getStore().load();								
+				}
+			}
 		}).show();		
 	},
 	cbo_cat_select: function(p, records, eOpts)
