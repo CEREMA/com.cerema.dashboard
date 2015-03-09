@@ -62,32 +62,6 @@ App.view.define('main.VMarches',
 					},
 					renderer : Ext.util.Format.Euro, 
 					dataIndex: 'PRICE'
-				},
-				{
-					header   : 'Rubrique', 
-					width    : 250,
-					dataIndex: "CAT_ID",
-					field: {
-						xtype: 'combo',
-						margin: 5,
-						width: "100%",
-						bodyCls: "white",
-						store: App.store.create('App.Categories.getAll',{
-							autoLoad: true
-						}),						
-						triggerAction: 'all',
-						mode: 'remote',
-						emptyText:'Sélectionner une catégorie',
-						selectOnFocus:true,
-						readonly:true,
-						displayField:'libelle',
-						valueField: 'id',
-						typeAhead: true,
-						selectOnTab: true,
-						editable: false,
-						lazyRender: true,
-						listClass: 'x-combo-list-small'						
-					}
 				}				
 			]			
 		}
