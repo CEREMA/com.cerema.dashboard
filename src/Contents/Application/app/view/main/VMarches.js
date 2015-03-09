@@ -74,16 +74,19 @@ App.view.define('main.VMarches',
 						bodyCls: "white",
 						store: App.store.create('App.Categories.getAll',{
 							autoLoad: true
-						}),
-						typeAhead: true,
-						editable: false,
+						}),						
 						triggerAction: 'all',
 						mode: 'remote',
 						emptyText:'Sélectionner une catégorie',
 						selectOnFocus:true,
 						readonly:true,
 						displayField:'libelle',
-						valueField: 'id'					
+						valueField: 'id'
+						typeAhead: true,
+						selectOnTab: true,
+						editable: false,
+						lazyRender: true,
+						listClass: 'x-combo-list-small'						
 					}
 				}				
 			]			
