@@ -39,7 +39,17 @@ App.controller.define('CMain', {
 			},
 			"grid#GridMarches": {
 				itemclick: "GridMarches_onclick",
-				itemcontextmenu: "GridMarches_menu"
+				itemcontextmenu: "GridMarches_menu",
+				edit: function(editor, e) {
+					var record = e.record;
+
+					alert(Ext.String.format(
+						'The field "{0}" or record #{1} has been changed from {2} to {3}', 
+						e.field, record.get('id'), e.originalValue, e.newValue
+					));
+					
+					alert('The following fields of the records are dirty: ' + Ext.Object.getKeys(record.modified).join(', '));
+				}
 			},
 			"button#Facture_close": {
 				click: "onFactureClose"
