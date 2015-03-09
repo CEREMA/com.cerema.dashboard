@@ -9,7 +9,7 @@ App.view.define('main.VMarchesModify',
 	resizable: false,
 	layout: "vbox",
 	closeAction: 'destroy',
-	title: 'Marchés',
+	title: 'MarchÃ©s',
 	bbar: [
 		'->',
 		{
