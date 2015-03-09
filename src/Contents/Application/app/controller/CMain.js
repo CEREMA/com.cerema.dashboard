@@ -71,15 +71,18 @@ App.controller.define('CMain', {
 			},
 			"button#rubrik_record": {
 				click: "rubrik_record_onclick"
+			},
+			"marchesmod": {
+				show: "marchesmod_onshow"
 			}
 		});
 		
 		App.init('VMain',this.onLoad);
 		
 	},
-	rubrik_record_onclick: function(p)
+	marchesmod_onshow: function(p)
 	{
-		
+		alert('x');
 	},
 	MainGrid_menu: function( p, record, item, index, e )
 	{
