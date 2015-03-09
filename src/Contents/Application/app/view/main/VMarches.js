@@ -103,6 +103,9 @@ App.view.define('main.VMarches',
 			xtype: 'grid',
 			border: false,
 			itemId: "GridMarches",
+			plugins: [Ext.create('Ext.grid.plugin.CellEditing', {
+				clicksToEdit: 1
+			})],
 			store: App.store.create('App.Marches.getAll'),
 			height:305,
 			//listeners: {
