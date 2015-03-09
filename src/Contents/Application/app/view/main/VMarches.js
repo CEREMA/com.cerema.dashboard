@@ -16,7 +16,7 @@ App.view.define('main.VMarches',
 			layout:'form',
 			border: false,
 			itemId: 'TFormMarche',
-			padding: {
+			margin: {
 				left: 5,
 				top: 5,
 				bottom: 5,
