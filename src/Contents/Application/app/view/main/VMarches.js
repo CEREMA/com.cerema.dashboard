@@ -72,8 +72,6 @@ App.view.define('main.VMarches',
 						margin: 5,
 						width: "100%",
 						bodyCls: "white",
-						itemId: "marches_categories",
-						name: 'CAT_ID',
 						store: App.store.create('App.Categories.getAll',{
 							autoLoad: true
 						}),
