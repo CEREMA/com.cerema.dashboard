@@ -47,14 +47,12 @@ App.view.define('main.VMarches',
 			border: false,
 			itemId: "GridMarches",
 			plugins: [
-				Ext.create('Ext.grid.plugin.CellEditing', {
+				{ 
+					ptype: 'cellediting',
 					clicksToEdit: 1
-				})
+				}			
 			],
 			store: App.store.create('App.Marches.getAll'),
-			//listeners: {
-//				itemclick: grid_marches_click
-			//},/
 			columns: [
 				{
 					header   : 'Titre', 
