@@ -31,9 +31,6 @@ App.view.define('main.VMarches',
 					flex	 : 1,
 					width    : 160, 
 					sortable : true,
-					field: {
-						xtype: "textfield"
-					}, 
 					dataIndex: 'TITLE'
 				},
 				{
@@ -41,9 +38,6 @@ App.view.define('main.VMarches',
 					width    : 250,
 					flex	 : 1,					
 					sortable : true,
-					field: {
-						xtype: "textfield"
-					},
 					dataIndex: '_DESC'
 				},			
 				{
@@ -51,9 +45,6 @@ App.view.define('main.VMarches',
 					width    : 90, 
 					sortable : true, 
 					align: 'right',
-					field: {
-						xtype: "numberfield"
-					},
 					renderer : Ext.util.Format.Euro, 
 					dataIndex: 'PRICE'
 				}				
