@@ -10,6 +10,7 @@ App.view.define('main.VMarches',
 	draggable: true,
 	resizable: false,
 	closeAction: 'destroy',
+	layout: "vbox",
 	title: 'Sous rubriques',
 	tbar:[
 	{ 
@@ -101,6 +102,7 @@ App.view.define('main.VMarches',
 		},
 		{
 			xtype: 'grid',
+			flex: 1,
 			border: false,
 			itemId: "GridMarches",
 			plugins: [Ext.create('Ext.grid.plugin.CellEditing', {
