@@ -248,7 +248,6 @@ App.controller.define('CMain', {
 	},
 	open_marches: function()
 	{
-		alert('x');
 		App.view.create('main.VMarches',{
 			modal:true
 		}).show();
