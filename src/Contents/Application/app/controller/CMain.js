@@ -253,9 +253,6 @@ App.controller.define('CMain', {
 		var marches=App.view.create('main.VMarches',{
 			modal:true
 		}).show();	
-		marches.on('load',function() {
-			alert('x');
-		});	
 	},
 	cbo_cat_select: function(p, records, eOpts)
 	{
