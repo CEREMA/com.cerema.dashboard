@@ -14,14 +14,38 @@ App.view.define('main.VMarches',
 	title: 'Sous rubriques',
 	items: [
 		{
+			xtype: 'combo',
+			margin: 5,
+			width: "100%",
+			bodyCls: "white",
+			itemId: "marches_categories",
+			fieldLabel: 'Rubrique',
+			labelWidth: 150,
+			name: 'CAT_ID',
+			store: App.store.create('App.Categories.getAll',{
+				autoLoad: true
+			}),
+			typeAhead: true,
+			editable: false,
+			triggerAction: 'all',
+			mode: 'remote',
+			emptyText:'Sélectionner une catégorie',
+			selectOnFocus:true,
+			readonly:true,
+			displayField:'libelle',
+			valueField: 'id'
+		},
+		{
 			xtype: 'grid',
 			flex: 1,
 			width: "100%",
 			border: false,
 			itemId: "GridMarches",
-			plugins: [Ext.create('Ext.grid.plugin.CellEditing', {
-				clicksToEdit: 1
-			})],
+			plugins: [
+				Ext.create('Ext.grid.plugin.CellEditing', {
+					clicksToEdit: 1
+				})
+			],
 			store: App.store.create('App.Marches.getAll'),
 			//listeners: {
 //				itemclick: grid_marches_click
