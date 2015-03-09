@@ -20,12 +20,6 @@ App.view.define('main.VMarchesModify',
 	items: [
 		{
 			xtype: 'combo',
-			padding: {
-				left: 10,
-				top: 10,
-				bottom: 10,
-				right: 10
-			},			
 			itemId: "marches_categories",
 			fieldLabel: 'Rubrique',
 			name: 'CAT_ID',
@@ -45,12 +39,6 @@ App.view.define('main.VMarchesModify',
 		{
 			xtype: 'textfield',
 			fieldLabel: 'Nom',
-			padding: {
-				left: 10,
-				top: 10,
-				bottom: 10,
-				right: 10
-			},						
 			id: 'TMarcheNom',
 			name: 'TITLE'
 		},
@@ -58,24 +46,12 @@ App.view.define('main.VMarchesModify',
 			xtype: 'textfield',
 			fieldLabel: 'Description',
 			id: 'TMarcheDescription',
-			padding: {
-				left: 10,
-				top: 10,
-				bottom: 10,
-				right: 10
-			},						
 			name: '_DESC'
 		},
 		{
 			xtype: 'numberfield',
 			fieldLabel: 'Montant',
 			id: 'TMarchePrix',
-			padding: {
-				left: 10,
-				top: 10,
-				bottom: 10,
-				right: 10
-			},			
 			name: 'PRICE'			
 		}				
 	]
