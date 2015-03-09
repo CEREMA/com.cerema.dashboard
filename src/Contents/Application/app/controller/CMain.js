@@ -56,25 +56,22 @@ App.controller.define('CMain', {
 			"button#duplicate": {
 				click: "facture_duplicate"
 			},
-			"marches button TMarcheNew": {
-				click: function() {
-					alert('tic');
-				}
-			},
 			"TShowDoc button#Exit": {
                 click: "button_exit_onclick"
             },
 			"uploadfilemanager#up": {
 				itemdblclick: "up_onclick"
 			},
-			"button#MnuMarchesDelete": {
-				click: function() {
-					alert('delete');
-				}
+			"button#rubrik_record": {
+				click: "rubrik_record_onclick"
 			}
 		});
 		
 		App.init('VMain',this.onLoad);
+		
+	},
+	rubrik_record_onclick: function(p)
+	{
 		
 	},
 	MainGrid_menu: function( p, record, item, index, e )
