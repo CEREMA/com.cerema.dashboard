@@ -10,7 +10,6 @@ App.view.define('main.VMarches',
 	draggable: true,
 	resizable: false,
 	closeAction: 'destroy',
-	layout: "vbox",
 	title: 'Sous rubriques',
 	items: [
 		{
