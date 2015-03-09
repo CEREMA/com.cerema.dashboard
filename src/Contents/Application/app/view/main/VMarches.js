@@ -63,9 +63,7 @@ App.view.define('main.VMarches',
 					itemId: "marches_categories",
 					fieldLabel: 'Rubrique',
 					name: 'CAT_ID',
-					store: App.store.create('App.Categories.getAll',{
-						autoLoad: false
-					}),
+
 					typeAhead: true,
 					editable: false,
 					triggerAction: 'all',
