@@ -246,12 +246,7 @@ App.controller.define('CMain', {
 	},
 	cbo_marches_select: function(p, records)
 	{
-		var grid=App.get('grid#GridMarches');
-		var form=App.get('form#TFormMarche');
-		grid.getStore().getProxy().extraParams.cat=records[0].data.id;
-		grid.getStore().load();
-		form.getForm().reset();
-		form.getComponent(0).setValue(records[0].data.id);
+		
 	},
 	open_marches: function()
 	{
