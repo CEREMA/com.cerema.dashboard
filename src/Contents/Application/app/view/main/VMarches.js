@@ -52,7 +52,7 @@ App.view.define('main.VMarches',
 		}
 	},
 	items: [
-{
+		{
 			xtype:'hbox',
 			border: false,
 			itemId: 'TFormMarche',
@@ -75,60 +75,7 @@ App.view.define('main.VMarches',
 					readonly:true,
 					displayField:'libelle',
 					valueField: 'id'
-				},
-				{
-					xtype: 'textfield',
-					fieldLabel: 'Nom',
-					id: 'TMarcheNom',
-					name: 'TITLE'
-				},
-				{
-					xtype: 'textfield',
-					fieldLabel: 'Description',
-					id: 'TMarcheDescription',
-					name: '_DESC'
-				},
-				{
-					xtype: 'numberfield',
-					fieldLabel: 'Montant',
-					id: 'TMarchePrix',
-					name: 'PRICE'			
-				},
-				{
-					id: 'DropPDF',
-					border: false,
-					align:'right',
-					hidden: true,
-					height:30,
-					html:'<input type="file" id="fileToUpload" width="50px"></input><button style="float:right" id="filetodownload">Document</button>&nbsp;&nbsp;<button style="float:right" id="filetosend">Téléverser</button>'
-				},				
-				{
-					xtype: 'textfield',
-					fieldLabel: 'Id',
-					name: 'ID',
-					hidden: true,
-					id:'MyIDMarche'
-				},
-				{
-					xtype: 'combo',
-					fieldLabel: 'Rubrique',
-					id: 'NEW_CAT_ID',
-					store: App.store.create('App.Categories.getAll',{
-						autoLoad: true
-					}),
-					typeAhead: true,
-					editable: false,
-					triggerAction: 'all',
-					mode: 'remote',
-					emptyText:'Sélectionner une catégorie',
-					selectOnFocus:true,
-					readonly:true,
-					displayField:'libelle',
-					valueField: 'id'/*,
-					listeners: {
-						select: mymarches_select_newcat
-					}*/
-				}				
+				}
 			]
 		}	
 	]
