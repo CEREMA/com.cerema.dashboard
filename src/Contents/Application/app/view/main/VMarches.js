@@ -13,60 +13,27 @@ App.view.define('main.VMarches',
 	title: 'Sous rubriques',
 	items: [
 		{
-			layout:'form',
-			border: false,
-			itemId: 'TFormMarche',
-			margin: {
-				left: 5,
-				top: 5,
-				bottom: 5,
-				top: 5
-			},
-			items: [
-				{
-					xtype: 'combo',
-					itemId: "marches_categories",
-					fieldLabel: 'Rubrique',
-					name: 'CAT_ID',
-					store: App.store.create('App.Categories.getAll',{
-						autoLoad: true
-					}),
-					typeAhead: true,
-					editable: false,
-					triggerAction: 'all',
-					mode: 'remote',
-					emptyText:'Sélectionner une catégorie',
-					selectOnFocus:true,
-					readonly:true,
-					displayField:'libelle',
-					valueField: 'id'
-				},
-				{
-					xtype: 'textfield',
-					fieldLabel: 'Nom',
-					id: 'TMarcheNom',
-					name: 'TITLE',
-					hidden: true
-				},
-				{
-					xtype: 'textfield',
-					fieldLabel: 'Description',
-					id: 'TMarcheDescription',
-					name: '_DESC',
-					hidden: true
-				},
-				{
-					xtype: 'numberfield',
-					fieldLabel: 'Montant',
-					id: 'TMarchePrix',
-					name: 'PRICE',
-					hidden: true			
-				}
-			]
+			xtype: 'combo',
+			margin: 5,
+			itemId: "marches_categories",
+			fieldLabel: 'Rubrique',
+			name: 'CAT_ID',
+			store: App.store.create('App.Categories.getAll',{
+				autoLoad: true
+			}),
+			typeAhead: true,
+			editable: false,
+			triggerAction: 'all',
+			mode: 'remote',
+			emptyText:'Sélectionner une catégorie',
+			selectOnFocus:true,
+			readonly:true,
+			displayField:'libelle',
+			valueField: 'id'
 		},
 		{
 			xtype: 'grid',
-			height: "100%",
+			flex: 1,
 			border: false,
 			itemId: "GridMarches",
 			plugins: [Ext.create('Ext.grid.plugin.CellEditing', {
