@@ -159,6 +159,7 @@ App.controller.define('CMain', {
 			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
+			App.get('textfield#da').setValue(p.facture.numda);
 			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 			App.get('textfield#reference').setValue(p.facture.reference);
@@ -186,6 +187,7 @@ App.controller.define('CMain', {
 			etiquette: p.up('window').state_id,
 			echeance: App.get('datefield#echeance').getValue(),
 			marche:App.get('combo#cbo_marche').getValue(),
+			numda: App.get('textfield#da').getValue(),
 			montant_prev:App.get('numberfield#montant_prev').getValue(),
 			ej: App.get('textfield#ej').getValue(),
 			commentaire:App.get('textarea#commentaire').getValue(),
