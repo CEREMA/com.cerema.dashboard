@@ -8,12 +8,6 @@ App.view.define('main.VMarchesModify',
 	draggable: true,
 	resizable: false,
 	layout: "form",
-	margin: {
-		left: 10,
-		top: 10,
-		bottom: 10,
-		right: 10
-	},
 	closeAction: 'destroy',
 	title: 'Sous rubrique',
 	bbar: [
@@ -26,6 +20,12 @@ App.view.define('main.VMarchesModify',
 	items: [
 		{
 			xtype: 'combo',
+			margin: {
+				left: 10,
+				top: 10,
+				bottom: 10,
+				right: 10
+			},			
 			itemId: "marches_categories",
 			fieldLabel: 'Rubrique',
 			name: 'CAT_ID',
@@ -45,6 +45,12 @@ App.view.define('main.VMarchesModify',
 		{
 			xtype: 'textfield',
 			fieldLabel: 'Nom',
+			margin: {
+				left: 10,
+				top: 10,
+				bottom: 10,
+				right: 10
+			},						
 			id: 'TMarcheNom',
 			name: 'TITLE'
 		},
@@ -52,12 +58,24 @@ App.view.define('main.VMarchesModify',
 			xtype: 'textfield',
 			fieldLabel: 'Description',
 			id: 'TMarcheDescription',
+			margin: {
+				left: 10,
+				top: 10,
+				bottom: 10,
+				right: 10
+			},						
 			name: '_DESC'
 		},
 		{
 			xtype: 'numberfield',
 			fieldLabel: 'Montant',
 			id: 'TMarchePrix',
+			margin: {
+				left: 10,
+				top: 10,
+				bottom: 10,
+				right: 10
+			},			
 			name: 'PRICE'			
 		}				
 	]
