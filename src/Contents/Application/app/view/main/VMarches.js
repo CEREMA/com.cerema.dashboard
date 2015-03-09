@@ -72,8 +72,6 @@ App.view.define('main.VMarches',
 						width: "100%",
 						bodyCls: "white",
 						itemId: "marches_categories",
-						fieldLabel: 'Rubrique',
-						labelWidth: 150,
 						name: 'CAT_ID',
 						store: App.store.create('App.Categories.getAll',{
 							autoLoad: true
