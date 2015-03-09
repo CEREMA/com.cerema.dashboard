@@ -12,52 +12,17 @@ App.view.define('main.VMarches',
 	closeAction: 'destroy',
 	layout: "vbox",
 	title: 'Sous rubriques',
-	tbar:[
-	{ 
-		text:'Nouveau', 
-		formBind:true, 
-		id:'TMarcheNew',
-		hidden: false,
-		scope:this/*, 
-		handler: mymarches_new*/
-	},
-	{
-		text:'Annuler',
-		id: 'TMarcheClose'
-	}
-	],
-	bbar:[
-	'->',
-	{ 
-		text:'Supprimer	', 
-		formBind:true, 
-		id:'TMarcheDelete',
-		scope:this, 
-		hidden: false/*,
-		handler: mymarches_del*/
-	},
-	{ 
-		text: 'Enregistrer', 
-		formBind: true, 
-		id:'TMarcheRecord',
-		hidden: false,
-		scope: this/*, 
-		handler: myform_record*/
-	}
-	],	
-	listeners: {
-		show: function()
-		{
-			/*$('#filetosend').click(uploadFile);
-			$('#filetodownload').click(downloadFile);*/
-		}
-	},
 	items: [
 		{
 			layout:'form',
 			border: false,
 			itemId: 'TFormMarche',
-			bodyStyle:'padding:5px 5px 0',		
+			padding: {
+				left: 5,
+				top: 5,
+				bottom: 5,
+				top: 5
+			},
 			items: [
 				{
 					xtype: 'combo',
@@ -109,7 +74,6 @@ App.view.define('main.VMarches',
 				clicksToEdit: 1
 			})],
 			store: App.store.create('App.Marches.getAll'),
-			height:305,
 			//listeners: {
 //				itemclick: grid_marches_click
 			//},/
