@@ -2,8 +2,6 @@ App.view.define('main.VMarches',
 {
     extend: 'Ext.window.Window',
 	alias : 'widget.marches',
-	x:50,
-	y:50,
     height: 535,
     width: 830,
 	closable: true,
@@ -12,6 +10,13 @@ App.view.define('main.VMarches',
 	layout: "vbox",
 	closeAction: 'destroy',
 	title: 'Sous rubriques',
+	bbar: [
+		'->',
+		{
+			itemId: "rubrik_record",
+			text: "Enregistrer"
+		}
+	],
 	items: [
 		{
 			xtype: 'combo',
