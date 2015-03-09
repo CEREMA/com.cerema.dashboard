@@ -60,6 +60,12 @@ App.controller.define('CMain', {
 			"button": {
 				toggle: "toggle_buttons"
 			},
+			"marches": {
+				show: function() {
+					App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat;
+					App.get('grid#GridMarches').getStore().load();				
+				}
+			},
 			"facture": {
 				show: "facture_onShow"
 			},
