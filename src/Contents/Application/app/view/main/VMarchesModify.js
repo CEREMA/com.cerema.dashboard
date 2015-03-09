@@ -20,7 +20,7 @@ App.view.define('main.VMarchesModify',
 	items: [
 		{
 			xtype: 'combo',
-			margin: {
+			padding: {
 				left: 10,
 				top: 10,
 				bottom: 10,
@@ -45,7 +45,7 @@ App.view.define('main.VMarchesModify',
 		{
 			xtype: 'textfield',
 			fieldLabel: 'Nom',
-			margin: {
+			padding: {
 				left: 10,
 				top: 10,
 				bottom: 10,
@@ -58,7 +58,7 @@ App.view.define('main.VMarchesModify',
 			xtype: 'textfield',
 			fieldLabel: 'Description',
 			id: 'TMarcheDescription',
-			margin: {
+			padding: {
 				left: 10,
 				top: 10,
 				bottom: 10,
@@ -70,7 +70,7 @@ App.view.define('main.VMarchesModify',
 			xtype: 'numberfield',
 			fieldLabel: 'Montant',
 			id: 'TMarchePrix',
-			margin: {
+			padding: {
 				left: 10,
 				top: 10,
 				bottom: 10,
