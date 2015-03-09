@@ -19,28 +19,6 @@ App.view.define('main.VMarches',
 	],
 	items: [
 		{
-			xtype: 'combo',
-			margin: 5,
-			width: "100%",
-			bodyCls: "white",
-			itemId: "marches_categories",
-			fieldLabel: 'Rubrique',
-			labelWidth: 150,
-			name: 'CAT_ID',
-			store: App.store.create('App.Categories.getAll',{
-				autoLoad: true
-			}),
-			typeAhead: true,
-			editable: false,
-			triggerAction: 'all',
-			mode: 'remote',
-			emptyText:'Sélectionner une catégorie',
-			selectOnFocus:true,
-			readonly:true,
-			displayField:'libelle',
-			valueField: 'id'
-		},
-		{
 			xtype: 'grid',
 			flex: 1,
 			width: "100%",
@@ -84,7 +62,33 @@ App.view.define('main.VMarches',
 					},
 					renderer : Ext.util.Format.Euro, 
 					dataIndex: 'PRICE'
-				}			
+				},
+				{
+					header   : 'Rubrique', 
+					width    : 250,
+					field: {
+						xtype: 'combo',
+						margin: 5,
+						width: "100%",
+						bodyCls: "white",
+						itemId: "marches_categories",
+						fieldLabel: 'Rubrique',
+						labelWidth: 150,
+						name: 'CAT_ID',
+						store: App.store.create('App.Categories.getAll',{
+							autoLoad: true
+						}),
+						typeAhead: true,
+						editable: false,
+						triggerAction: 'all',
+						mode: 'remote',
+						emptyText:'Sélectionner une catégorie',
+						selectOnFocus:true,
+						readonly:true,
+						displayField:'libelle',
+						valueField: 'id'					
+					}
+				}				
 			]			
 		}
 	]
