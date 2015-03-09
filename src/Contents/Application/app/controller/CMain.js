@@ -255,7 +255,7 @@ App.controller.define('CMain', {
 		}).show();	
 		marches.on('load',function() {
 			alert('x');
-		});
+		});	
 	},
 	cbo_cat_select: function(p, records, eOpts)
 	{
