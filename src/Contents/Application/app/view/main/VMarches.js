@@ -66,7 +66,7 @@ App.view.define('main.VMarches',
 		},
 		{
 			xtype: 'grid',
-			flex: 1,
+			height: "100%",
 			border: false,
 			itemId: "GridMarches",
 			plugins: [Ext.create('Ext.grid.plugin.CellEditing', {
