@@ -24,12 +24,6 @@ App.view.define('main.VMarches',
 			width: "100%",
 			border: false,
 			itemId: "GridMarches",
-			plugins: [
-				{ 
-					ptype: 'cellediting',
-					clicksToEdit: 1
-				}			
-			],
 			store: App.store.create('App.Marches.getAll'),
 			columns: [
 				{
