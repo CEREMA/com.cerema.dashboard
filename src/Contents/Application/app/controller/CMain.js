@@ -86,7 +86,7 @@ App.controller.define('CMain', {
 			modal: true,
 			rubrik: {
 				ID: -1,
-				CAT_ID: App.get('combo#marches_categories').getValue()
+				CAT_ID: App.get('combo#cbo_cat').getValue()
 			}
 		}).show();	
 	},
