@@ -84,7 +84,8 @@ App.controller.define('CMain', {
 	},
 	marchesmod_onshow: function(p)
 	{
-		App.get('combo#marches_categories').setValue('');
+		console.log(p.rubrik);
+		//App.get('combo#marches_categories').setValue('');
 	},
 	MainGrid_menu: function( p, record, item, index, e )
 	{
