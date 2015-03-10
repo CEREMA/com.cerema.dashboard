@@ -77,6 +77,10 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+	rubrik_record_onclick: function(p)
+	{
+		console.log(p.up('window').rubrik);
+	},
 	marches_onshow: function(p)
 	{
 		App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_cat').getValue();
