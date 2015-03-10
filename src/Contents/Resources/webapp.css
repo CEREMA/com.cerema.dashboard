@@ -102,3 +102,11 @@
 {
 	background-color: #A9E2F3
 }
+
+.plus
+{
+	background-image: url(webapp/plus.png);
+	background-size:16px 16px;
+	width: 16px;
+	height: 16px;
+}
