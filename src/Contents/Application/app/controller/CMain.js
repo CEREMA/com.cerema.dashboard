@@ -86,9 +86,10 @@ App.controller.define('CMain', {
 			_DESC: App.get('textfield#TMarcheDescription').getValue(),
 			PRICE: App.get('textfield#TMarchePrix').getValue()
 		};
-		if (p.up('window').rubrik.CAT_ID!=-1) rubrik.CAT_ID=p.up('window').rubrik.CAT_ID;
+		if (p.up('window').rubrik.ID!=-1) rubrik.ID=p.up('window').rubrik.ID;
 		App.Marches.update(rubrik,function(err,response) {
-			alert('x');
+			App.get('grid#GridMarches').getStore().load();
+			p.up('window').close();
 		});
 	},
 	marches_onshow: function(p)
