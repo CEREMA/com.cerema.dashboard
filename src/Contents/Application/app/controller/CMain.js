@@ -80,6 +80,16 @@ App.controller.define('CMain', {
 	rubrik_record_onclick: function(p)
 	{
 		console.log(p.up('window').rubrik);
+		var rubrik={
+			CAT_ID: App.get('combo#marches_categories').getValue(p.rubrik.CAT_ID),
+			TITLE: App.get('textfield#TMarcheNom').getValue(p.rubrik.TITLE),
+			_DESC: App.get('textfield#TMarcheDescription').getValue(p.rubrik._DESC),
+			PRICE: App.get('textfield#TMarchePrix').getValue(p.rubrik.PRICE)	
+		};
+		if (p.up('window').rubrik.CAT_ID!=-1) rubrik.CAT_ID=p.up('window').rubrik.CAT_ID;
+		App.Marches.update(rubrik,function(err,response) {
+			
+		});
 	},
 	marches_onshow: function(p)
 	{
