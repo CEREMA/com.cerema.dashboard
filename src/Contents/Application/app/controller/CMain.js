@@ -172,6 +172,7 @@ App.controller.define('CMain', {
 	doMarchesDelete: function(p)
 	{
 		var sel=App.get('grid#GridMarches').getSelectionModel();
+		console.log(sel);
 		if (sel.selected.items.length>0) {
 			App.Marches.del(sel.selected.items[0].data.ID,function(err,result) {
 				App.notify("Le marché a été supprimé");
