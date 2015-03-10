@@ -244,10 +244,9 @@ App.controller.define('CMain', {
 	},
 	GridMarches_onclick: function(p,record,item,index,e)
 	{
-		console.log(record);
 		App.view.create('main.VMarchesModify',{
-			modal: true
-			
+			modal: true,
+			rubrik: record.data
 		}).show();
 	},
 	cbo_marches_select: function(p, records)
