@@ -84,7 +84,10 @@ App.controller.define('CMain', {
 	{
 		App.view.create('main.VMarchesModify',{
 			modal: true,
-			rubrik: -1
+			rubrik: {
+				ID: -1,
+				CAT_ID: App.get('combo#marches_categories').getValue()
+			}
 		}).show();	
 	},
 	rubrik_record_onclick: function(p)
@@ -302,8 +305,6 @@ App.controller.define('CMain', {
 		});
 		// refresh.
 		App.get('button#win_facture').setDisabled(false);
-		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=d.id;
-		App.get('combo#cbo_marche').getStore().load();*/
 	},
 	onLoad: function()
 	{
