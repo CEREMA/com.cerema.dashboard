@@ -80,6 +80,10 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+	rubrik_close_onclick: function(p)
+	{
+		p.up('window').close();
+	},
 	rubrik_new_onclick: function(p)
 	{
 		App.view.create('main.VMarchesModify',{
