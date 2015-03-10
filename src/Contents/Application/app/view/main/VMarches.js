@@ -10,13 +10,19 @@ App.view.define('main.VMarches',
 	layout: "vbox",
 	closeAction: 'destroy',
 	title: 'Sous rubriques',
-	bbar: [
-		'->',
+	tbar: [
 		{
 			itemId: "rubrik_new",
 			text: "Nouveau"
 		}
 	],
+	bbar: [
+		'->',
+		{
+			itemId: "rubrik_close",
+			text: "Fermer"
+		}
+	],	
 	items: [
 		{
 			xtype: 'grid',
