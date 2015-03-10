@@ -13,6 +13,10 @@ Marches = {
 	update: function(o,cb) {
 		var db=Marches.using('db');
 		db.post('dashboard','business',o,cb);
+	},
+	del: function(o,cb) {
+		var db=Marches.using('db');
+		db.post('dashboard','business',o,cb);	
 	}
 };
 
