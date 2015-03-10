@@ -14,7 +14,7 @@ App.view.define('main.VMarches',
 		'->',
 		{
 			itemId: "rubrik_record",
-			text: "Enregistrer"
+			text: "Nouveau"
 		}
 	],
 	items: [
