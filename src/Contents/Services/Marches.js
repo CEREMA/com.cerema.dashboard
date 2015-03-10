@@ -16,7 +16,7 @@ Marches = {
 	},
 	del: function(o,cb) {
 		var db=Marches.using('db');
-		db.post('dashboard','business',o,cb);	
+		db.del('dashboard','business',o,cb);	
 	}
 };
 
