@@ -79,7 +79,6 @@ App.controller.define('CMain', {
 	},
 	rubrik_record_onclick: function(p)
 	{
-		console.log(p.up('window').rubrik);
 		var rubrik={
 			CAT_ID: App.get('combo#marches_categories').getValue(),
 			TITLE: App.get('textfield#TMarcheNom').getValue(),
@@ -165,10 +164,21 @@ App.controller.define('CMain', {
 					this.doFactureDelete();
 					break;
 				case "MnuMarchesDelete" :
-					alert('Fonction non implémentée');
+					this.doMarchesDelete;
 					break;
 			};
 		};		
+	},
+	doMarchesDelete: function(p)
+	{
+		var sel=App.get('grid#MainGrid').getSelectionModel();
+		if (sel.selected.items.length>0) {
+			App.Marches.del(sel.selected.items[0].data.ID,function(err,result) {
+				App.notify("Le marché a été supprimé");
+				App.get('grid#MainGrid').getStore().load();
+			});
+		}
+		
 	},
 	facture_onShow: function(p)
 	{	
