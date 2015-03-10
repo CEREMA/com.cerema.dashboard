@@ -164,7 +164,7 @@ App.controller.define('CMain', {
 					this.doFactureDelete();
 					break;
 				case "MnuMarchesDelete" :
-					this.doMarchesDelete;
+					this.doMarchesDelete();
 					break;
 			};
 		};		
