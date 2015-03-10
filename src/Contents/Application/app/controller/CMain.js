@@ -85,9 +85,9 @@ App.controller.define('CMain', {
 	marchesmod_onshow: function(p)
 	{
 		App.get('combo#marches_categories').setValue(p.rubrik.CAT_ID);
-		App.get('textfield#TITLE').setValue(p.rubrik.TITLE);
-		App.get('textfield#_DESC').setValue(p.rubrik._DESC);
-		App.get('textfield#PRICE').setValue(p.rubrik.PRICE);
+		App.get('textfield#TMarcheNom').setValue(p.rubrik.TITLE);
+		App.get('textfield#TMarcheDescription').setValue(p.rubrik._DESC);
+		App.get('textfield#TMarchePrix').setValue(p.rubrik.PRICE);
 	},
 	MainGrid_menu: function( p, record, item, index, e )
 	{
