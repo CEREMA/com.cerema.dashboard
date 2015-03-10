@@ -52,10 +52,7 @@ App.controller.define('CMain', {
 				toggle: "toggle_buttons"
 			},
 			"marches": {
-				show: function() {
-					App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_cat').getValue();
-					App.get('grid#GridMarches').getStore().load();
-				}
+				show: "marches_onshow"
 			},
 			"facture": {
 				show: "facture_onShow"
@@ -79,6 +76,11 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	marches_onshow: function(p)
+	{
+		App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_cat').getValue();
+		App.get('grid#GridMarches').getStore().load();
 	},
 	marchesmod_onshow: function(p)
 	{
