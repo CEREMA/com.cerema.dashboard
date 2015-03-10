@@ -13,7 +13,7 @@ App.view.define('main.VMarches',
 	bbar: [
 		'->',
 		{
-			itemId: "rubrik_record",
+			itemId: "rubrik_new",
 			text: "Nouveau"
 		}
 	],
