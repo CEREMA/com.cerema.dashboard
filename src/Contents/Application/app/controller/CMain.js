@@ -84,7 +84,7 @@ App.controller.define('CMain', {
 	},
 	marchesmod_onshow: function(p)
 	{
-		alert('x');
+		App.get('combo#marches_categories').setValue('');
 	},
 	MainGrid_menu: function( p, record, item, index, e )
 	{
@@ -242,10 +242,12 @@ App.controller.define('CMain', {
 			}]
 		}).showAt(e.xy);
 	},
-	GridMarches_onclick: function()
+	GridMarches_onclick: function(p,record,item,index,e)
 	{
+		console.log(record);
 		App.view.create('main.VMarchesModify',{
 			modal: true
+			
 		}).show();
 	},
 	cbo_marches_select: function(p, records)
