@@ -175,7 +175,7 @@ App.controller.define('CMain', {
 		if (sel.selected.items.length>0) {
 			App.Marches.del(sel.selected.items[0].data.ID,function(err,result) {
 				App.notify("Le marché a été supprimé");
-				App.get('grid#MainGrid').getStore().load();
+				App.get('grid#GridMarches').getStore().load();
 			});
 		}
 		
