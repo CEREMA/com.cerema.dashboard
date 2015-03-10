@@ -48,6 +48,9 @@ App.controller.define('CMain', {
 			"button#TMarcheClose": {
 				click: "onMarchesClose"
 			},
+			"button#rubrik_new": {
+				click: "rubrik_new_onclick"
+			},
 			"button": {
 				toggle: "toggle_buttons"
 			},
@@ -76,6 +79,13 @@ App.controller.define('CMain', {
 		
 		App.init('VMain',this.onLoad);
 		
+	},
+	rubrik_new_onclick: function(p)
+	{
+		App.view.create('main.VMarchesModify',{
+			modal: true,
+			rubrik: -1
+		}).show();	
 	},
 	rubrik_record_onclick: function(p)
 	{
@@ -226,7 +236,7 @@ App.controller.define('CMain', {
 			immonet: App.get('textfield#immonet').getValue(),
 			_BLOB: App.get('uploadfilemanager#up').getFiles()
 		};
-		console.log(data);
+		
 		if (p.up('window').facture) {
 			// update
 			data.id=p.up('window').facture.idfacture;
