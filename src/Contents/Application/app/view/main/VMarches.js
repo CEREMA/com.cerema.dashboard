@@ -15,7 +15,7 @@ App.view.define('main.VMarches',
 			itemId: "rubrik_new",
 			scale: 'small', 
 			iconCls: 'plus',
-			iconAlign: 'left'			
+			iconAlign: 'left',		
 			text: "Nouveau"
 		}
 	],
