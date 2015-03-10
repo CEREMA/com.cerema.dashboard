@@ -13,6 +13,9 @@ App.view.define('main.VMarches',
 	tbar: [
 		{
 			itemId: "rubrik_new",
+			scale: 'small', 
+			iconCls: 'plus',
+			iconAlign: 'left'			
 			text: "Nouveau"
 		}
 	],
