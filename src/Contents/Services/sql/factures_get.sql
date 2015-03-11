@@ -20,7 +20,8 @@ SELECT 	factures.id idfacture,
 		business._DESC,
 		business.PRICE,
 		categories.LIBELLE,
-		factures._BLOB
+		factures._BLOB,
+		factures.cloture
 		FROM    (   
 			(   business business
 				JOIN
