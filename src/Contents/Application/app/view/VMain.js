@@ -20,12 +20,29 @@ App.view.define('VMain', {
 			]		
 		},
 		{
+			region: "south",
+			width: "100%",
+			height: 100,
+			layout: "hbox",
+			border: false,
+			bodyCls: "lightblue",
+			items: [
+			
+			]
+		},
+		{
 			region: "north",
 			width: "100%",
 			layout: "hbox",
 			border: false,
 			bodyCls: "lightblue",
 			items: [
+				{
+					xtype: "combo",
+					labelAlign: "top",
+					fieldLabel: "Année",
+					itemId: "cbo_year"
+				},
 				{
 					xtype: "combo",
 					labelAlign: "top",
