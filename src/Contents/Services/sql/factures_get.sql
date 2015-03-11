@@ -32,4 +32,5 @@ SELECT 	factures.id idfacture,
 				ON (factures.marche = business.ID))
 				
 		WHERE (categories.ID = {ID})
+			AND (business.YEAR={YEAR})
 		ORDER BY factures.marche,factures.prestation

@@ -8,7 +8,7 @@
 Factures = {
 	get: function(o,cb) {
 		var db=Factures.using('db');		
-		db.model('dashboard',db.sql('factures_get',{ID: o.id}),cb);
+		db.model('dashboard',db.sql('factures_get',{ID: o.id,YEAR: o.year}),cb);
 	},
 	duplicateme: function(tab,ndx,cb) {
 		var db=Factures.using('db');
