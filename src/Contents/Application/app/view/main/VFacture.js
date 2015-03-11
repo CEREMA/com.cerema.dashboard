@@ -163,7 +163,7 @@ App.view.define('main.VFacture',
 			forceSelection:true, 
 			mode: 'local',
 			itemId: 'cbo_marche',
-			store: App.store.create('App.Marches.getAll'),
+			//store: App.store.create('App.Marches.getAll'),
 			valueField: 'ID',
 			displayField: 'TITLE',
 			width: "100%"
