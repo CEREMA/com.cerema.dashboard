@@ -23,7 +23,14 @@ App.controller.define('CMain', {
 			},
 			"grid#MainGrid checkcolumn": {
 				checkchange: function(column, rowIdx, checked, eOpts){
-					console.log(App.get("grid#MainGrid").getStore().getAt(rowIdx));
+					var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.id_facture;
+					var o=
+					App.Facture.update(o,function(err,o) {
+						if (checked)
+						App.notify('la facture est maintenant close.');
+						else
+						App.notify('la facture a été décloturée.');
+					});
 				}			
 			},
 			"combo#cbo_cat": {
