@@ -23,7 +23,8 @@ App.controller.define('CMain', {
 			},
 			"grid#MainGrid checkcolumn": {
 				checkchange: function(column, rowIdx, checked, eOpts){
-					alert('x');
+					console.log(column);
+					console.log(rowIdx);
 				}			
 			},
 			"combo#cbo_cat": {
