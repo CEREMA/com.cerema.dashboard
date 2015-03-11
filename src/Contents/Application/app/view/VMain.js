@@ -22,7 +22,7 @@ App.view.define('VMain', {
 		{
 			region: "south",
 			width: "100%",
-			height: 40,
+			height: 55,
 			layout: "hbox",
 			border: false,
 			bodyCls: "lightblue",
