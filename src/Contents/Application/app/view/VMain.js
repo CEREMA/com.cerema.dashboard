@@ -84,7 +84,8 @@ App.view.define('VMain', {
 					height: 36,
 					margin: {
 						left:5,
-						top: 5
+						top: 5,
+						right: 5
 					}
 				}
 			]
