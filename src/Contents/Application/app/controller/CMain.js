@@ -89,7 +89,7 @@ App.controller.define('CMain', {
 			"button#rubrik_close": {
 				click: "rubrik_close_onclick"
 			},
-			"combo#cbo_getYear": {
+			"combo#cbo_year": {
 				select: "getYear_onselect"
 			}
 		});
