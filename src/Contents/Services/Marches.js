@@ -8,7 +8,7 @@
 Marches = {
 	getAll: function(o,cb) {
 		var db=Marches.using('db');		
-		db.model('dashboard','SELECT * FROM business WHERE CAT_ID='+o.cat,cb);
+		db.model('dashboard','SELECT * FROM business WHERE CAT_ID='+o.cat+' and YEAR='+o.year,cb);
 	},
 	update: function(o,cb) {
 		var db=Marches.using('db');
