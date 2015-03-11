@@ -102,6 +102,9 @@ App.controller.define('CMain', {
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('combo#cbo_cat').getStore().load();	
+		App.get('combo#cbo_cat').setValue('');
+		App.get('grid#MainGrid').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
+		App.get('grid#MainGrid').getStore().load();
 	},
 	rubrik_close_onclick: function(p)
 	{
