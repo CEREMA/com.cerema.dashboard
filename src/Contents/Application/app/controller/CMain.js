@@ -225,10 +225,11 @@ App.controller.define('CMain', {
 			if (color=="FF0000") App.get('button#bred').toggle(true);
 			if (color=="99CC00") App.get('button#bgreen').toggle(true);			
 			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
-			return;
+			
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 			App.get('textfield#da').setValue(p.facture.numda);
+			return;
 			App.get('textfield#engagement').setValue(p.facture.engagement);
 			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
