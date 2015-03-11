@@ -37,8 +37,8 @@ App.view.define('VMain', {
 					width: 130,
 					height: 36,
 					margin: {
-						right:5,
-						bottom: 5
+						left:5,
+						top: 5
 					}
 				},
 				{
@@ -51,8 +51,8 @@ App.view.define('VMain', {
 					width: 130,
 					height: 36,
 					margin: {
-						right:5,
-						bottom: 5
+						left:5,
+						top: 5
 					}
 				},
 				{
@@ -65,8 +65,8 @@ App.view.define('VMain', {
 					width: 130,
 					height: 36,
 					margin: {
-						right:5,
-						bottom: 5
+						left:5,
+						top: 5
 					}
 				},
 				{
@@ -79,8 +79,8 @@ App.view.define('VMain', {
 					width: 130,
 					height: 36,
 					margin: {
-						right:5,
-						bottom: 5
+						left:5,
+						top: 5
 					}
 				}
 			]
