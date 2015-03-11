@@ -236,7 +236,7 @@ App.controller.define('CMain', {
 			App.get('textfield#reference').setValue(p.facture.reference);
 			
 			
-			
+			alert(p.facture.marche);
 			App.get('combo#cbo_marche').setValue(p.facture.marche);
 			
 			
@@ -248,8 +248,9 @@ App.controller.define('CMain', {
 			App.get('textfield#nofacture').setValue(p.facture.nofacture);
 			App.get('textfield#immonet').setValue(p.facture.immonet);
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
-			return;
-			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));			
+			
+			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));
+						
 		} 		
 	},
 	onMarchesClose: function()
