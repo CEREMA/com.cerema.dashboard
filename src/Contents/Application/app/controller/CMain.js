@@ -327,7 +327,9 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{
 		Auth.login(function(user) {
-			App.profils.get(user.uid,function(r) {
+			App.profils.get(user.uid,function(r,x) {
+				console.log(r);
+				console.log(x);
 				if (r.length==0) {					
 					App.disabled();
 					//alert("Vous n'avez pas accès à l'application.");
