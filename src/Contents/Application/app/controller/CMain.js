@@ -333,6 +333,7 @@ App.controller.define('CMain', {
 				} else {
 					Auth.User.profile=r[0].profil_code;
 					App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
+					App.get('combo#cbo_cat').getStore().getProxy().extraParams.year='2015';
 					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
