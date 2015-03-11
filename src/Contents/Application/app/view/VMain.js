@@ -27,46 +27,7 @@ App.view.define('VMain', {
 			border: false,
 			bodyCls: "lightblue",
 			items: [
-			
-			]
-		},
-		{
-			region: "north",
-			width: "100%",
-			layout: "hbox",
-			border: false,
-			bodyCls: "lightblue",
-			items: [
-				{
-					xtype: "combo",
-					labelAlign: "top",
-					fieldLabel: "Année",
-					itemId: "cbo_year"
-				},
-				{
-					xtype: "combo",
-					labelAlign: "top",
-					fieldLabel: "Rubrique",
-					itemId: "cbo_cat",
-					store: App.store.create('App.Categories.getAll'),
-					margin: 10,
-					displayField:'libelle',
-					valueField: 'id',	
-					typeAhead: true,
-					triggerAction: 'all',
-					mode: 'remote',
-					emptyText:'Sélectionner une catégorie',
-					selectOnFocus:true,
-					width:300,
-					readonly:true,
-					editable: false,
-					margin: {
-						left:10,
-						right:20,
-						bottom: 5
-					}
-				},
-				{
+{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
@@ -119,6 +80,53 @@ App.view.define('VMain', {
 					height: 36,
 					margin: {
 						right:5,
+						bottom: 5
+					}
+				}
+			]
+		},
+		{
+			region: "north",
+			width: "100%",
+			layout: "hbox",
+			border: false,
+			bodyCls: "lightblue",
+			items: [
+				{
+					xtype: "combo",
+					labelAlign: "top",
+					fieldLabel: "Année",
+					itemId: "cbo_year",
+					selectOnFocus:true,
+					width:100,
+					readonly:true,
+					editable: false,
+					margin: {
+						left:10,
+						right:20,
+						bottom: 5
+					}
+				},
+				{
+					xtype: "combo",
+					labelAlign: "top",
+					fieldLabel: "Rubrique",
+					itemId: "cbo_cat",
+					store: App.store.create('App.Categories.getAll'),
+					margin: 10,
+					displayField:'libelle',
+					valueField: 'id',	
+					typeAhead: true,
+					triggerAction: 'all',
+					mode: 'remote',
+					emptyText:'Sélectionner une catégorie',
+					selectOnFocus:true,
+					width:300,
+					readonly:true,
+					editable: false,
+					margin: {
+						left:10,
+						right:20,
 						bottom: 5
 					}
 				},
