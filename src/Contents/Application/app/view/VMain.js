@@ -28,6 +28,10 @@ App.view.define('VMain', {
 			bodyCls: "lightblue",
 			items: [
 				{
+					flex: 1,
+					border: false
+				},
+				{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
