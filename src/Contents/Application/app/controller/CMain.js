@@ -216,33 +216,31 @@ App.controller.define('CMain', {
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('combo#cbo_marche').getStore().load();
-		App.get('combo#cbo_marche').getStore().on('load',function() {
-			if (p.facture) {
-				// update
-				var color=p.facture.etiquette;
-				if (color=="FF9900") App.get('button#borange').toggle(true);
-				if (color=="000000") App.get('button#bblack').toggle(true);
-				if (color=="FF0000") App.get('button#bred').toggle(true);
-				if (color=="99CC00") App.get('button#bgreen').toggle(true);			
-				if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
-				App.get('textfield#ej').setValue(p.facture.ej);
-				App.get('textfield#prestation').setValue(p.facture.prestation);
-				App.get('textfield#da').setValue(p.facture.numda);
-				App.get('textfield#engagement').setValue(p.facture.engagement);
-				App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
-				App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
-				App.get('textfield#reference').setValue(p.facture.reference);
-				App.get('combo#cbo_marche').setValue(p.facture.marche);
-				App.get('datefield#echeance').setValue(p.facture.echeance);
-				App.get('datefield#date_facture').setValue(p.facture.date_facture);
-				App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
-				App.get('datefield#date_chorus').setValue(p.facture.date_chorus);
-				App.get('textfield#nofacture').setValue(p.facture.nofacture);
-				App.get('textfield#immonet').setValue(p.facture.immonet);
-				App.get('textarea#commentaire').setValue(p.facture.commentaire);
-				App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));			
-			} 		
-		});
+		if (p.facture) {
+			// update
+			var color=p.facture.etiquette;
+			if (color=="FF9900") App.get('button#borange').toggle(true);
+			if (color=="000000") App.get('button#bblack').toggle(true);
+			if (color=="FF0000") App.get('button#bred').toggle(true);
+			if (color=="99CC00") App.get('button#bgreen').toggle(true);			
+			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
+			App.get('textfield#ej').setValue(p.facture.ej);
+			App.get('textfield#prestation').setValue(p.facture.prestation);
+			App.get('textfield#da').setValue(p.facture.numda);
+			App.get('textfield#engagement').setValue(p.facture.engagement);
+			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
+			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
+			App.get('textfield#reference').setValue(p.facture.reference);
+			App.get('combo#cbo_marche').setValue(p.facture.marche);
+			App.get('datefield#echeance').setValue(p.facture.echeance);
+			App.get('datefield#date_facture').setValue(p.facture.date_facture);
+			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
+			App.get('datefield#date_chorus').setValue(p.facture.date_chorus);
+			App.get('textfield#nofacture').setValue(p.facture.nofacture);
+			App.get('textfield#immonet').setValue(p.facture.immonet);
+			App.get('textarea#commentaire').setValue(p.facture.commentaire);
+			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));			
+		} 		
 	},
 	onMarchesClose: function()
 	{
