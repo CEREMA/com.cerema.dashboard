@@ -324,12 +324,12 @@ App.controller.define('CMain', {
 		// refresh.
 		App.get('button#win_facture').setDisabled(false);
 	},
-	onLoad: function(p)
+	onLoad: function()
 	{
 		Auth.login(function(user) {
 			App.profils.get(user.uid,function(r) {
 				if (r.length==0) {
-					p.hide();
+					document.getElementsByTagName('body')[0].innerHTML="";
 					//alert("Vous n'avez pas accès à l'application.");
 				}
 			});
