@@ -24,6 +24,8 @@ App.controller.define('CMain', {
 			"grid#MainGrid checkcolumn": {
 				checkchange: function(column, rowIdx, checked, eOpts){
 					var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.id_facture;
+					console.log(App.get("grid#MainGrid").getStore().getAt(rowIdx).data);
+					return;
 					if (checked) var checked=1; else var checked=false;
 					var o={
 						id: id_facture,
