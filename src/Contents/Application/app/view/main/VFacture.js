@@ -130,21 +130,6 @@ App.view.define('main.VFacture',
 			width: "100%"
 		},
 		{
-			fieldLabel: 'Code GM',
-			name: 'gim',
-			itemId: "gim",
-			hidden: true,
-			xtype: 'combo',
-			store: App.store.create('App.GM.getAll',{
-				autoLoad: true
-			}),
-			allowBlank: false,
-			valueField: 'code',
-			editable: false,
-			displayField: 'code',
-			width: "100%"
-		},
-		{
 			fieldLabel: 'DA',	
 			itemId: "da",			
 			name: 'da',
