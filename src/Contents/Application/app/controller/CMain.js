@@ -328,9 +328,8 @@ App.controller.define('CMain', {
 	{
 		Auth.login(function(user) {
 			App.profils.get(user.uid,function(r) {
-				if (r.length==0) {
-					App.FORMS.destroy();
-					//App.disabled();
+				if (r.length==0) {					
+					App.close();
 					//alert("Vous n'avez pas accès à l'application.");
 				}
 			});
