@@ -327,9 +327,10 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{
 		Auth.login(function(user) {
-			App.profils.get(user.uid,function(e,r) {
-				console.log(e);
-				console.log(r);
+			App.profils.get(user.uid,function(r) {
+				if (r.length==0) {
+					alert("Vous n'avez pas accès à l'application.");
+				}
 			});
 		});
 	},
