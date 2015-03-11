@@ -103,6 +103,8 @@ App.view.define('VMain', {
 					fieldLabel: "Année",
 					itemId: "cbo_year",
 					store: App.store.create('App.Years.getAll'),
+					displayField:'libelle',
+					valueField: 'libelle',
 					selectOnFocus:true,
 					width:100,
 					readonly:true,
