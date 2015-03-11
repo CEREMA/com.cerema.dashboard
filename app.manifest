@@ -64,7 +64,8 @@
         "Categories",
         "Docs",
         "Factures",
-        "Marches"
+        "Marches",
+        ""
     ],
     "packages": [],
     "icon": {
