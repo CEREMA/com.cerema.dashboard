@@ -74,6 +74,9 @@ App.controller.define('CMain', {
 			},
 			"marchesmod": {
 				show: "marchesmod_onshow"
+			},
+			"button#rubrik_close": {
+				click: "rubrik_close_onclick"
 			}
 		});
 		
