@@ -327,7 +327,10 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{
 		Auth.login(function(user) {
-			console.log(user);
+			App.profils.get(user.uid,function(e,r) {
+				console.log(e);
+				console.log(r);
+			});
 		});
 	},
 	doMarchesDelete: function()
