@@ -235,9 +235,12 @@ App.controller.define('CMain', {
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 			App.get('textfield#reference').setValue(p.facture.reference);
 			
-			return;
+			
 			
 			App.get('combo#cbo_marche').setValue(p.facture.marche);
+			
+			return;
+			
 			App.get('datefield#echeance').setValue(p.facture.echeance);
 			App.get('datefield#date_facture').setValue(p.facture.date_facture);
 			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
