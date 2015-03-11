@@ -332,7 +332,8 @@ App.controller.define('CMain', {
 					App.disabled();
 				} else {
 					Auth.User.profile=r[0].profil_code;
-					console.log(Auth.User);
+					App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
+					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
 		});
