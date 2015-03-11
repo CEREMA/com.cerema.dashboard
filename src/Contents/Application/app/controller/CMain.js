@@ -216,7 +216,7 @@ App.controller.define('CMain', {
 		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('combo#cbo_marche').getStore().load();*/
-		return;
+		
 		if (p.facture) {
 			// update
 			var color=p.facture.etiquette;
@@ -225,6 +225,7 @@ App.controller.define('CMain', {
 			if (color=="FF0000") App.get('button#bred').toggle(true);
 			if (color=="99CC00") App.get('button#bgreen').toggle(true);			
 			if (color=="C0C0C0") App.get('button#bgrey').toggle(true);
+			return;
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 			App.get('textfield#da').setValue(p.facture.numda);
