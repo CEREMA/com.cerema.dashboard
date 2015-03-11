@@ -229,11 +229,14 @@ App.controller.define('CMain', {
 			App.get('textfield#ej').setValue(p.facture.ej);
 			App.get('textfield#prestation').setValue(p.facture.prestation);
 			App.get('textfield#da').setValue(p.facture.numda);
-			return;
+			
 			App.get('textfield#engagement').setValue(p.facture.engagement);
 			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 			App.get('textfield#reference').setValue(p.facture.reference);
+			
+			return;
+			
 			App.get('combo#cbo_marche').setValue(p.facture.marche);
 			App.get('datefield#echeance').setValue(p.facture.echeance);
 			App.get('datefield#date_facture').setValue(p.facture.date_facture);
