@@ -216,6 +216,7 @@ App.controller.define('CMain', {
 		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('combo#cbo_marche').getStore().load();*/
+		return;
 		if (p.facture) {
 			// update
 			var color=p.facture.etiquette;
@@ -231,7 +232,7 @@ App.controller.define('CMain', {
 			App.get('numberfield#montant_prev').setValue(p.facture.montant_prev);
 			App.get('numberfield#montant_facture').setValue(p.facture.montant_facture);
 			App.get('textfield#reference').setValue(p.facture.reference);
-			//App.get('combo#cbo_marche').setValue(p.facture.marche);
+			App.get('combo#cbo_marche').setValue(p.facture.marche);
 			App.get('datefield#echeance').setValue(p.facture.echeance);
 			App.get('datefield#date_facture').setValue(p.facture.date_facture);
 			App.get('datefield#date_servicefait').setValue(p.facture.date_servicefait);
