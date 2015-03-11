@@ -72,8 +72,7 @@ Factures = {
 	},
 	update: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r,x){
-			console.log(r);
-			console.log(x);
+			console.log(o);
 			if (o._BLOB) {
 				Factures.upload_blob(o._BLOB,0,function() {
 					cb(r);
