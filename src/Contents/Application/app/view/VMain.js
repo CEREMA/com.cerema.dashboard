@@ -102,6 +102,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Année",
 					itemId: "cbo_year",
+					store: App.store.create('App.Years.getAll'),
 					selectOnFocus:true,
 					width:100,
 					readonly:true,
