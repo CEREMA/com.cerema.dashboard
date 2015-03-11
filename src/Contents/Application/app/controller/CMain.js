@@ -236,9 +236,7 @@ App.controller.define('CMain', {
 			App.get('textfield#reference').setValue(p.facture.reference);
 			
 			
-			alert(p.facture.marche);
 			App.get('combo#cbo_marche').setValue(p.facture.marche);
-			alert(App.get('combo#cbo_marche').getValue());
 			
 			
 			App.get('datefield#echeance').setValue(p.facture.echeance);
