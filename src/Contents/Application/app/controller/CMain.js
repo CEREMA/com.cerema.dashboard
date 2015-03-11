@@ -28,7 +28,7 @@ App.controller.define('CMain', {
 						id: id_facture,
 						cloture: checked
 					};
-					App.Facture.update(o,function(err,o) {
+					App.Factures.update(o,function(err,o) {
 						if (checked)
 						App.notify('la facture est maintenant close.');
 						else
