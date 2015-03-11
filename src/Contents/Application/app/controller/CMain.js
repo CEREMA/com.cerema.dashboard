@@ -213,9 +213,9 @@ App.controller.define('CMain', {
 	{	
 		
 		var cat=App.get('grid#MainGrid').getStore().getProxy().extraParams.id;
-		App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
+		/*App.get('combo#cbo_marche').getStore().getProxy().extraParams.cat=cat;
 		App.get('combo#cbo_marche').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
-		App.get('combo#cbo_marche').getStore().load();
+		App.get('combo#cbo_marche').getStore().load();*/
 		if (p.facture) {
 			// update
 			var color=p.facture.etiquette;
