@@ -31,10 +31,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Rubrique",
 					itemId: "cbo_cat",
-					store: new Ext.data.DirectStore({
-						autoLoad: true,
-						directFn: App.Categories.getAll					
-					}),
+					store: App.store.create('App.Categories.getAll'),
 					margin: 10,
 					displayField:'libelle',
 					valueField: 'id',	
