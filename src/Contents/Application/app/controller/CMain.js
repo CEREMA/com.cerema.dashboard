@@ -24,7 +24,10 @@ App.controller.define('CMain', {
 			"grid#MainGrid checkcolumn": {
 				checkchange: function(column, rowIdx, checked, eOpts){
 					var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.id_facture;
-					var o=
+					var o={
+						id: id_facture,
+						cloture: checked
+					};
 					App.Facture.update(o,function(err,o) {
 						if (checked)
 						App.notify('la facture est maintenant close.');
