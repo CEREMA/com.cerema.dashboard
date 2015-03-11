@@ -6,8 +6,8 @@
  */
 
 Categories = {
-	getAll: function(cb) {
-		Categories.using('db').model('dashboard','SELECT id,libelle FROM categories',cb);
+	getAll: function(o,cb) {
+		Categories.using('db').model('dashboard','SELECT id,libelle FROM categories where YEAR like "%'+o.year+'%"',cb);
 	}
 };
 
