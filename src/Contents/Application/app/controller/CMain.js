@@ -327,7 +327,7 @@ App.controller.define('CMain', {
 	onLoad: function()
 	{
 		Auth.login(function(user) {
-			
+			console.log(user);
 		});
 	},
 	doMarchesDelete: function()
