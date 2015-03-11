@@ -30,6 +30,8 @@ App.controller.define('CMain', {
 						cloture: checked
 					};
 					App.Factures.update(o,function(err,o) {
+						console.log(err);
+						console.log(o);
 						if (checked)
 						App.notify('la facture est maintenant close.');
 						else
