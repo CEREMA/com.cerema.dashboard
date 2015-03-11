@@ -22,12 +22,12 @@ App.view.define('VMain', {
 		{
 			region: "south",
 			width: "100%",
-			height: 100,
+			height: 40,
 			layout: "hbox",
 			border: false,
 			bodyCls: "lightblue",
 			items: [
-{
+				{
 					xtype: "textfield",
 					labelAlign: "top",
 					fieldLabel: "Total Prév. <small>HT</small>",
