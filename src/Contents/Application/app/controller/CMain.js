@@ -331,7 +331,8 @@ App.controller.define('CMain', {
 				if (r.length==0) {					
 					App.disabled();
 				} else {
-					console.log(Auth.User);
+					console.log(profil_code);
+					Auth.User.profile=r[0].profil_code;
 				}
 			});
 		});
