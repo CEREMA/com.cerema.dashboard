@@ -248,7 +248,7 @@ App.controller.define('CMain', {
 			App.get('textfield#immonet').setValue(p.facture.immonet);
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
 			
-			//App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));
+			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));
 						
 		} 		
 	},
@@ -281,7 +281,6 @@ App.controller.define('CMain', {
 		if (p.up('window').facture) {
 			// update
 			data.id=p.up('window').facture.idfacture;
-			console.log(data);
 			App.Factures.update(data,function(err,result) {
 				App.get('grid#MainGrid').getStore().load();
 			});
@@ -333,6 +332,7 @@ App.controller.define('CMain', {
 		// refresh the grid
 		var grid=App.get('grid#MainGrid');
 		grid.getStore().getProxy().extraParams.id=d.id;
+		grid.getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		grid.getStore().load();
 		grid.getStore().on('beforeload',function() {
 			// totals
