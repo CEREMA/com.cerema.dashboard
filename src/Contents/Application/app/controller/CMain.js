@@ -239,7 +239,7 @@ App.controller.define('CMain', {
 			
 			App.get('combo#cbo_marche').setValue(p.facture.marche);
 			
-			return;
+			
 			
 			App.get('datefield#echeance').setValue(p.facture.echeance);
 			App.get('datefield#date_facture').setValue(p.facture.date_facture);
@@ -248,6 +248,7 @@ App.controller.define('CMain', {
 			App.get('textfield#nofacture').setValue(p.facture.nofacture);
 			App.get('textfield#immonet').setValue(p.facture.immonet);
 			App.get('textarea#commentaire').setValue(p.facture.commentaire);
+			return;
 			App.get('uploadfilemanager#up').setFiles(JSON.parse(p.facture._BLOB));			
 		} 		
 	},
