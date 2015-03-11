@@ -329,7 +329,7 @@ App.controller.define('CMain', {
 		Auth.login(function(user) {
 			App.profils.get(user.uid,function(r) {
 				if (r.length==0) {					
-					App.close();
+					App.disabled();
 					//alert("Vous n'avez pas accès à l'application.");
 				}
 			});
