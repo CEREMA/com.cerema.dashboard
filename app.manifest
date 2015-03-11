@@ -65,7 +65,8 @@
         "Docs",
         "Factures",
         "Marches",
-        "profils"
+        "profils",
+        ""
     ],
     "packages": [],
     "icon": {
