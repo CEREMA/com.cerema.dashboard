@@ -114,7 +114,6 @@ App.controller.define('CMain', {
 	},
 	rubrik_new_onclick: function(p)
 	{
-		alert('-->'+App.get('combo#cbo_cat').getValue());
 		App.view.create('main.VMarchesModify',{
 			modal: true,
 			rubrik: {
@@ -321,6 +320,7 @@ App.controller.define('CMain', {
 	},
 	GridMarches_onclick: function(p,record,item,index,e)
 	{
+		console.log(record.data);
 		App.view.create('main.VMarchesModify',{
 			modal: true,
 			rubrik: record.data
