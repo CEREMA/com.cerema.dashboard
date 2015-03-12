@@ -129,7 +129,8 @@ App.controller.define('CMain', {
 			CAT_ID: App.get('combo#marches_categories').getValue(),
 			TITLE: App.get('textfield#TMarcheNom').getValue(),
 			_DESC: App.get('textfield#TMarcheDescription').getValue(),
-			PRICE: App.get('textfield#TMarchePrix').getValue()
+			PRICE: App.get('textfield#TMarchePrix').getValue(),
+			YEAR: App.get('combo#cbo_year').getValue()
 		};
 		if (p.up('window').rubrik.ID!=-1) rubrik.ID=p.up('window').rubrik.ID;
 		App.Marches.update(rubrik,function(err,response) {
