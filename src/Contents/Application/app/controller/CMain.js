@@ -147,6 +147,7 @@ App.controller.define('CMain', {
 		App.get('combo#marches_categories').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('combo#marches_categories').getStore().load();
 		App.get('combo#marches_categories').setValue(p.rubrik.CAT_ID);
+		alert(p.rubrik.CAT_ID);
 		App.get('textfield#TMarcheNom').setValue(p.rubrik.TITLE);
 		App.get('textfield#TMarcheDescription').setValue(p.rubrik._DESC);
 		App.get('textfield#TMarchePrix').setValue(p.rubrik.PRICE);
