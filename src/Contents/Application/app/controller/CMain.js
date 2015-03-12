@@ -114,7 +114,7 @@ App.controller.define('CMain', {
 	},
 	rubrik_new_onclick: function(p)
 	{
-		alert(App.get('combo#cbo_cat').getValue());
+		alert('-->'+App.get('combo#cbo_cat').getValue());
 		App.view.create('main.VMarchesModify',{
 			modal: true,
 			rubrik: {
