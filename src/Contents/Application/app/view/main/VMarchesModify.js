@@ -32,7 +32,6 @@ App.view.define('main.VMarchesModify',
 				fieldLabel: 'Rubrique',
 				store: App.store.create('App.Categories.getAll'),
 				editable: false,
-				triggerAction: 'all',
 				emptyText:'Sélectionner une catégorie',
 				displayField:'libelle',
 				valueField: 'id'
