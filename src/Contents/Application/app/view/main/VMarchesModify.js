@@ -30,7 +30,6 @@ App.view.define('main.VMarchesModify',
 				xtype: 'combo',
 				itemId: "marches_categories",
 				fieldLabel: 'Rubrique',
-				name: 'CAT_ID',
 				store: App.store.create('App.Categories.getAll',{
 					autoLoad: true
 				}),
