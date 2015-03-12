@@ -30,16 +30,10 @@ App.view.define('main.VMarchesModify',
 				xtype: 'combo',
 				itemId: "marches_categories",
 				fieldLabel: 'Rubrique',
-				store: App.store.create('App.Categories.getAll',{
-					autoLoad: true
-				}),
-				typeAhead: true,
+				store: App.store.create('App.Categories.getAll'),
 				editable: false,
 				triggerAction: 'all',
-				mode: 'remote',
 				emptyText:'Sélectionner une catégorie',
-				selectOnFocus:true,
-				readonly:true,
 				displayField:'libelle',
 				valueField: 'id'
 			},
