@@ -23,6 +23,7 @@ App.controller.define('CMain', {
 			},
 			"grid#MainGrid checkcolumn": {
 				checkchange: "oncheckchange",
+			},
 			"combo#cbo_cat": {
 				select: "cbo_cat_select"
 			},
