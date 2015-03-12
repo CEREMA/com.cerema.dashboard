@@ -144,6 +144,8 @@ App.controller.define('CMain', {
 	},
 	marchesmod_onshow: function(p)
 	{
+		App.get('combo#marches_categories').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
+		App.get('combo#marches_categories').getStore().load();
 		App.get('combo#marches_categories').setValue(p.rubrik.CAT_ID);
 		App.get('textfield#TMarcheNom').setValue(p.rubrik.TITLE);
 		App.get('textfield#TMarcheDescription').setValue(p.rubrik._DESC);
