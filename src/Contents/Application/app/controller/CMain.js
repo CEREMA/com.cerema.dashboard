@@ -4,7 +4,8 @@ App.controller.define('CMain', {
 		"VMain",
 		"main.VMarches",
 		"main.VFacture",
-		"main.VMarchesModify"
+		"main.VMarchesModify",
+		"VShowDoc"
 	],
 	
 	models: [
