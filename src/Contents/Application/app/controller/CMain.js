@@ -320,7 +320,6 @@ App.controller.define('CMain', {
 	},
 	GridMarches_onclick: function(p,record,item,index,e)
 	{
-		console.log(record.data);
 		App.view.create('main.VMarchesModify',{
 			modal: true,
 			rubrik: record.data
