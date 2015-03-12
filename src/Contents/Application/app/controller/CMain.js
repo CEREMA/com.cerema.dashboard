@@ -22,21 +22,7 @@ App.controller.define('CMain', {
 				itemcontextmenu: "MainGrid_menu"
 			},
 			"grid#MainGrid checkcolumn": {
-				checkchange: function(column, rowIdx, checked, eOpts){
-					var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.idfacture;
-					if (checked) var checked=1; else var checked=false;
-					var o={
-						id: id_facture,
-						cloture: checked
-					};
-					App.Factures.update(o,function(err,o) {
-						if (checked)
-						App.notify('la facture est maintenant close.');
-						else
-						App.notify('la facture a été décloturée.');
-					});
-				}			
-			},
+				checkchange: "oncheckchange",
 			"combo#cbo_cat": {
 				select: "cbo_cat_select"
 			},
@@ -97,6 +83,21 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+	oncheckchange: function(column, rowIdx, checked, eOpts)
+	{
+		var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.idfacture;
+		if (checked) var checked=1; else var checked=false;
+		var o={
+			id: id_facture,
+			cloture: checked
+		};
+		App.Factures.update(o,function(err,o) {
+			if (checked)
+			App.notify('la facture est maintenant close.');
+			else
+			App.notify('la facture a été décloturée.');
+		});				
+	},
 	getYear_onselect: function()
 	{
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
@@ -150,10 +151,10 @@ App.controller.define('CMain', {
 	{
 		e.stopEvent();
 		new Ext.menu.Menu({
-			items: [{
+			items: [/*{
 				itemId: 'MnuFactureDuplicate',
 				text: 'Dupliquer la facture'
-			},{
+			},*/{
 				itemId: 'MnuFactureDelete',
 				text: 'Supprimer la facture'
 			}]
