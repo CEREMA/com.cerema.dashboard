@@ -139,6 +139,7 @@ App.controller.define('CMain', {
 	marches_onshow: function(p)
 	{
 		App.get('grid#GridMarches').getStore().getProxy().extraParams.cat=App.get('combo#cbo_cat').getValue();
+		App.get('grid#GridMarches').getStore().getProxy().extraParams.year=App.get('combo#cbo_year').getValue();
 		App.get('grid#GridMarches').getStore().load();
 	},
 	marchesmod_onshow: function(p)
