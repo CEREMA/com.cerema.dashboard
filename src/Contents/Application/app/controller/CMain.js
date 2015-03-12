@@ -110,6 +110,7 @@ App.controller.define('CMain', {
 	},
 	rubrik_close_onclick: function(p)
 	{
+		App.get('grid#MainGrid').getStore().load();
 		p.up('window').close();
 	},
 	rubrik_new_onclick: function(p)
