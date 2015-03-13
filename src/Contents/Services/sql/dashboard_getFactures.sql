@@ -4,7 +4,6 @@ SELECT 	factures.id idfacture,
 		factures.gim,
 		factures.etiquette,
 		factures.echeance,
-		factures.engagement,
 		business.TITLE marche_title,
 		factures.numda,
 		factures.montant_prev,
@@ -16,13 +15,10 @@ SELECT 	factures.id idfacture,
 		factures.date_chorus,
 		factures.commentaire,
 		factures.marche,
-		factures.immonet,
 		business._DESC,
 		business.PRICE,
 		categories.LIBELLE,
-		factures._BLOB,
-		factures.cloture,
-		factures.BES
+		factures.DOC
 		FROM    (   
 			(   business business
 				JOIN
@@ -33,5 +29,4 @@ SELECT 	factures.id idfacture,
 				ON (factures.marche = business.ID))
 				
 		WHERE (categories.ID = {ID})
-			AND (business.YEAR={YEAR})
 		ORDER BY factures.marche,factures.prestation

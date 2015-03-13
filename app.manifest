@@ -58,12 +58,16 @@
     "plugins": [],
     "db": [
         "bpclight",
+        "infocentre",
         "dashboard"
     ],
     "api": [
+        "Bpclight",
         "Categories",
         "Docs",
         "Factures",
+        "Filtre",
+        "Infocentre",
         "Marches",
         "profils",
         "Years"

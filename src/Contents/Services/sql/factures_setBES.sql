@@ -1,0 +1,1 @@
+UPDATE factures SET factures.BES={BES} WHERE factures.id = {ID}

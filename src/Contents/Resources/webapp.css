@@ -38,6 +38,16 @@
 	height: 16px;
 }
 
+.basket
+{
+	background-image:url(webapp/basket.png);
+	background-repeat:no-repeat;
+	background-position:center center;	
+	background-size: 16px 16px;
+	width: 16px;
+	height: 16px;
+}
+
 .icoDownload
 {
 	background-image:url(webapp/Download.png);

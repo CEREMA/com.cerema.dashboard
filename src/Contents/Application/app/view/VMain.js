@@ -167,73 +167,216 @@ App.view.define('VMain', {
 		},
 		{
 			region: "center",
-			xtype: "grid",
-			layout: "fit",
-			preserveScrollOnRefresh: true,
-			width: "100%",
-			border: false,
-			itemId: "MainGrid",
-			tbar: [
-			],
-			columns:[
-				{header: "ID Facture", width: 80, sortable: true, dataIndex: 'idfacture',hidden: true},
-				{header: "Prestation", width: 180, sortable: true, dataIndex: 'prestation'},
-				{header: "Ref", width: 90, sortable: true, dataIndex: 'reference',summaryType: 'count',summaryRenderer: function(v){
-					return "<b>"+v+" ligne(s)</b>";
-				}},
-				{header: "GM", width: 60, sortable: true, dataIndex: 'gim',hidden: true},
-				{header: "Etiq", width: 30, sortable: true, dataIndex: 'etiquette',renderer : function(val){
-					return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
-				}},
-				{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
-				{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
-				{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
-					var total=App.get('textfield#totalprevht').getValue()*1;
-					if (r.recordIndex!=-1) total+=v;
-					App.get('textfield#totalprevht').setValue(total.toFixed(2));
-					return v.toFixed(2);
-				}, dataIndex: 'montant_prev',summaryType: 'sum'},
-				{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r){
-					var total=App.get('textfield#totalprevttc').getValue()*1;
-					if (r.recordIndex!=-1) total+=v*1.2;
-					App.get('textfield#totalprevttc').setValue(total.toFixed(2));
-					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
-				}, dataIndex: 'montant_prev',summaryType: 'sum'},
-				{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
-				{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
-				{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
-					val=JSON.parse(val);
-					if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
-				}},
-				{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r) {
-					var total=App.get('textfield#totalfactureht').getValue()*1;
-					if (r.recordIndex!=-1) total+=v;
-					App.get('textfield#totalfactureht').setValue(total.toFixed(2));
-					return v.toFixed(2);				
-				}, dataIndex: 'montant_facture', summaryType:'sum'},
-				{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
-					var total=App.get('textfield#totalfacturettc').getValue()*1;
-					if (r.recordIndex!=-1) total+=v*1.2;
-					App.get('textfield#totalfacturettc').setValue(total.toFixed(2));
-					return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';				
-				}, dataIndex: 'montant_facture', summaryType:'sum'},
-				{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
-				{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
-				{header: "ImmoNET", width: 65, sortable: true, dataIndex: 'immonet'},
-				{header: "Commentaire", sortable: true, dataIndex: 'commentaire',flex: 1},
-				{header: "", width: 50, sortable: true, dataIndex: 'cloture',xtype: "checkcolumn"}			
-			],
-			features: [
+			layout: "vbox",						//layout: "fit", ****************** Changement
+			items:								//******************* RAJOUT items
+			[
 				{
-					groupHeaderTpl: 'Marché: {name} ({rows.length} élément{[values.rows.length > 1 ? "s" : ""]})',
-					ftype: 'groupingsummary'
-				}
-			],
-			store: App.store.create('App.Factures.get',{
-				sortInfo:{field: 'prestation', direction: "ASC"},
-				groupField:'marche_title'
-			})
-		}
+					xtype: "grid",			
+					preserveScrollOnRefresh: true,
+					width: "100%",
+					border: false,
+					itemId: "MainGrid",
+					tbar: [
+					],
+					columns:[
+						{header: "ID Facture", width: 80, sortable: true, dataIndex: 'idfacture',hidden: true},
+						{header: "Prestation", width: 180, sortable: true, dataIndex: 'prestation'},
+						{header: "Ref", width: 90, sortable: true, dataIndex: 'reference',summaryType: 'count',summaryRenderer: function(v){
+							return "<b>"+v+" ligne(s)</b>";
+						}},
+						{header: "GM", width: 60, sortable: true, dataIndex: 'gim',hidden: true},
+						{header: "Etiq", width: 30, sortable: true, dataIndex: 'etiquette',renderer : function(val){
+							return '<span style="background-color:#'+val+';">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+						}},
+						{header: "Marché", width: 1, sortable: true, dataIndex: 'marche',hidden: false},
+						{header: "Echéance", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'echeance'},				
+						{header: "Mt prév. <small>HT</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
+							var total=App.get('textfield#totalprevht').getValue()*1;
+							if (r.recordIndex!=-1) total+=v;
+							App.get('textfield#totalprevht').setValue(total.toFixed(2));
+							return v.toFixed(2);
+						}, dataIndex: 'montant_prev',summaryType: 'sum'},
+						{header: "Mt prév. <small>TTC</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r){
+							var total=App.get('textfield#totalprevttc').getValue()*1;
+							if (r.recordIndex!=-1) total+=v*1.2;
+							App.get('textfield#totalprevttc').setValue(total.toFixed(2));
+							return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
+						}, dataIndex: 'montant_prev',summaryType: 'sum'},
+						{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
+						{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
+						{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
+							val=JSON.parse(val);
+							if (val.length>0) return '<div class="attachment">&nbsp;&nbsp;&nbsp;&nbsp;</div>'; else return '<div>&nbsp;&nbsp;&nbsp;&nbsp;</div>';
+						}},
+						//***************************************************************************
+						//									RAJOUT
+						//***************************************************************************
+						{header: "BES", width: 32, dataIndex: 'BES', renderer : function(val){
+							if (val==1)	return('<div class="basket">&nbsp;&nbsp;&nbsp;&nbsp;</div>');
+						}},
+						//***************************************************************************
+
+						{header: "Mt facture <small>HT</small>", width: 80, sortable: true, align:"right", renderer:  function(v,r) {
+							var total=App.get('textfield#totalfactureht').getValue()*1;
+							if (r.recordIndex!=-1) total+=v;
+							App.get('textfield#totalfactureht').setValue(total.toFixed(2));
+							return v.toFixed(2);				
+						}, dataIndex: 'montant_facture', summaryType:'sum'},
+						{header: "Mt facture <small>TTC</small>", width: 80, sortable: true, align:"right", renderer: function(v,r) {
+							var total=App.get('textfield#totalfacturettc').getValue()*1;
+							if (r.recordIndex!=-1) total+=v*1.2;
+							App.get('textfield#totalfacturettc').setValue(total.toFixed(2));
+							return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';				
+						}, dataIndex: 'montant_facture', summaryType:'sum'},
+						{header: "Service fait", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_servicefait'},
+						{header: "Date facture", width: 80, sortable: true, renderer: Ext.util.Format.dateRenderer('Y-m-d'), dataIndex: 'date_facture'},
+						{header: "ImmoNET", width: 65, sortable: true, dataIndex: 'immonet'},
+						{header: "Commentaire", sortable: true, dataIndex: 'commentaire',flex: 1},
+						{header: "", width: 50, sortable: true, dataIndex: 'cloture',xtype: "checkcolumn"}			
+					],
+					features: [
+						{
+							groupHeaderTpl: 'Marché: {name} ({rows.length} élément{[values.rows.length > 1 ? "s" : ""]})',
+							ftype: 'groupingsummary'
+						}
+					],
+					store: App.store.create('App.Factures.get',{
+						sortInfo:{field: 'prestation', direction: "ASC"},
+						groupField:'marche_title'
+					})
+				},
+				// *************************************************************
+				//			RAJOUT : Zone horizontale avec deux grids
+				// *************************************************************
+				{
+					
+					layout       : {
+						type: 'hbox',
+						align: 'stretch',
+						//padding: 5
+					},
+					border:false,
+					width: '100%',
+					itemId: "zoneCommandes",
+					//hidden: true,
+					items: 
+					[
+						//------------------------------------------------------
+						{	// Champ caché de l'idfacture sélectionnée
+							xtype	: "numberfield",
+							itemId	: "hiddenFact",
+							hidden	: true,
+							value	: -100
+							
+						},
+						//------------------------------------------------------
+						{	// Eléments de la facture sélectionnée
+							xtype			: "grid",
+							padding			: 5,
+							multiSelect		: true,
+							itemId			: "gridFacture",
+							title			: "Séléction",
+							width			: '45%',
+							height			: 400,
+							disabled		: true,
+							hidden: true,
+							
+							viewConfig: {
+								plugins: {
+									ptype		: 'gridviewdragdrop',
+									dragGroup	: 'gridFacturegroup1',
+									dropGroup	: 'gridInfocentregroup2'
+								}
+							},
+							
+							tbar: 
+							[			// barre en haut de la grid
+								'->',	// positionnement de ce qu'il y a à afficher : calé à droite
+								{
+									xtype: "label",
+									text: "Total : "								
+								},
+								{
+									xtype		: "textfield",
+									itemId		: "nmbfTotalFact",
+									fieldStyle	: 'text-align: center',
+									readOnly	: true,
+									hideLabel	: true
+								}					
+							],
+							columns: [
+								{header: "Domaine", 	width: 90, 	hidden: true, sortable: true, 	dataIndex: 'libelle_domaine_metier'},
+								{header: "Nature", 		width: 100, hidden: false, sortable: true, 	dataIndex: 'libelle_nature'},
+								{header: "Sous-nature", width: 120, hidden: false, sortable: true, 	dataIndex: 'libelle_sous_nature'},							
+								{header: "Service", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'Libsub'},
+								{header: "Dpt", 		width: 150, hidden: true, sortable: true, 	dataIndex: 'LibUni'},
+								{header: "Libellé", 	width: 200, hidden: false, sortable: true, 	dataIndex: 'libelle_commande'},
+								{header: "Qté", 		width: 30, 	hidden: false, sortable: true, 	dataIndex: 'quantité'},
+								{header: "Prix", 		width: 100,	hidden: false, sortable: true, 	dataIndex: 'prix_sous_nature', renderer:  Ext.util.Format.numberRenderer('0.00')},
+								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
+								{header: "Commentaire", width: 150, hidden: true, sortable: true, 	dataIndex: 'commentaire_s2i'},
+								
+							],
+							store: App.store.create('App.Infocentre.getBaseFact',{
+								//autoLoad: true
+							})					
+						},
+						//------------------------------------------------------
+						{	// Eléments de la base de données infocentre2015
+					
+							xtype			: "grid",
+							padding			: 5,
+							multiSelect		: true,
+							itemId			: "gridInfocentre",
+							title			: "Besoins infocentre2015",
+							width			: '55%',
+							height			: 400,
+							disabled		: true,
+							hidden: true,
+							
+							viewConfig		: {
+								plugins	: {
+									ptype		: 'gridviewdragdrop',
+									dragGroup	: 'gridInfocentregroup2',
+									dropGroup	: 'gridFacturegroup1'
+								},
+							},
+							//fieldLabel: "Nature",
+							//labelAlign: "top",
+							//tbar: [], // barre en haut de la grid
+							
+							tools: 
+							[
+								{
+									itemId: 'refresh',
+									type: 'refresh',
+									hidden: false,
+									callback: function() {
+										App.get('grid#gridInfocentre').getStore().load();
+									}
+								},
+							],
+							columns: [
+								{header: "Domaine", 	width: 90, 	hidden: true, sortable: true, 	dataIndex: 'libelle_domaine_metier'},
+								{header: "Nature", 		width: 100, hidden: false, sortable: true, 	dataIndex: 'libelle_nature'},
+								{header: "Sous-nature", width: 120, hidden: true, sortable: true, 	dataIndex: 'libelle_sous_nature'},
+								{header: "Service", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'LibSub'},
+								{header: "Dpt", 		width: 140, hidden: false, sortable: true, 	dataIndex: 'LibUni'},
+								{header: "Libellé", 	width: 190, hidden: false, sortable: true, 	dataIndex: 'libelle_commande'},
+								{header: "Qté", 		width: 20, 	hidden: false, sortable: true, 	dataIndex: 'quantité'},
+								{header: "Prix", 		width: 70, 	hidden: true, sortable: true, 	dataIndex: 'prix_sous_nature',renderer:  Ext.util.Format.numberRenderer('0.00')},
+								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
+								{header: "Commentaire", width: 240, hidden: false, sortable: true, 	dataIndex: 'commentaire_s2i'}
+							],
+							store: App.store.create('App.Infocentre.getBase',{
+								//autoLoad: true
+							})					
+						}
+				
+					]	
+				}	// ***************  FIN DU RAJOUT  *****************************
+			]	// ** FIN DES ITEMS de la Region: center
+		}	
 	]
 	
 });

@@ -5,7 +5,13 @@ App.controller.define('CMain', {
 		"main.VMarches",
 		"main.VFacture",
 		"main.VMarchesModify",
-		"VShowDoc"
+		"VShowDoc",
+		//***********************************************
+		//					RAJOUT
+		//***********************************************
+		"main.VForm",
+		"main.VFiltre"
+		//*****************FIN RAJOUT********************
 	],
 	
 	models: [
@@ -19,8 +25,13 @@ App.controller.define('CMain', {
 				click: "Menu_onClick"
 			},
 			"grid#MainGrid": {
-				itemdblclick: "grid_onclick",
-				itemcontextmenu: "MainGrid_menu"
+				itemdblclick: "grid_ondblclick",	// changement du nom : 'grid_ondblclick' au lieu de 'grid_onclick'
+				itemcontextmenu: "MainGrid_menu",
+				//***********************************************
+				//					RAJOUT
+				//***********************************************
+				itemclick: "grid_onclick",
+				//*****************FIN RAJOUT********************
 			},
 			"grid#MainGrid checkcolumn": {
 				checkchange: "oncheckchange",
@@ -79,7 +90,43 @@ App.controller.define('CMain', {
 			},
 			"combo#cbo_year": {
 				select: "getYear_onselect"
-			}
+			},
+			//*********************************
+			//         Rajouts évènements
+			//*********************************
+			// ---------- VMain
+			"grid#gridFacture>gridview": {
+				drop: "gridFacture_drop"
+			},
+			"grid#gridInfocentre>gridview": {
+				drop: "gridInfocentre_drop"
+			},
+			"grid#gridInfocentre": {
+				itemdblclick: "gridInfocentre_dblclick"
+			},
+			"grid#gridFacture": {
+				itemdblclick: "gridInfocentre_dblclick"
+			},
+			// ---------- VForm
+			"button#btnVFormClose": {
+				click: "onVFormClose"
+			},
+			// ---------- VFiltre
+			"checkcolumn": {
+				checkchange: "gridFiltre_checkchange"
+			},
+			"button#btnVFiltreAnnuler": {
+				click: "onVFiltreAnnuler"
+			},
+			"button#btnVFiltreEnregistrer": {
+				click: "onVFiltreEnreg"
+			},
+			"combo#cbo_catFiltre": {
+				select: "cbo_catFiltre_select"
+			},
+			//*********************************
+			//      Fin rajouts évènements
+			//*********************************
 		});
 		
 		App.init('VMain',this.onLoad);
@@ -156,15 +203,102 @@ App.controller.define('CMain', {
 	},
 	MainGrid_menu: function( p, record, item, index, e )
 	{
+		//***********************************************
+		//					RAJOUT
+		//***********************************************
+		var _p=this;
+		var gridF=App.get('grid#gridFacture');
+		var gridI=App.get('grid#gridInfocentre');
+		gridF.setDisabled(false);
+		gridI.setDisabled(false);
+		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
+		gridF.getStore().getProxy().extraParams.ID=record.data.idfacture;
+		gridF.getStore().load();
+		gridF.getStore().on('load',function() {
+			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
+		});
+		if(record.data.date_servicefait!=null)
+		{
+			//alert('date service fait non nulle !');
+			if (gridF.getView().dragZone) gridF.getView().dragZone.lock();
+		}
+		else
+		{
+			//alert('date service fait ***nulle*** !');
+		};
+		//*****************FIN RAJOUT********************
+		
 		e.stopEvent();
 		new Ext.menu.Menu({
-			items: [/*{
+			items: 
+			[/*{
 				itemId: 'MnuFactureDuplicate',
 				text: 'Dupliquer la facture'
-			},*/{
+			},*/
+				{
 				itemId: 'MnuFactureDelete',
 				text: 'Supprimer la facture'
-			}]
+				},
+				//***********************************************
+				//					RAJOUT
+				//***********************************************
+				{
+					xtype: "menuseparator"
+				},
+				{
+					itemId: 'MnuMainCommandes1',
+					text: 'Gérer les besoins',
+					handler: function(widget, event) {
+						//alert('Gérer les commandes');
+						//console.log(App.get('zoneCommandes'));
+						App.get('grid#MainGrid').setHeight(400);
+						App.get('grid#gridFacture').setVisible(true);
+						App.get('grid#gridInfocentre').setVisible(true);
+					}
+
+				},
+				{
+					itemId: 'MnuMainCommandes2',
+					text: 'Annuler la gestion des besoins',
+					handler: function(widget, event) {
+						//alert('Annuler la gestion des commandes');				
+						App.get('grid#gridFacture').setVisible(false);
+						App.get('grid#gridInfocentre').setVisible(false);
+						App.get('grid#MainGrid').setHeight(800);
+						//App.get('grid#MainGrid>gridview').refresh();
+					}
+				},
+				{
+					xtype: "menuseparator"
+				},
+				{
+					itemId: 'MnuMainCommandes3',
+					text: 'Gérer les filtres',
+					handler: function(widget, event) {
+						//alert('Annuler la gestion des commandes');
+						_p.open_filtre();
+						_p.createFiltres;
+							
+						var annee = App.get('combo#cbo_year').getValue();
+						//console.log(annee);
+						App.get('combo#cbo_catFiltre').getStore().getProxy().extraParams.year = annee;
+						App.get('combo#cbo_catFiltre').getStore().load();	
+						//console.log(App.get('combo#cbo_catFiltre').getStore());
+						
+						App.get('grid#gridFiltreAll').getStore().getProxy().extraParams.year = annee;
+						App.get('grid#gridFiltreAll').getStore().load();
+						App.get('grid#gridFiltre').getStore().filter('categorie',-1);
+						App.get('grid#gridFiltre').getStore().getProxy().extraParams.year = annee;
+						App.get('grid#gridFiltre').getStore().load();
+						
+						
+						
+						
+					}
+				}
+				//*****************FIN RAJOUT********************
+			]
 		}).showAt(e.xy);
 	},
 	facture_duplicate: function(p) {
@@ -354,10 +488,30 @@ App.controller.define('CMain', {
 		});
 		// refresh.
 		App.get('button#win_facture').setDisabled(false);
+		
+		//************************************************
+		//*******************RAJOUT***********************
+		//************************************************
+		var gridF=App.get('grid#gridFacture');
+		var gridI=App.get('grid#gridInfocentre');
+		gridF.setDisabled(true);
+		gridI.setDisabled(true);
+		
+		gridF.getStore().getProxy().extraParams.ID=-100;
+		//gridF.getStore().getProxy().extraParams.CAT=d.id;
+		gridF.setTitle("Séléction");
+		gridF.getStore().load();
+		
+		gridI.getStore().getProxy().extraParams.ID=-1;
+		gridI.getStore().getProxy().extraParams.CAT=d.id;
+		gridI.getStore().load();
+		
+		//******************FIN RAJOUT*********************
+
 	},
 	onLoad: function()
 	{
-		Auth.login(function(user) {
+		/*Auth.login(function(user) {
 			App.profils.get(user.uid,function(r,x) {
 				if (r.length==0) {					
 					App.disabled();
@@ -369,7 +523,13 @@ App.controller.define('CMain', {
 					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
-		});
+		});*/
+		Auth.User.profile=1;
+		Auth.User.uid=614;
+		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
+		App.get('combo#cbo_year').setValue(new Date().getFullYear());
+		App.get('combo#cbo_cat').getStore().getProxy().extraParams.year=new Date().getFullYear();
+		App.get('combo#cbo_cat').getStore().load();		
 	},
 	doMarchesDelete: function()
 	{
@@ -382,12 +542,319 @@ App.controller.define('CMain', {
 			});
 		}
 	},
-	grid_onclick: function( p, record, item, index )
+	grid_ondblclick: function( p, record, item, index )	// changement du nom : 'grid_ondblclick' au lieu de 'grid_onclick'
 	{
 		App.view.create('main.VFacture',{
 			modal: true,
 			facture: record.data
 		}).show();
-	}
+	},
+	
+	//***************************************************************************************************
+	//               							RAJOUTS
+	//***************************************************************************************************
+	grid_onclick: function( p, record, item, index )
+	{
+		var _p=this;
+		var gridF=App.get('grid#gridFacture');
+		var gridI=App.get('grid#gridInfocentre');
+		gridF.setDisabled(false);
+		gridI.setDisabled(false);
+		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
+		gridF.getStore().getProxy().extraParams.ID = record.data.idfacture;
+		gridF.getStore().load();
+		gridF.getStore().on('load',function() {
+			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
+		});
+		//console.log(record.data.date_servicefait);
+		if(record.data.date_servicefait!=null)
+		{
+			//alert('date service fait non nulle !');
+		}
+		else
+		{
+			//alert('date service fait ***nulle*** !');
+		};
+	},
+	//---------------------------------------------
+	open_filtre: function()
+	{
+		App.view.create('main.VFiltre',{
+			modal: true
+		}).show();
+	},
+	//---------------------------------------------
+	onVFiltreAnnuler: function()
+	{
+		App.get('VFiltre').close();
+	},
+	//---------------------------------------------
+	onVFiltreEnreg: function()
+	{
+		//console.log(App.get('grid#gridFiltreAll').getStore().data.items);
+		var tab=App.get('grid#gridFiltreAll').getStore().data.items;
+		var data=[];
+		var annee = App.get('combo#cbo_year').getValue();
+		for (var i=0;i<tab.length;i++) {
+			data.push({
+				categorie:tab[i].data.categorie,
+				coche:tab[i].data.coche,
+				nature:tab[i].data.nature
+			});
+		};
+		var obj = {
+			year : annee,
+			tableau : data
+		};
+		App.Filtre.update(obj, function(result) {
+			//console.log(result);
+		});
 		
+		App.get('grid#gridInfocentre').getStore().getProxy().extraParams.ID=-1;
+		App.get('grid#gridInfocentre').getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
+		App.get('grid#gridInfocentre').getStore().load();
+		App.get('VFiltre').close();
+	},
+	//---------------------------------------------
+	cbo_catFiltre_select: function(p, records, eOpts)
+	{
+		var d=records[0].data;
+		var grid=App.get('grid#gridFiltre');
+		var annee = App.get('combo#cbo_year').getValue();
+		//grid.getStore().getProxy().extraParams.id=d.id;
+		grid.getStore().clearFilter();
+		grid.getStore().filter('categorie',d.id);
+		grid.getStore().getProxy().extraParams.year = annee;
+		//grid.getStore().filter('annee',App.get('combo#cbo_year').getValue());
+		grid.getStore().load(function () {
+			for(var ligne=0; ligne <grid.getStore().data.length; ligne++)
+			{
+				var cat = App.get('grid#gridFiltre').getStore().data.items[ligne].data.categorie;
+				var nat = App.get('grid#gridFiltre').getStore().data.items[ligne].data.nature;
+				var match = App.get('grid#gridFiltreAll').getStore().findBy( function (record, id) {
+					if (record.get('categorie') == cat && record.get('nature') == nat && record.get('annee') == annee)
+						{return true};
+				});
+				App.get('grid#gridFiltre').getStore().data.items[ligne].data.coche = 
+					App.get('grid#gridFiltreAll').getStore().data.items[match].data.coche;
+			};
+			App.get('grid#gridFiltre').getView().refresh();
+		});
+	},
+	//---------------------------------------------
+	gridFiltre_checkchange: function( moi, rowIndex, checked, eOpts )
+	{
+		//alert('click on checkcolumn');
+		if(checked)
+		{
+			var cat = App.get('grid#gridFiltre').getStore().data.items[rowIndex].data.categorie;
+			var nat = App.get('grid#gridFiltre').getStore().data.items[rowIndex].data.nature;
+			var match = App.get('grid#gridFiltreAll').getStore().findBy( function (record, id) {
+				if (record.get('categorie') == cat && record.get('nature') == nat)
+					{return true};
+			});
+			App.get('grid#gridFiltreAll').getStore().data.items[match].data.coche = true;
+			App.get('grid#gridFiltreAll').getView().refresh();
+		}
+		else
+		{
+			var cat = App.get('grid#gridFiltre').getStore().data.items[rowIndex].data.categorie;
+			var nat = App.get('grid#gridFiltre').getStore().data.items[rowIndex].data.nature;
+			var match = App.get('grid#gridFiltreAll').getStore().findBy( function (record, id) {
+				if (record.get('categorie') == cat && record.get('nature') == nat)
+					{return true};
+			});
+			App.get('grid#gridFiltreAll').getStore().data.items[match].data.coche = false;
+			App.get('grid#gridFiltreAll').getView().refresh();
+		};
+	},
+	//---------------------------------------------
+	createFiltres: function()
+	{
+		App.Infocentre.getNatureAll(function(tabNature) {
+			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
+			var annee=App.get('combo#cbo_year').getValue();
+			var o={year: annee};
+			//console.log(tabNature);
+			App.Categories.getAll(o, function(tabCategorie) {
+				if (tabCategorie.message!="OK") {alert(tabNature.message.code);return;}
+				//console.log(tabCategorie);
+				App.Filtre.getAll(o, function(tabFiltre) {
+					if (tabFiltre.message!="OK") {alert(tabFiltre.message.code);return;}
+					var _data=[];
+					//console.log(tabFiltre);
+					for(var cat=0; cat < tabCategorie.data.length; cat++)
+					{
+						for(var nat=0; nat < tabNature.data.length; nat++)
+						{
+							var posExistFiltre =-1;
+							for(var filt=0; filt < tabFiltre.data.length; filt++)
+							{
+								if ((tabFiltre.data[filt].categorie==tabCategorie.data[cat].id) &&
+									(tabFiltre.data[filt].nature==tabNature.data[nat].ID_nature) &&
+									(tabFiltre.data[filt].annee==annee)
+									)
+										posExistFiltre = filt;
+							};
+							if (posExistFiltre==-1)
+								_data.push({
+									categorie	: tabCategorie.data[cat].id,
+									nature		: tabNature.data[nat].ID_nature,
+									coche		: 0,
+									annee		: annee,
+								})
+							else;
+								//_data.push(tabFiltre.data[posExistFiltre])
+						}
+					};
+					var obj={year: annee, dataArray: _data};
+					//console.log(obj);
+					if (_data.length>0) 
+						App.Filtre.insert(obj, function(result) {
+						});
+				});						
+			});			
+		});
+	},
+	//---------------------------------------------
+	open_form: function()
+	{
+		App.view.create('main.VForm',{
+			modal: true
+		}).show();
+	},
+	//---------------------------------------------
+	onVFormClose: function()
+	{
+		App.get('VForm').close();		
+	},
+	//---------------------------------------------
+	gridFacture_drop: function(node, data, dropRec, dropPosition)
+	{
+		//console.log('Infocentre --> Facture');
+		var fact=App.get('numberfield#hiddenFact').getValue();
+		var _data=[];
+		for(var i=0; i < data.records.length; i++)
+		{			
+			_data.push({
+				ID_demande	: data.records[i].data.ID_demande,
+				facture		: fact
+			});
+		};
+		App.Infocentre.setBaseFact(_data, function(result) {
+			//console.log(result);
+
+		});
+		
+		if(App.get('grid#gridFacture').getStore().data.length != 0)
+		{
+		
+			var o = {
+				id: fact,
+				bes: 1
+			};
+			//console.log(App.get('grid#gridFacture').getStore().data.length);
+			//console.log(fact);
+			App.Factures.setBES(o, function(result) {
+				//console.log(result);
+			});
+		};
+		
+		App.get('grid#MainGrid').getStore().reload();
+			
+		this.calcTotal(App.get('grid#gridFacture').getStore().data);
+		
+	},
+	//---------------------------------------------
+	formatTotal : function(v)
+	{
+		v = (Math.round((v-0)*100))/100;
+		v = (v == Math.floor(v)) ? v + ".00" : ((v*10 == Math.floor(v*10)) ? v + "0" : v);
+		return (v).replace(/\./, ',');
+	},
+	calcTotal: function (donnees)
+	{
+		var total=0;
+		//console.log('-*-*-*-* longueur donnees:'+donnees.length);
+		for(var i=0; i < donnees.length; i++)
+		{
+			//console.log(donnees.items[i].data.prix_sous_nature);
+			total += (donnees.items[i].data.quantité * donnees.items[i].data.prix_sous_nature);
+		};
+		//console.log(total);
+		App.get('textfield#nmbfTotalFact').setValue(this.formatTotal(total));
+	},
+	//---------------------------------------------
+	gridInfocentre_drop: function(node, data, dropRec, dropPosition)
+	{
+		//console.log('Facture --> Infocentre');
+		var fact=App.get('numberfield#hiddenFact').getValue();
+		var factNone=-1;
+		var _data=[];
+		for(var i=0; i < data.records.length; i++)
+		{				
+			_data.push({
+				ID_demande	: data.records[i].data.ID_demande,
+				facture		: factNone
+			});
+		};
+		App.Infocentre.setBaseFact(_data, function(result) {
+			//console.log(result);
+		});
+		//console.log(App.get('grid#gridFacture').getStore().data.length);
+		//console.log(fact);
+		if(App.get('grid#gridFacture').getStore().data.length == 0)
+		{
+			var o = {
+				id: fact,
+				bes: 0
+			};
+			//console.log(App.get('grid#gridFacture').getStore().data.length);
+			//console.log(fact);
+			App.Factures.setBES(o, function(result) {
+				//console.log(result);
+			});
+		};
+		App.get('grid#MainGrid').getStore().reload();
+		this.calcTotal(App.get('grid#gridFacture').getStore().data);
+	},
+	//---------------------------------------------
+	gridInfocentre_dblclick: function( moi, record, item, index, e, eOpts )
+	{
+		//console.log(record.data.libelle_domaine_metier);
+		this.open_form();
+		
+		App.get('textfield#txtfDepartement').setValue(record.data.LibUni);
+		App.get('textfield#txtfService').setValue(record.data.LibSub);
+		App.get('textfield#txtfBeneficiaire').setValue(record.data.NomPre);
+		App.get('textfield#txtfDomaine').setValue(record.data.libelle_domaine_metier);
+		App.get('textfield#txtfNature').setValue(record.data.libelle_nature);
+		App.get('textfield#txtfSousNature').setValue(record.data.libelle_sous_nature);
+		App.get('numberfield#nmbfQte').setValue(record.data.quantité);
+		App.get('textfield#txtfmotivation').setValue(record.data.motivation_demande);
+		App.get('textfield#txtalibelledemande').setValue(record.data.commentaire_demande);
+		App.get('textfield#txtacommentaire').setValue(record.data.commentaire_s2i);
+		App.get('datefield#datfdatedem').setValue(record.data.date_de_demande);
+		App.get('numberfield#txtfprix').setValue(record.data.prix_sous_nature);
+		//console.log('prix:'+record.data.prix_sous_nature);
+		var valeurprogress = (record.data.avancement / 8);
+		App.get('progressbar#progbAvancement').updateProgress(valeurprogress);
+		
+		if (record.data.phasage==0) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'red';
+		if (record.data.phasage==1) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'orange';
+		if (record.data.phasage==2) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'green';
+		if (record.data.phasage==3) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'purple';
+							
+		if (record.data.phasage==0) App.get('radio#RP0').setValue(true);
+		if (record.data.phasage==1) App.get('radio#RP1').setValue(true);
+		if (record.data.phasage==2) App.get('radio#RP2').setValue(true);
+		if (record.data.phasage==3) App.get('radio#RP3').setValue(true);
+		
+		App.get('checkbox#chbspecial').setValue(record.data.special);
+
+		//alert('double click');
+		//console.log('sortie');
+	},
+	//---------------------------------------------
 });
