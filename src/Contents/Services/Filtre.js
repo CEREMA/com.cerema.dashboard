@@ -79,7 +79,7 @@ Filtre = {
 		var db=Filtre.using('db');
 		var tabTrue = [];		
 		var tabFalse = [];	
-		console.log(o);
+		//console.log(o);
 		
 		for (var i=0; i<o.tableau.length;i++)
 		{
@@ -94,7 +94,7 @@ Filtre = {
 		};
 		var sql1='UPDATE filtre SET coche = 1 WHERE ('+tabTrue.join(' OR ')+')';
 		var sql2='UPDATE filtre SET coche = 0 WHERE ('+tabFalse.join(' OR ')+')';
-		console.log(sql1);
+		//console.log(sql1);
 		db.query('dashboard',sql1,function(err,o) {
 			db.query('dashboard',sql2,cb);
 		});

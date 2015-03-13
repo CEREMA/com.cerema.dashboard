@@ -86,7 +86,7 @@ Factures = {
 	//********************************************************************
 	setBES: function(o,cb) {
 		var db=Factures.using('db');
-		console.log(o);	
+		//console.log(o);	
 		//db.query('infocentre2015',sql ,cb);		
 		db.query('dashboard',db.sql('factures_setBES',{ID: o.id, BES: o.bes}),cb);
 	}
