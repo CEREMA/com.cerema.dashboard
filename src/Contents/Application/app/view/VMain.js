@@ -265,7 +265,7 @@ App.view.define('VMain', {
 						{	// Champ caché de l'idfacture sélectionnée
 							xtype	: "numberfield",
 							itemId	: "hiddenFact",
-							hidden	: true,
+							hidden	: false,
 							value	: -100
 							
 						},

@@ -112,7 +112,7 @@ App.controller.define('CMain', {
 				click: "onVFormClose"
 			},
 			// ---------- VFiltre
-			"checkcolumn": {
+			"grid#gridFiltre checkcolumn": {
 				checkchange: "gridFiltre_checkchange"
 			},
 			"button#btnVFiltreAnnuler": {
@@ -211,14 +211,18 @@ App.controller.define('CMain', {
 		var gridI=App.get('grid#gridInfocentre');
 		//gridF.setDisabled(false);
 		//gridI.setDisabled(false);
-		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		//console.log(record.data);
+		//console.log('Aie:'+record.data.idfacture);
+		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		//alert(App.get('numberfield#hiddenFact').getValue());
+		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
 		gridF.getStore().getProxy().extraParams.ID=record.data.idfacture;
 		gridF.getStore().load();
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
-		this.gestionServiceFait(record.data.date_servicefait);
+		this.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
 		//*****************FIN RAJOUT********************
 		
 		e.stopEvent();
@@ -561,6 +565,7 @@ App.controller.define('CMain', {
 			modal: true,
 			facture: record.data
 		}).show();
+		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 	},
 	
 	//***************************************************************************************************
@@ -587,7 +592,7 @@ App.controller.define('CMain', {
 	gestionServiceFait: function(serviceFait, idFact)
 	{
 		//var fact=App.get('numberfield#hiddenFact').getValue();
-		App.get('numberfield#hiddenFact').setValue();
+		App.get('numberfield#hiddenFact').setValue(idFact);
 		var gridF=App.get('grid#gridFacture');
 		var gridI=App.get('grid#gridInfocentre');
 		if (serviceFait)
@@ -787,17 +792,11 @@ App.controller.define('CMain', {
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
 			//console.log(result);
-
 		});
 		
 		if(App.get('grid#gridFacture').getStore().data.length != 0)
 		{
-			var o = {
-				id: fact,
-				bes: 1
-			};
-			//console.log(App.get('grid#gridFacture').getStore().data.length);
-			//console.log(fact);
+			var o = {id: fact, bes: 1};
 			App.Factures.setBES(o, function(result) {
 				//console.log(result);
 			});
@@ -848,12 +847,7 @@ App.controller.define('CMain', {
 		//console.log(fact);
 		if(App.get('grid#gridFacture').getStore().data.length == 0)
 		{
-			var o = {
-				id: fact,
-				bes: 0
-			};
-			//console.log(App.get('grid#gridFacture').getStore().data.length);
-			//console.log(fact);
+			var o = {id: fact, bes: 0};
 			App.Factures.setBES(o, function(result) {
 				//console.log(result);
 			});
