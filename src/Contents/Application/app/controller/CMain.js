@@ -329,25 +329,39 @@ App.controller.define('CMain', {
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		if (sel.selected.items.length>0) {
-			App.Factures.del(sel.selected.items[0].data.idfacture,function(err,result) {
-				App.notify("La facture a été supprimée");
-				App.get('grid#MainGrid').getStore().load();
-			});
+			if 	(sel.selected.items[0].data.ej=0) 
+				&& (sel.selected.items[0].data.nofacture='') 
+				&& (sel.selected.items[0].data._BLOB=[])
+				&& (sel.selected.items[0].data.BES=0) 
+				&& (sel.selected.items[0].data.date_servicefait='NULL') 
+				&& (sel.selected.items[0].data.cloture=false)
+			{
+				App.Factures.del(sel.selected.items[0].data.idfacture,function(err,result) {
+					App.notify("La facture a été supprimée");
+					App.get('grid#MainGrid').getStore().load();
+				});
+				//************************************************
+				//*******************RAJOUT***********************
+				//************************************************
+				var gridF=App.get('grid#gridFacture');
+				var gridI=App.get('grid#gridInfocentre');
+				gridF.setDisabled(true);
+				gridI.setDisabled(true);
+				gridF.getStore().getProxy().extraParams.ID=-100;
+				gridF.setTitle("Séléction");
+				gridF.getStore().load();
+				gridI.getStore().getProxy().extraParams.ID=-1;
+				gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
+				gridI.getStore().load();
+				//************************************************
+			}
+			else
+			{
+				alert('Facture impossible à supprimer !');
+			}
+			;	
 		};
-		//************************************************
-		//*******************RAJOUT***********************
-		//************************************************
-		var gridF=App.get('grid#gridFacture');
-		var gridI=App.get('grid#gridInfocentre');
-		gridF.setDisabled(true);
-		gridI.setDisabled(true);
-		gridF.getStore().getProxy().extraParams.ID=-100;
-		gridF.setTitle("Séléction");
-		gridF.getStore().load();
-		gridI.getStore().getProxy().extraParams.ID=-1;
-		gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
-		gridI.getStore().load();
-		//************************************************
+		
 	},
 	Menu_onClick: function(p)
 	{
