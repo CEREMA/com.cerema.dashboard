@@ -209,8 +209,8 @@ App.controller.define('CMain', {
 		var _p=this;
 		var gridF=App.get('grid#gridFacture');
 		var gridI=App.get('grid#gridInfocentre');
-		gridF.setDisabled(false);
-		gridI.setDisabled(false);
+		//gridF.setDisabled(false);
+		//gridI.setDisabled(false);
 		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
 		gridF.getStore().getProxy().extraParams.ID=record.data.idfacture;
@@ -229,8 +229,8 @@ App.controller.define('CMain', {
 				text: 'Dupliquer la facture'
 			},*/
 				{
-				itemId: 'MnuFactureDelete',
-				text: 'Supprimer la facture'
+					itemId: 'MnuFactureDelete',
+					text: 'Supprimer la facture',
 				},
 				//***********************************************
 				//					RAJOUT
@@ -239,24 +239,26 @@ App.controller.define('CMain', {
 					xtype: "menuseparator"
 				},
 				{
-					itemId: 'MnuMainCommandes1',
+					itemId: 'MnuGestionBesoins',
 					text: 'Gérer les besoins',
 					handler: function(widget, event) {
 						//alert('Gérer les commandes');
 						//console.log(App.get('zoneCommandes'));
 						App.get('grid#MainGrid').setHeight(400);
-						App.get('grid#gridFacture').setVisible(true);
-						App.get('grid#gridInfocentre').setVisible(true);
+						gridF.setVisible(true);
+						gridI.setVisible(true);
+						gridF.setDisabled(false);
+						gridI.setDisabled(false);
 					}
 
 				},
 				{
-					itemId: 'MnuMainCommandes2',
+					itemId: 'MnuStopGestionBesoins',
 					text: 'Annuler la gestion des besoins',
 					handler: function(widget, event) {
 						//alert('Annuler la gestion des commandes');				
-						App.get('grid#gridFacture').setVisible(false);
-						App.get('grid#gridInfocentre').setVisible(false);
+						gridF.setVisible(false);
+						gridI.setVisible(false);
 						App.get('grid#MainGrid').setHeight(800);
 						//App.get('grid#MainGrid>gridview').refresh();
 					}
@@ -265,7 +267,7 @@ App.controller.define('CMain', {
 					xtype: "menuseparator"
 				},
 				{
-					itemId: 'MnuMainCommandes3',
+					itemId: 'MnuGestionFiltres',
 					text: 'Gérer les filtres',
 					handler: function(widget, event) {
 						//alert('Annuler la gestion des commandes');
@@ -300,6 +302,11 @@ App.controller.define('CMain', {
 			p.up('window').close();
 			App.get('grid#MainGrid').getStore().load();
 		});
+		//***********************************************
+		//					RAJOUT
+		//***********************************************
+		
+		//*****************FIN RAJOUT********************
 	},
 	toggle_buttons: function(p,press) {
 		if (p.iconCls=="orange") p.up('window').state_id="FF9900";
@@ -327,7 +334,21 @@ App.controller.define('CMain', {
 				App.notify("La facture a été supprimée");
 				App.get('grid#MainGrid').getStore().load();
 			});
-		}
+		};
+		//************************************************
+		//*******************RAJOUT***********************
+		//************************************************
+		var gridF=App.get('grid#gridFacture');
+		var gridI=App.get('grid#gridInfocentre');
+		gridF.setDisabled(true);
+		gridI.setDisabled(true);
+		gridF.getStore().getProxy().extraParams.ID=-100;
+		gridF.setTitle("Séléction");
+		gridF.getStore().load();
+		gridI.getStore().getProxy().extraParams.ID=-1;
+		gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
+		gridI.getStore().load();
+		//************************************************
 	},
 	Menu_onClick: function(p)
 	{
