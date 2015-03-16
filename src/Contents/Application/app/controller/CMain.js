@@ -218,15 +218,7 @@ App.controller.define('CMain', {
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
-		if(record.data.date_servicefait!=null)
-		{
-			//alert('date service fait non nulle !');
-			if (gridF.getView().dragZone) gridF.getView().dragZone.lock();
-		}
-		else
-		{
-			//alert('date service fait ***nulle*** !');
-		};
+		this.gestionServiceFait(record.data.date_servicefait);
 		//*****************FIN RAJOUT********************
 		
 		e.stopEvent();
@@ -291,9 +283,6 @@ App.controller.define('CMain', {
 						App.get('grid#gridFiltre').getStore().filter('categorie',-1);
 						App.get('grid#gridFiltre').getStore().getProxy().extraParams.year = annee;
 						App.get('grid#gridFiltre').getStore().load();
-						
-						
-						
 						
 					}
 				}
@@ -435,6 +424,12 @@ App.controller.define('CMain', {
 				App.get('grid#MainGrid').getStore().load();
 			});			
 		};
+		
+		//************************************************
+		//*******************RAJOUT***********************
+		//************************************************
+		this.gestionServiceFait(App.get('datefield#date_servicefait').getValue());
+		//************************************************
 		p.up('window').close();
 	},
 	open_facture: function(p, record, item, index, e)
@@ -568,13 +563,43 @@ App.controller.define('CMain', {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
 		//console.log(record.data.date_servicefait);
-		if(record.data.date_servicefait!=null)
+		this.gestionServiceFait(record.data.date_servicefait);
+	},
+	//---------------------------------------------
+	gestionServiceFait: function(serviceFait)
+	{
+		//var serviceFait = App.get('datefield#date_servicefait').getValue()
+		var fact=App.get('numberfield#hiddenFact').getValue();
+		var gridF=App.get('grid#gridFacture');
+		var gridI=App.get('grid#gridInfocentre');
+		if (serviceFait)
 		{
-			//alert('date service fait non nulle !');
+			//alert('serviceFait is not null');
+			//console.log(gridF);
+			//console.log(gridF.getView().isDraggable());
+			//gridF.isDraggable( )=false;
+			gridF.getView().plugins[0].dragZone.lock();
+			gridI.getView().plugins[0].dragZone.lock();
+			//getPlugin('dragdrop')
+			var o = {id: fact, bes: 0};
+			App.Factures.setBES(o, function(result) {
+				//console.log(result);
+			});
+			//App.get('grid#MainGrid').getStore().reload();
 		}
 		else
 		{
-			//alert('date service fait ***nulle*** !');
+			//alert('serviceFait is null');
+			gridF.getView().plugins[0].dragZone.unlock();
+			gridI.getView().plugins[0].dragZone.unlock();
+			if(App.get('grid#gridFacture').getStore().data.length != 0)
+			{
+				var o = {id: fact, bes: 1};
+				App.Factures.setBES(o, function(result) {
+					//console.log(result);
+				});
+			};
+			//App.get('grid#MainGrid').getStore().reload();
 		};
 	},
 	//---------------------------------------------
@@ -749,7 +774,6 @@ App.controller.define('CMain', {
 		
 		if(App.get('grid#gridFacture').getStore().data.length != 0)
 		{
-		
 			var o = {
 				id: fact,
 				bes: 1
