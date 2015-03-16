@@ -302,11 +302,6 @@ App.controller.define('CMain', {
 			p.up('window').close();
 			App.get('grid#MainGrid').getStore().load();
 		});
-		//***********************************************
-		//					RAJOUT
-		//***********************************************
-		
-		//*****************FIN RAJOUT********************
 	},
 	toggle_buttons: function(p,press) {
 		if (p.iconCls=="orange") p.up('window').state_id="FF9900";
@@ -449,7 +444,7 @@ App.controller.define('CMain', {
 		//************************************************
 		//*******************RAJOUT***********************
 		//************************************************
-		this.gestionServiceFait(App.get('datefield#date_servicefait').getValue());
+		this.gestionServiceFait(App.get('datefield#date_servicefait').getValue(), data.id);
 		//************************************************
 		p.up('window').close();
 	},
@@ -459,6 +454,8 @@ App.controller.define('CMain', {
 			modal: true,
 			facture: record.data
 		}).show();
+		App.get('numberfield#duplicate_number').setVisible(false);
+		App.get('button#duplicate').setVisible(false);
 	},
 	GridMarches_menu: function( p, record, item, index, e )
 	{
@@ -584,13 +581,13 @@ App.controller.define('CMain', {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
 		//console.log(record.data.date_servicefait);
-		this.gestionServiceFait(record.data.date_servicefait);
+		this.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
 	},
 	//---------------------------------------------
-	gestionServiceFait: function(serviceFait)
+	gestionServiceFait: function(serviceFait, idFact)
 	{
-		//var serviceFait = App.get('datefield#date_servicefait').getValue()
-		var fact=App.get('numberfield#hiddenFact').getValue();
+		//var fact=App.get('numberfield#hiddenFact').getValue();
+		App.get('numberfield#hiddenFact').setValue();
 		var gridF=App.get('grid#gridFacture');
 		var gridI=App.get('grid#gridInfocentre');
 		if (serviceFait)
@@ -602,7 +599,7 @@ App.controller.define('CMain', {
 			gridF.getView().plugins[0].dragZone.lock();
 			gridI.getView().plugins[0].dragZone.lock();
 			//getPlugin('dragdrop')
-			var o = {id: fact, bes: 0};
+			var o = {id: idFact, bes: 0};
 			App.Factures.setBES(o, function(result) {
 				//console.log(result);
 			});
@@ -615,7 +612,7 @@ App.controller.define('CMain', {
 			gridI.getView().plugins[0].dragZone.unlock();
 			if(App.get('grid#gridFacture').getStore().data.length != 0)
 			{
-				var o = {id: fact, bes: 1};
+				var o = {id: idFact, bes: 1};
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
