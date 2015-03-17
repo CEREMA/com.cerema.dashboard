@@ -332,9 +332,9 @@ App.controller.define('CMain', {
 			//console.log(sel.selected.items[0].data);
 			if 	((sel.selected.items[0].data.ej=="") 
 				&& (sel.selected.items[0].data.nofacture=="") 
-				&& (sel.selected.items[0].data._BLOB==[])
+				/*&& (sel.selected.items[0].data._BLOB==[])*/
 				&& (sel.selected.items[0].data.BES==0) 
-				&& (sel.selected.items[0].data.date_servicefait) 
+				&& !(sel.selected.items[0].data.date_servicefait) 
 				&& (sel.selected.items[0].data.cloture==false))
 			{
 				App.Factures.del(sel.selected.items[0].data.idfacture,function(err,result) {
