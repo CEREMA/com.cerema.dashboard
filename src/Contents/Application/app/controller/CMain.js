@@ -329,12 +329,13 @@ App.controller.define('CMain', {
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		if (sel.selected.items.length>0) {
-			if 	(sel.selected.items[0].data.ej=0) 
-				&& (sel.selected.items[0].data.nofacture='') 
-				&& (sel.selected.items[0].data._BLOB=[])
-				&& (sel.selected.items[0].data.BES=0) 
-				&& (sel.selected.items[0].data.date_servicefait='NULL') 
-				&& (sel.selected.items[0].data.cloture=false)
+			//console.log(sel.selected.items[0].data);
+			if 	((sel.selected.items[0].data.ej=="") 
+				&& (sel.selected.items[0].data.nofacture=="") 
+				&& (sel.selected.items[0].data._BLOB==[])
+				&& (sel.selected.items[0].data.BES==0) 
+				&& (sel.selected.items[0].data.date_servicefait) 
+				&& (sel.selected.items[0].data.cloture==false))
 			{
 				App.Factures.del(sel.selected.items[0].data.idfacture,function(err,result) {
 					App.notify("La facture a été supprimée");
@@ -353,6 +354,7 @@ App.controller.define('CMain', {
 				gridI.getStore().getProxy().extraParams.ID=-1;
 				gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
 				gridI.getStore().load();
+				
 				//************************************************
 			}
 			else
