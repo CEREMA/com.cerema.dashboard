@@ -25,74 +25,6 @@ App.view.define('main.VForm',
 				text	: "Sortir"
 			}
 		],
-		/*tbar: 
-		[
-			{
-				xtype	: 'label', // Object text Budget annuel
-				itemId	: 'label_budget',
-				text	: 'Budget annuel : ',
-				margin	:
-					{
-						//top: 30
-						//bottom: 5,
-						left: 20
-						//right: 10
-					}
-			},		
-			{
-				xtype		: "textfield", // Object text Budget annuel
-				itemId		: "textfieldbudgetannuel",				
-				width		: 70,
-				readOnly	: true,
-				//fieldLabel: "Budget",
-				//labelAlign: "left"
- 				margin:
-					{
-						top: 5,
-						bottom: 5,
-						left: 20,
-						right: 10
-					}, 
-			},
-			{
-				xtype	: 'label', // Object text Budget annuel
-				itemId	: 'label_budgetannuel',
-				text	: 'Budget Actuel : ',
-				margin	:
-					{
-						//top: 30
-						//bottom: 5,
-						left		: 10
-						//right: 10
-					}
-			},	
-			{
-				xtype		: "textfield", // Object text Budget actuel
-				itemId		: "textfieldbudgetactuel",
-				width		: 70,
-				readOnly	: true,
-				margin:
-					{
-						top: 22,
-						bottom: 5,
-						left: 60,
-						right: 10
-					} 
-			},
-			{
-				xtype	: "label", // Object text Budget actuel
-				itemId	: "labelannee",
-				text	: 'Année: 2015',
-				width	: 64,
-				margin	:
-					{
-						//top: 22,
-						//bottom: 5,
-						left		: 10
-						//right: 10
-					}
-			}
-		],*/
 		defaults: 
 			{
 				width: 420
@@ -162,7 +94,6 @@ App.view.define('main.VForm',
 										}
 									]	
 							},
-							// ----------- 1 ère et 2ème lignes : Département - Service ( fin )
 							// ----------- 3ème ligne : Bénéficiaire - Avancement ( début )
 							{
 								layout	: "hbox",
@@ -208,7 +139,6 @@ App.view.define('main.VForm',
 										}	
 									]	
 							},
-							// ----------- 3ème ligne : Bénéficiaire - Avancement ( fin )
 							// ----------- 4ème ligne : Domaine - Nature ( début )										
 							{
 								layout	: "hbox",
@@ -256,7 +186,6 @@ App.view.define('main.VForm',
 										},					
 									]	
 							},
-							// ----------- 4ème ligne : Domaine - Nature ( fin )
 							// ----------- 5ème ligne : Sous nature - Evolution - Qté ( debut )										
 							{
 								layout	: "hbox",
@@ -319,7 +248,6 @@ App.view.define('main.VForm',
 										},	
 									]	
 							},
-							// ----------- 5ème ligne : Sous nature - Evolution - Qté ( fin )
 							// ----------- 6ème ligne : Date de la demande - Prix ( debut )										
 							{
 								layout	: "hbox",
@@ -372,7 +300,6 @@ App.view.define('main.VForm',
 										},	
 									]	
 							},
-							// ----------- 6ème ligne : Date de la demande - Prix ( fin )
 							// ----------- 7ème et 8ème ligne : Motivation - Détails complémentaires ( debut )										
 							{
 								layout	: "vbox",
@@ -421,7 +348,6 @@ App.view.define('main.VForm',
 										}
 									]	
 							},
-							// ----------- 7ème et 8ème ligne : Motivation - Détails complémentaires ( fin )
 							// ----------- 9ème ligne : Phasage ( debut )
 							{
 								layout	: "hbox",
@@ -507,7 +433,6 @@ App.view.define('main.VForm',
 										//-------------------------
 									]	
 							},
-							// ----------- 9ème ligne : Phasage ( fin )
 							// ----------- 10ème ligne : Commentaire ( debut )									
 							{
 								layout	: "hbox",
@@ -540,7 +465,6 @@ App.view.define('main.VForm',
 										}
 									]	
 							}
-							// ----------- 10ème ligne : Commentaire ( fin )
 						]
 				}
 			]

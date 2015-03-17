@@ -107,6 +107,9 @@ App.controller.define('CMain', {
 			"grid#gridFacture": {
 				itemdblclick: "gridInfocentre_dblclick"
 			},
+			"grid#gridFacture checkcolumn": {
+				checkchange: "gridFacture_checkchange"
+			},
 			// ---------- VForm
 			"button#btnVFormClose": {
 				click: "onVFormClose"
@@ -638,13 +641,13 @@ App.controller.define('CMain', {
 				var tabBes=[];
 				for(var i=0; i < gridF.getStore().data.length; i++)
 				{
-					//console.log(gridF.getStore().data.items[i]);
-					//tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
+					//console.log(gridF.getStore().data.items[i].data.ID_demande);
+					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
 				};
 				var o = {avanc: 7, data: tabBes};
-				/*App.Infocentre.setBaseAv(o, function(result) {
+				App.Infocentre.setBaseAv(o, function(result) {
 					//console.log(result);
-				});*/
+				});
 			}
 			else
 			{
@@ -856,6 +859,19 @@ App.controller.define('CMain', {
 		
 	},
 	//---------------------------------------------
+	gridFacture_checkchange: function( moi, rowIndex, checked, eOpts )
+	{
+		//alert('click on checkcolumn');
+		if(checked)
+		{
+			
+		}
+		else
+		{
+			
+		};
+	},
+	//---------------------------------------------
 	formatTotal : function(v)
 	{
 		v = (Math.round((v-0)*100))/100;
@@ -922,7 +938,7 @@ App.controller.define('CMain', {
 		App.get('datefield#datfdatedem').setValue(record.data.date_de_demande);
 		App.get('numberfield#txtfprix').setValue(record.data.prix_sous_nature);
 		//console.log('prix:'+record.data.prix_sous_nature);
-		var valeurprogress = (record.data.avancement / 8);
+		var valeurprogress = (record.data.avancement / 7);
 		App.get('progressbar#progbAvancement').updateProgress(valeurprogress);
 		
 		if (record.data.phasage==0) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'red';

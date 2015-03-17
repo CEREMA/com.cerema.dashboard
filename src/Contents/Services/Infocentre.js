@@ -16,7 +16,7 @@ Infocentre = {
 		//console.log('o.facture:'+o.facture);
 		var tab=[];		
 		for (var i=0;i<data.length;i++) tab.push(data[i].ID_demande);	
-		var sql='UPDATE base SET facture = "'+data[0].facture+'" WHERE base.ID_demande in ('+tab.join(',')+')';
+		var sql='UPDATE base SET facture = "'+data[0].facture+'", livre_valide = 0 WHERE base.ID_demande in ('+tab.join(',')+')';
 		//console.log(sql);
 		db.query('infocentre2015',sql ,cb);
 	},

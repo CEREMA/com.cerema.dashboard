@@ -23,7 +23,8 @@ select 	ID_demande,
 		prix_sous_nature,
 		phasage,
 		avancement,
-		special
+		special,
+		livre_valide
 	from base as ba
 	join domaine_metier 		on ID_domaine_metier = domaine_metier
 	join nature 				on nature = ID_nature

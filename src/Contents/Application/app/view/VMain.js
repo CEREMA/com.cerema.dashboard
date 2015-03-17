@@ -266,7 +266,7 @@ App.view.define('VMain', {
 						{	// Champ caché de l'idfacture sélectionnée
 							xtype	: "numberfield",
 							itemId	: "hiddenFact",
-							hidden	: false,
+							hidden	: true,
 							value	: -100
 							
 						},
@@ -316,7 +316,7 @@ App.view.define('VMain', {
 								{header: "Prix", 		width: 100,	hidden: false, sortable: true, 	dataIndex: 'prix_sous_nature', renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
 								{header: "Commentaire", width: 150, hidden: true, sortable: true, 	dataIndex: 'commentaire_s2i'},
-								
+								{header: "Livré", 		width: 150, hidden: false, sortable: true, 	dataIndex: 'livre_valide'},
 							],
 							store: App.store.create('App.Infocentre.getBaseFact',{
 								//autoLoad: true
@@ -368,6 +368,7 @@ App.view.define('VMain', {
 								{header: "Prix", 		width: 70, 	hidden: true, sortable: true, 	dataIndex: 'prix_sous_nature',renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
 								{header: "Commentaire", width: 240, hidden: false, sortable: true, 	dataIndex: 'commentaire_s2i'}
+								{header: "Livré", 		width: 150, hidden: true, sortable: true, 	dataIndex: 'livre_valide'},
 							],
 							store: App.store.create('App.Infocentre.getBase',{
 								//autoLoad: true
