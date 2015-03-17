@@ -862,13 +862,22 @@ App.controller.define('CMain', {
 	gridFacture_checkchange: function( moi, rowIndex, checked, eOpts )
 	{
 		//alert('click on checkcolumn');
+		var demande=App.get('grid#gridFacture').getStore().data.items[rowIndex].data.ID_demande;
+		console.log(rowIndex);
+		console.log(bes);
 		if(checked)
 		{
-			
+			var o = {coche:1, bes:demande};
+			App.Infocentre.setBaseLivre(o, function(result) {
+			//console.log(result);
+			});
 		}
 		else
 		{
-			
+			var o = {coche:0, bes:demande};
+			App.Infocentre.setBaseLivre(o, function(result) {
+			//console.log(result);
+			});
 		};
 	},
 	//---------------------------------------------

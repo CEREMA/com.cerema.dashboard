@@ -311,12 +311,12 @@ App.view.define('VMain', {
 								{header: "Sous-nature", width: 120, hidden: false, sortable: true, 	dataIndex: 'libelle_sous_nature'},							
 								{header: "Service", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'Libsub'},
 								{header: "Dpt", 		width: 150, hidden: true, sortable: true, 	dataIndex: 'LibUni'},
-								{header: "Libellé", 	width: 200, hidden: false, sortable: true, 	dataIndex: 'libelle_commande'},
+								{header: "Libellé", 	width: 190, hidden: false, sortable: true, 	dataIndex: 'libelle_commande'},
 								{header: "Qté", 		width: 30, 	hidden: false, sortable: true, 	dataIndex: 'quantité'},
-								{header: "Prix", 		width: 100,	hidden: false, sortable: true, 	dataIndex: 'prix_sous_nature', renderer:  Ext.util.Format.numberRenderer('0.00')},
+								{header: "Prix", 		width: 90,	hidden: false, sortable: true, 	dataIndex: 'prix_sous_nature', renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
 								{header: "Commentaire", width: 150, hidden: true, sortable: true, 	dataIndex: 'commentaire_s2i'},
-								{header: "Livré", 		width: 150, hidden: false, sortable: true, 	dataIndex: 'livre_valide'},
+								{header: "Livré", 		width: 40, hidden: false, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
 							],
 							store: App.store.create('App.Infocentre.getBaseFact',{
 								//autoLoad: true
@@ -367,8 +367,8 @@ App.view.define('VMain', {
 								{header: "Qté", 		width: 20, 	hidden: false, sortable: true, 	dataIndex: 'quantité'},
 								{header: "Prix", 		width: 70, 	hidden: true, sortable: true, 	dataIndex: 'prix_sous_nature',renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
-								{header: "Commentaire", width: 240, hidden: false, sortable: true, 	dataIndex: 'commentaire_s2i'}
-								{header: "Livré", 		width: 150, hidden: true, sortable: true, 	dataIndex: 'livre_valide'},
+								{header: "Commentaire", width: 240, hidden: false, sortable: true, 	dataIndex: 'commentaire_s2i'},
+								{header: "Livré", 		width: 40, hidden: true, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
 							],
 							store: App.store.create('App.Infocentre.getBase',{
 								//autoLoad: true
