@@ -626,16 +626,33 @@ App.controller.define('CMain', {
 		{
 			//alert('serviceFait is not null');
 			//console.log(gridF);
-			//console.log(gridF.getView().isDraggable());
-			//gridF.isDraggable( )=false;
 			gridF.getView().plugins[0].dragZone.lock();
 			gridI.getView().plugins[0].dragZone.lock();
-			//getPlugin('dragdrop')
-			var o = {id: idFact, bes: 0};
-			//console.log('setBES:'+o.id+' à '+o.bes);
-			App.Factures.setBES(o, function(result) {
-				//console.log(result);
-			});
+			if(gridF.getStore().data.length != 0)
+			{
+				var o = {id: idFact, bes: 2};
+				//console.log('setBES:'+o.id+' à '+o.bes);
+				App.Factures.setBES(o, function(result) {
+					//console.log(result);
+				});
+				var tabBes=[];
+				for(var i=0; i < gridF.getStore().data.length; i++)
+				{				
+					tabBes.push(gridF.getStore().data[i].ID_demande);
+				};
+				var o = {avanc: 7, data: tabBes};
+				App.Infocentre.setBaseAv(o, function(result) {
+					//console.log(result);
+				});
+			}
+			else
+			{
+				var o = {id: idFact, bes: 0};
+				//console.log('setBES:'+o.id+' à '+o.bes);
+				App.Factures.setBES(o, function(result) {
+					//console.log(result);
+				});
+			};
 			//App.get('grid#MainGrid').getStore().reload();
 		}
 		else
