@@ -638,13 +638,13 @@ App.controller.define('CMain', {
 				var tabBes=[];
 				for(var i=0; i < gridF.getStore().data.length; i++)
 				{
-					console.log(gridF.getStore().data.items[i].data.ID_demande);
-					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
+					//console.log(gridF.getStore().data.items[i]);
+					//tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
 				};
 				var o = {avanc: 7, data: tabBes};
-				App.Infocentre.setBaseAv(o, function(result) {
+				/*App.Infocentre.setBaseAv(o, function(result) {
 					//console.log(result);
-				});
+				});*/
 			}
 			else
 			{
