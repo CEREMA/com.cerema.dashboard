@@ -213,6 +213,7 @@ App.view.define('VMain', {
 						//***************************************************************************
 						{header: "BES", width: 32, dataIndex: 'BES', renderer : function(val){
 							if (val==1)	return('<div class="basket">&nbsp;&nbsp;&nbsp;&nbsp;</div>');
+							if (val==2)	return('<div class="coche">&nbsp;&nbsp;&nbsp;&nbsp;</div>');
 						}},
 						//***************************************************************************
 

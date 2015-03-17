@@ -213,16 +213,18 @@ App.controller.define('CMain', {
 		//gridI.setDisabled(false);
 		//console.log(record.data);
 		//console.log('Aie:'+record.data.idfacture);
-		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 		//alert(App.get('numberfield#hiddenFact').getValue());
-		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
 		gridF.getStore().getProxy().extraParams.ID=record.data.idfacture;
-		gridF.getStore().load();
+		//gridF.getStore().load();
+		gridF.getStore().load(function () {
+			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
+			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
+		});
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
-		this.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
 		//*****************FIN RAJOUT********************
 		
 		e.stopEvent();
@@ -301,6 +303,9 @@ App.controller.define('CMain', {
 			ID: p.up('window').facture.idfacture,
 			n: App.get('numberfield#duplicate_number').getValue()
 		};
+		console.log(o.ID);
+		//console.log('facture-duplicate:'+App.get('datefield#date_servicefait').getValue()+', '+data.id);
+		//this.gestionServiceFait(App.get('datefield#date_servicefait').getValue(), data.id);
 		App.Factures.duplicate(o,function(err,r) {
 			App.notify('La facture a été dupliquée.');
 			p.up('window').close();
@@ -354,12 +359,12 @@ App.controller.define('CMain', {
 				gridI.getStore().getProxy().extraParams.ID=-1;
 				gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
 				gridI.getStore().load();
-				
+				App.get('numberfield#hiddenFact').setValue(-100);
 				//************************************************
 			}
 			else
 			{
-				alert('Facture impossible à supprimer !');
+				alert('Facture id:'+sel.selected.items[0].data.idfacture+' impossible à supprimer !');
 			}
 			;	
 		};
@@ -454,6 +459,8 @@ App.controller.define('CMain', {
 			App.Factures.update(data,function(err,result) {
 				App.get('grid#MainGrid').getStore().load();
 			});
+			//console.log('onFactureClose:'+data.date_servicefait+', '+data.id);
+			this.gestionServiceFait(data.date_servicefait, data.id);
 		} else {
 			// create
 			App.Factures.insert(data,function(err,result) {
@@ -464,7 +471,8 @@ App.controller.define('CMain', {
 		//************************************************
 		//*******************RAJOUT***********************
 		//************************************************
-		this.gestionServiceFait(App.get('datefield#date_servicefait').getValue(), data.id);
+		//console.log('onFactureClose:'+data.date_servicefait+', '+data.id);
+		//this.gestionServiceFait(data.date_servicefait, data.id);
 		//************************************************
 		p.up('window').close();
 	},
@@ -581,7 +589,7 @@ App.controller.define('CMain', {
 			modal: true,
 			facture: record.data
 		}).show();
-		//App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 	},
 	
 	//***************************************************************************************************
@@ -597,12 +605,15 @@ App.controller.define('CMain', {
 		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
 		gridF.setTitle('Marché: ' + record.data.marche_title + ' - ' + record.data.prestation + (record.data.ej!=''?(' (EJ: '+record.data.ej+')'):''));
 		gridF.getStore().getProxy().extraParams.ID = record.data.idfacture;
-		gridF.getStore().load();
+		gridF.getStore().load(function () {
+			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
+			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
+		});
+		
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
 		});
-		//console.log(record.data.date_servicefait);
-		this.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
+		
 	},
 	//---------------------------------------------
 	gestionServiceFait: function(serviceFait, idFact)
@@ -621,6 +632,7 @@ App.controller.define('CMain', {
 			gridI.getView().plugins[0].dragZone.lock();
 			//getPlugin('dragdrop')
 			var o = {id: idFact, bes: 0};
+			//console.log('setBES:'+o.id+' à '+o.bes);
 			App.Factures.setBES(o, function(result) {
 				//console.log(result);
 			});
@@ -631,13 +643,15 @@ App.controller.define('CMain', {
 			//alert('serviceFait is null');
 			gridF.getView().plugins[0].dragZone.unlock();
 			gridI.getView().plugins[0].dragZone.unlock();
-			if(App.get('grid#gridFacture').getStore().data.length != 0)
+			//console.log('serviceFait is null - longFridF:'+gridF.getStore().data.length);
+			if(gridF.getStore().data.length != 0)
 			{
 				var o = {id: idFact, bes: 1};
+				//console.log('setBES:'+o.id+' à '+o.bes);
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
-			};
+			}
 			//App.get('grid#MainGrid').getStore().reload();
 		};
 	},
