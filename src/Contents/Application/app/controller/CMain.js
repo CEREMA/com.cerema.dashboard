@@ -364,7 +364,7 @@ App.controller.define('CMain', {
 			}
 			else
 			{
-				alert('Facture id:'+sel.selected.items[0].data.idfacture+' impossible à supprimer !');
+				alert('Facture id:'+sel.selected.items[0].data.idfacture+' - Suppression interdite !');
 			}
 			;	
 		};
@@ -637,8 +637,9 @@ App.controller.define('CMain', {
 				});
 				var tabBes=[];
 				for(var i=0; i < gridF.getStore().data.length; i++)
-				{				
-					tabBes.push(gridF.getStore().data[i].ID_demande);
+				{
+					console.log(gridF.getStore().data.items[i].data.ID_demande);
+					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
 				};
 				var o = {avanc: 7, data: tabBes};
 				App.Infocentre.setBaseAv(o, function(result) {
