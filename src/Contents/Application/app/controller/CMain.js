@@ -864,10 +864,10 @@ App.controller.define('CMain', {
 		//alert('click on checkcolumn');
 		var demande=App.get('grid#gridFacture').getStore().data.items[rowIndex].data.ID_demande;
 		console.log(rowIndex);
-		console.log(bes);
+		console.log(demande);
 		if(checked)
 		{
-			var o = {coche:1, bes:demande};
+			var o = {coche: 1, bes: demande};
 			App.Infocentre.setBaseLivre(o, function(result) {
 			//console.log(result);
 			});
