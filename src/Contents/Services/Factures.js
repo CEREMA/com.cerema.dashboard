@@ -8,7 +8,7 @@
 Factures = {
 	get: function(o,cb) {
 		var db=Factures.using('db');		
-		console.log(db.sql('factures_get',{ID: o.id,YEAR: o.year}));
+		//console.log(db.sql('factures_get',{ID: o.id,YEAR: o.year}));
 		db.model('dashboard',db.sql('factures_get',{ID: o.id,YEAR: o.year}),cb);
 	},
 	duplicateme: function(tab,ndx,cb) {
@@ -21,12 +21,12 @@ Factures = {
 		} else cb();
 	},
 	duplicate: function(o,cb) {
-		console.log('duplicate');
+		//console.log('duplicate');
 		var db=Factures.using('db');
-		console.log(o);
+		//console.log(o);
 		db.query('dashboard','select * from factures where id="'+o.ID+'"',function(err,result) {
-			console.log(err);
-			console.log(result);
+			//console.log(err);
+			//console.log(result);
 			if (result.length>0) {
 				var r=result[0];
 				r._BLOB=[];
@@ -75,7 +75,7 @@ Factures = {
 	},
 	update: function(o,cb) {
 		Factures.using('db').post('dashboard','factures',o,function(r,x){
-			console.log(o);
+			//console.log(o);
 			if (o._BLOB) {
 				Factures.upload_blob(o._BLOB,0,function() {
 					cb(r);
