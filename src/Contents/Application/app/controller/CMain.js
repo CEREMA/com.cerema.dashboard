@@ -223,7 +223,7 @@ App.controller.define('CMain', {
 		//gridF.getStore().load();
 		gridF.getStore().load(function () {
 			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
-			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
+			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture, record.data.ej);
 		});
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
@@ -462,21 +462,18 @@ App.controller.define('CMain', {
 			App.Factures.update(data,function(err,result) {
 				App.get('grid#MainGrid').getStore().load();
 			});
+			//************************************************
+			//*******************RAJOUT***********************
+			//************************************************
 			//console.log('onFactureClose:'+data.date_servicefait+', '+data.id);
-			this.gestionServiceFait(data.date_servicefait, data.id);
+			this.gestionServiceFait(data.date_servicefait, data.id, data.ej);
+			//************************************************
 		} else {
 			// create
 			App.Factures.insert(data,function(err,result) {
 				App.get('grid#MainGrid').getStore().load();
 			});			
 		};
-		
-		//************************************************
-		//*******************RAJOUT***********************
-		//************************************************
-		//console.log('onFactureClose:'+data.date_servicefait+', '+data.id);
-		//this.gestionServiceFait(data.date_servicefait, data.id);
-		//************************************************
 		p.up('window').close();
 	},
 	open_facture: function(p, record, item, index, e)
@@ -592,7 +589,9 @@ App.controller.define('CMain', {
 			modal: true,
 			facture: record.data
 		}).show();
+		// ********* Rajout
 		App.get('numberfield#hiddenFact').setValue(record.data.idfacture);
+		// *********
 	},
 	
 	//***************************************************************************************************
@@ -610,7 +609,7 @@ App.controller.define('CMain', {
 		gridF.getStore().getProxy().extraParams.ID = record.data.idfacture;
 		gridF.getStore().load(function () {
 			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
-			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture);
+			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture, record.data.ej);
 		});
 		
 		gridF.getStore().on('load',function() {
@@ -619,61 +618,76 @@ App.controller.define('CMain', {
 		
 	},
 	//---------------------------------------------
-	gestionServiceFait: function(serviceFait, idFact)
+	gestionServiceFait: function(serviceFait, idFact, bdc)
 	{
 		//var fact=App.get('numberfield#hiddenFact').getValue();
 		App.get('numberfield#hiddenFact').setValue(idFact);
 		var gridF=App.get('grid#gridFacture');
 		var gridI=App.get('grid#gridInfocentre');
-		if (serviceFait)
+		if (serviceFait)									// La facture est réalisée
 		{
 			//alert('serviceFait is not null');
 			//console.log(gridF);
-			gridF.getView().plugins[0].dragZone.lock();
+			gridF.getView().plugins[0].dragZone.lock();		// On bloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.lock();
-			if(gridF.getStore().data.length != 0)
+			if(gridF.getStore().data.length != 0) 			// Des besoins sont rattachés à la facture
 			{
-				var o = {id: idFact, bes: 2};
+				var o = {id: idFact, bes: 2};				// On fixe le champ BES (=besoins rattachés) à 2 (=facture finie et besoins rattachés)
 				//console.log('setBES:'+o.id+' à '+o.bes);
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
-				var tabBes=[];
+				var tabBes=[];								// On fixe l'avancement des besoins dans infocentre à 7 ("Paiement facture")
 				for(var i=0; i < gridF.getStore().data.length; i++)
 				{
-					//console.log(gridF.getStore().data.items[i].data.ID_demande);
 					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
 				};
-				var o = {avanc: 7, data: tabBes};
+				var o = {avanc: 7, data: tabBes};			
 				App.Infocentre.setBaseAv(o, function(result) {
 					//console.log(result);
 				});
 			}
-			else
-			{
-				var o = {id: idFact, bes: 0};
+			else											// Pas de besoins sont rattachés à la facture
+			{												// On fixe le champ BES (=besoins rattachés) à 0 (=pas de besoins rattachés)
+				var o = {id: idFact, bes: 0};				
 				//console.log('setBES:'+o.id+' à '+o.bes);
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
 			};
-			//App.get('grid#MainGrid').getStore().reload();
 		}
-		else
+		else												// La facture n'est pas réalisée
 		{
 			//alert('serviceFait is null');
-			gridF.getView().plugins[0].dragZone.unlock();
+			gridF.getView().plugins[0].dragZone.unlock();	// On débloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.unlock();
-			//console.log('serviceFait is null - longFridF:'+gridF.getStore().data.length);
-			if(gridF.getStore().data.length != 0)
+			if(gridF.getStore().data.length != 0)			// Des besoins sont rattachés à la facture
 			{
-				var o = {id: idFact, bes: 1};
+				var o = {id: idFact, bes: 1};				// On fixe le champ BES (=besoins rattachés) à 1 (=des besoins sont rattachés)
 				//console.log('setBES:'+o.id+' à '+o.bes);
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
+				if (bdc!='')								// Un bon de commande est renseigné
+				{
+					gridF.columns[10].setVisible(true);
+					var tabBes=[];							// On fixe l'avancement des besoins = 4 dans infocentre à 3 ("Commande")
+					for(var i=0; i < gridF.getStore().data.length; i++)
+					{
+						if (gridF.getStore().data.items[i].data.avancement == 3) {
+							tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
+						};
+					};
+					var o = {avanc: 4, data: tabBes};			
+					App.Infocentre.setBaseAv(o, function(result) {
+						//console.log(result);
+					});
+				}
+				else
+				{											// Pas de bon de commande renseigné
+					gridF.columns[10].setVisible(false);
+				};
 			}
-			//App.get('grid#MainGrid').getStore().reload();
 		};
 	},
 	//---------------------------------------------
@@ -832,13 +846,24 @@ App.controller.define('CMain', {
 	gridFacture_drop: function(node, data, dropRec, dropPosition)
 	{
 		//console.log('Infocentre --> Facture');
-		var fact=App.get('numberfield#hiddenFact').getValue();
+		var fact = App.get('numberfield#hiddenFact').getValue();
 		var _data=[];
+		var sel = App.get('grid#MainGrid').getSelectionModel();
+		var ava;
+		if (sel.selected.items.length>0) {
+			if 	(sel.selected.items[0].data.ej!=""){
+				ava = 4;
+			} else {
+				ava = 3;
+			};
+		};
+		console.log('ava:'+ava);
 		for(var i=0; i < data.records.length; i++)
-		{			
+		{
 			_data.push({
 				ID_demande	: data.records[i].data.ID_demande,
-				facture		: fact
+				facture		: fact,
+				avancement	: ava
 			});
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
@@ -865,19 +890,41 @@ App.controller.define('CMain', {
 		var demande=App.get('grid#gridFacture').getStore().data.items[rowIndex].data.ID_demande;
 		console.log(rowIndex);
 		console.log(demande);
-		if(checked)
-		{
-			var o = {coche: 1, bes: demande};
+		if(checked)									
+		{											// Coché
+			var o = {coche: 1, bes: demande};		// On check le champ livre_valide dans infocentre
 			App.Infocentre.setBaseLivre(o, function(result) {
-			//console.log(result);
+				//console.log(result);
+			});
+			var tabBes=[];							// On fixe l'avancement du besoin à 5 ("Livraison")
+			tabBes.push(demande);
+			var o = {avanc: 5, data: tabBes};			
+			App.Infocentre.setBaseAv(o, function(result) {
+				//console.log(result);
 			});
 		}
 		else
-		{
-			var o = {coche:0, bes:demande};
+		{											// Décoché
+			var o = {coche:0, bes:demande};			// On uncheck le champ livre_valide dans infocentre
 			App.Infocentre.setBaseLivre(o, function(result) {
 			//console.log(result);
 			});
+			var tabBes=[];							
+			tabBes.push(demande);
+			var sel=App.get('grid#MainGrid').getSelectionModel();
+			if (sel.selected.items.length>0) {
+				if 	(sel.selected.items[0].data.ej=="") 
+				{											// Il n'existe pas de bdc sur cette facture
+					var o = {avanc: 3, data: tabBes};		// On fixe l'avancement du besoin à 3 ("validation chef S2i")
+				} 
+				else 
+				{											// Il existe un de bdc sur cette facture
+					var o = {avanc: 4, data: tabBes};		// On fixe l'avancement du besoin à 4 ("Commande")
+				};			
+				App.Infocentre.setBaseAv(o, function(result) {
+					//console.log(result);
+				});
+			}
 		};
 	},
 	//---------------------------------------------
@@ -907,10 +954,12 @@ App.controller.define('CMain', {
 		var factNone=-1;
 		var _data=[];
 		for(var i=0; i < data.records.length; i++)
-		{				
+		{
+			
 			_data.push({
 				ID_demande	: data.records[i].data.ID_demande,
-				facture		: factNone
+				facture		: factNone,
+				avancement	: 3
 			});
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
