@@ -2,7 +2,12 @@ Infocentre = {
 	getBase: function(o, cb) {
 		var db=Infocentre.using('db');		
 		//console.log(o);
-		db.model('infocentre2015', db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT}), cb);
+		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1",function(err,r) {
+			console.log(err);
+			console.log(r);
+			return;
+			db.model('infocentre2015', db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT}), cb);
+		});
 	},
 	// --------------------------------------------------------------------
 	getBaseFact: function(o, cb) {
