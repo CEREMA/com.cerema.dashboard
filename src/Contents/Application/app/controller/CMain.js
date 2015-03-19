@@ -432,6 +432,8 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
+		console.log(App.get('combo#cbo_marche').getValue());
+		return;
 		if (App.get('combo#cbo_marche').getValue()=="") {
 			App.notify('Vous avez oublié de sélectionner un marché !');
 			return;
