@@ -316,7 +316,7 @@ App.view.define('VMain', {
 								{header: "Prix", 		width: 90,	hidden: false, sortable: true, 	dataIndex: 'prix_sous_nature', renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
 								{header: "Commentaire", width: 150, hidden: true, sortable: true, 	dataIndex: 'commentaire_s2i'},
-								{header: "Livré", 		width: 40, 	hidden: false, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
+								{header: "Livré", 		width: 30, 	hidden: false, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
 							],
 							store: App.store.create('App.Infocentre.getBaseFact',{
 								//autoLoad: true
@@ -368,7 +368,7 @@ App.view.define('VMain', {
 								{header: "Prix", 		width: 70, 	hidden: true, sortable: true, 	dataIndex: 'prix_sous_nature',renderer:  Ext.util.Format.numberRenderer('0.00')},
 								{header: "Avancement", 	width: 150, hidden: true, sortable: true, 	dataIndex: 'libelle_avancement'},
 								{header: "Commentaire", width: 240, hidden: false, sortable: true, 	dataIndex: 'commentaire_s2i'},
-								{header: "Livré", 		width: 40, hidden: true, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
+								{header: "Livré", 		width: 30, hidden: true, sortable: true, 	dataIndex: 'livre_valide', xtype: 'checkcolumn'},
 							],
 							store: App.store.create('App.Infocentre.getBase',{
 								//autoLoad: true

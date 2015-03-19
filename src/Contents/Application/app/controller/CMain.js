@@ -223,7 +223,7 @@ App.controller.define('CMain', {
 		//gridF.getStore().load();
 		gridF.getStore().load(function () {
 			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
-			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture, record.data.ej);
+			_p.gestionFacture(record.data.date_servicefait, record.data.idfacture, record.data.ej);
 		});
 		gridF.getStore().on('load',function() {
 			_p.calcTotal(App.get('grid#gridFacture').getStore().data);
@@ -308,7 +308,7 @@ App.controller.define('CMain', {
 		};
 		console.log(o.ID);
 		//console.log('facture-duplicate:'+App.get('datefield#date_servicefait').getValue()+', '+data.id);
-		//this.gestionServiceFait(App.get('datefield#date_servicefait').getValue(), data.id);
+		//this.gestionFacture(App.get('datefield#date_servicefait').getValue(), data.id);
 		App.Factures.duplicate(o,function(err,r) {
 			App.notify('La facture a été dupliquée.');
 			p.up('window').close();
@@ -466,7 +466,7 @@ App.controller.define('CMain', {
 			//*******************RAJOUT***********************
 			//************************************************
 			//console.log('onFactureClose:'+data.date_servicefait+', '+data.id);
-			this.gestionServiceFait(data.date_servicefait, data.id, data.ej);
+			this.gestionFacture(data.date_servicefait, data.id, data.ej);
 			//************************************************
 		} else {
 			// create
@@ -609,7 +609,7 @@ App.controller.define('CMain', {
 		gridF.getStore().getProxy().extraParams.ID = record.data.idfacture;
 		gridF.getStore().load(function () {
 			//console.log('grid_onclick:'+record.data.date_servicefait+', '+record.data.idfacture);
-			_p.gestionServiceFait(record.data.date_servicefait, record.data.idfacture, record.data.ej);
+			_p.gestionFacture(record.data.date_servicefait, record.data.idfacture, record.data.ej);
 		});
 		
 		gridF.getStore().on('load',function() {
@@ -618,7 +618,7 @@ App.controller.define('CMain', {
 		
 	},
 	//---------------------------------------------
-	gestionServiceFait: function(serviceFait, idFact, bdc)
+	gestionFacture: function(serviceFait, idFact, bdc)
 	{
 		//var fact=App.get('numberfield#hiddenFact').getValue();
 		App.get('numberfield#hiddenFact').setValue(idFact);
@@ -661,6 +661,8 @@ App.controller.define('CMain', {
 			//alert('serviceFait is null');
 			gridF.getView().plugins[0].dragZone.unlock();	// On débloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.unlock();
+			(bdc!='')?gridF.columns[10].setVisible(true):gridF.columns[10].setVisible(false);
+			
 			if(gridF.getStore().data.length != 0)			// Des besoins sont rattachés à la facture
 			{
 				var o = {id: idFact, bes: 1};				// On fixe le champ BES (=besoins rattachés) à 1 (=des besoins sont rattachés)
@@ -670,7 +672,6 @@ App.controller.define('CMain', {
 				});
 				if (bdc!='')								// Un bon de commande est renseigné
 				{
-					gridF.columns[10].setVisible(true);
 					var tabBes=[];							// On fixe l'avancement des besoins = 4 dans infocentre à 3 ("Commande")
 					for(var i=0; i < gridF.getStore().data.length; i++)
 					{
@@ -683,11 +684,7 @@ App.controller.define('CMain', {
 						//console.log(result);
 					});
 				}
-				else
-				{											// Pas de bon de commande renseigné
-					gridF.columns[10].setVisible(false);
-				};
-			}
+			};
 		};
 	},
 	//---------------------------------------------
@@ -860,6 +857,7 @@ App.controller.define('CMain', {
 		console.log('ava:'+ava);
 		for(var i=0; i < data.records.length; i++)
 		{
+			data.records[i].data.livre_valide=false;
 			_data.push({
 				ID_demande	: data.records[i].data.ID_demande,
 				facture		: fact,
@@ -955,7 +953,7 @@ App.controller.define('CMain', {
 		var _data=[];
 		for(var i=0; i < data.records.length; i++)
 		{
-			
+			data.records[i].data.livre_valide=false;
 			_data.push({
 				ID_demande	: data.records[i].data.ID_demande,
 				facture		: factNone,
