@@ -202,8 +202,8 @@ App.view.define('VMain', {
 							App.get('textfield#totalprevttc').setValue(total.toFixed(2));
 							return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
 						}, dataIndex: 'montant_prev',summaryType: 'sum'},
-						{header: "DA", width: 90, sortable: true, dataIndex: 'numda'},
-						{header: "Engagement", width: 90, sortable: true, dataIndex: 'engagement'},
+						{header: "DA", width: 70, sortable: true, dataIndex: 'numda'},
+						{header: "Engagement", width: 70, sortable: true, dataIndex: 'engagement'},
 						{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 						{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 						{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
