@@ -202,6 +202,8 @@ App.view.define('VMain', {
 							App.get('textfield#totalprevttc').setValue(total.toFixed(2));
 							return '<div style="color: blue">'+Ext.util.Format.number(v*1.2, '0.00')+'</div>';
 						}, dataIndex: 'montant_prev',summaryType: 'sum'},
+						{header: "DA", width: 100, sortable: true, dataIndex: 'numda'},
+						{header: "Engagt", width: 100, sortable: true, dataIndex: 'engagement'},
 						{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
 						{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 						{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
@@ -211,7 +213,7 @@ App.view.define('VMain', {
 						//***************************************************************************
 						//									RAJOUT
 						//***************************************************************************
-						{header: "BES", width: 32, dataIndex: 'BES', renderer : function(val){
+						{header: "", width: 32, dataIndex: 'BES', renderer : function(val){
 							if (val==1)	return('<div class="basket">&nbsp;&nbsp;&nbsp;&nbsp;</div>')
 							else if (val==2) return('<div class="coche">&nbsp;&nbsp;&nbsp;&nbsp;</div>');
 						}},
