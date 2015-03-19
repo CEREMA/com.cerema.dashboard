@@ -204,7 +204,7 @@ App.view.define('VMain', {
 						}, dataIndex: 'montant_prev',summaryType: 'sum'},
 						{header: "DA", width: 70, sortable: true, dataIndex: 'numda'},
 						{header: "Engagement", width: 70, sortable: true, dataIndex: 'engagement'},
-						{header: "Bon de Cde.", width: 100, sortable: true, dataIndex: 'ej'},
+						{header: "Bon de Cde", width: 100, sortable: true, dataIndex: 'ej'},
 						{header: "Facture", width: 100, dataIndex: 'nofacture', sortable: true},
 						{header: "", width: 32, dataIndex: '_BLOB', renderer : function(val){
 							val=JSON.parse(val);
