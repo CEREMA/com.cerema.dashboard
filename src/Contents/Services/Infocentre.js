@@ -3,12 +3,10 @@ Infocentre = {
 		var db=Infocentre.using('db');		
 		//console.log(o);
 		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1",function(err,r) {
-			console.log('---------------');
-			console.log(err);
-			console.log(r);
 			var nature=[];
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
-			db.model('infocentre2015', db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), cb);
+			console.log(db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}));
+			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), cb);
 		});
 	},
 	// --------------------------------------------------------------------
