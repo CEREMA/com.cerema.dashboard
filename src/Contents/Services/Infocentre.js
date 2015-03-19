@@ -3,6 +3,7 @@ Infocentre = {
 		var db=Infocentre.using('db');		
 		//console.log(o);
 		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1",function(err,r) {
+			console.log('---------------');
 			console.log(err);
 			console.log(r);
 			return;
