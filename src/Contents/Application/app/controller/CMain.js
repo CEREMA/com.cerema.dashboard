@@ -432,7 +432,10 @@ App.controller.define('CMain', {
 	},
 	onFactureClose: function(p)
 	{
-
+		if (App.get('combo#cbo_marche').getValue()=="") {
+			App.notify('Vous avez oublié de sélectionner un marché !');
+			return;
+		};
 		var data={
 			prestation: App.get('textfield#prestation').getValue(),
 			reference: App.get('textfield#reference').getValue(),
