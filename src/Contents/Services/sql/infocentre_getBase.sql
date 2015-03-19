@@ -37,6 +37,4 @@ select 	ID_demande,
 	join bpclight.subdis as su 	on service = su.Ksub 
 	where 	ba.facture = {ID} and 
 			ba.avancement >= 3 and
-			ba.nature in ( 	select dashboard.filtre.nature 
-							from dashboard.filtre 
-							where dashboard.filtre.categorie = {CAT} and coche = 1)
+			ba.nature in ({NAT})
