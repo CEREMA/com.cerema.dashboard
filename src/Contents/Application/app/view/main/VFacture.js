@@ -168,6 +168,7 @@ App.view.define('main.VFacture',
 			name: 'montant_prev',
 			itemId: "montant_prev",
 			xtype: 'numberfield',
+			decimalSeparator:'.',
 			width: "100%"
 		},
 		{
@@ -189,6 +190,7 @@ App.view.define('main.VFacture',
 			name: 'montant_facture',
 			itemId: "montant_facture",
 			xtype: 'numberfield',
+			decimalSeparator:'.',
 			width: "100%"
 		},
 		{
