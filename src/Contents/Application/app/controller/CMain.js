@@ -6,12 +6,8 @@ App.controller.define('CMain', {
 		"main.VFacture",
 		"main.VMarchesModify",
 		"VShowDoc",
-		//***********************************************
-		//					RAJOUT
-		//***********************************************
 		"main.VForm",
 		"main.VFiltre"
-		//*****************FIN RAJOUT********************
 	],
 	
 	models: [
