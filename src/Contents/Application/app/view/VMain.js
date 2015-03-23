@@ -332,7 +332,7 @@ App.view.define('VMain', {
 							padding			: 5,
 							multiSelect		: true,
 							itemId			: "gridInfocentre",
-							title			: "Besoins infocentre2015",
+							title			: "Demandes infocentre2015",
 							width			: '55%',
 							height			: 400,
 							disabled		: true,

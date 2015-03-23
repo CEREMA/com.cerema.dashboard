@@ -363,7 +363,8 @@ App.controller.define('CMain', {
 			}
 			else
 			{
-				alert('Facture id:'+sel.selected.items[0].data.idfacture+' - Suppression interdite !');
+				App.notify('Facture id:'+sel.selected.items[0].data.idfacture+' - Suppression non autorisée !');
+				//alert('Facture id:'+sel.selected.items[0].data.idfacture+' - Suppression non autorisée !');
 			}
 			;	
 		};
@@ -721,12 +722,12 @@ App.controller.define('CMain', {
 		};
 		App.Filtre.update(obj, function(result) {
 			//console.log(result);
+			App.get('grid#gridInfocentre').getStore().getProxy().extraParams.ID=-1;
+			App.get('grid#gridInfocentre').getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
+			App.get('grid#gridInfocentre').getStore().load();
 		});
-		
-		App.get('grid#gridInfocentre').getStore().getProxy().extraParams.ID=-1;
-		App.get('grid#gridInfocentre').getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
-		App.get('grid#gridInfocentre').getStore().load();
 		App.get('VFiltre').close();
+		
 	},
 	//---------------------------------------------
 	cbo_catFiltre_select: function(p, records, eOpts)
@@ -868,6 +869,7 @@ App.controller.define('CMain', {
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
 			//console.log(result);
+			App.notify("Demande(s) ajoutée(s) à la facture");
 		});
 		
 		if(App.get('grid#gridFacture').getStore().data.length != 0)
@@ -964,6 +966,7 @@ App.controller.define('CMain', {
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
 			//console.log(result);
+			App.notify("Demandes(s) supprimée(s) de la facture");
 		});
 		//console.log(App.get('grid#gridFacture').getStore().data.length);
 		//console.log(fact);
