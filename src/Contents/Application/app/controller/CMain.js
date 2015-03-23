@@ -943,7 +943,7 @@ App.controller.define('CMain', {
 		for(var i=0; i < donnees.length; i++)
 		{
 			//console.log(donnees.items[i].data.prix_sous_nature);
-			total += (donnees.items[i].data.quantité * donnees.items[i].data.prix_sous_nature);
+			total += (donnees.items[i].data.quantite * donnees.items[i].data.prix_sous_nature);
 		};
 		//console.log(total);
 		App.get('textfield#nmbfTotalFact').setValue(this.formatTotal(total));
@@ -992,7 +992,7 @@ App.controller.define('CMain', {
 		App.get('textfield#txtfDomaine').setValue(record.data.libelle_domaine_metier);
 		App.get('textfield#txtfNature').setValue(record.data.libelle_nature);
 		App.get('textfield#txtfSousNature').setValue(record.data.libelle_sous_nature);
-		App.get('numberfield#nmbfQte').setValue(record.data.quantité);
+		App.get('numberfield#nmbfQte').setValue(record.data.quantite);
 		App.get('textfield#txtfmotivation').setValue(record.data.motivation_demande);
 		App.get('textfield#txtalibelledemande').setValue(record.data.commentaire_demande);
 		App.get('textfield#txtacommentaire').setValue(record.data.commentaire_s2i);

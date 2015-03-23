@@ -1,18 +1,14 @@
 select 	ID_demande,
-		/*service,*/
 		LibSub,
-		/*departement,*/
 		LibUni,
 		concat(Nom," ",Prenom) NomPre,
-		/*agent_demandeur,
-		agent_beneficiaire,*/
 		budget_annuel,
 		budget_actuel,
 		date_de_demande,
 		libelle_nature,
 		libelle_sous_nature,
 		libelle_evolution,
-		quantité,
+		quantite,
 		libelle_priorite,
 		libelle_commande, 
 		motivation_demande,
