@@ -552,7 +552,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-		Auth.login(function(user) {
+		/*Auth.login(function(user) {
 			App.profils.get(user.uid,function(r,x) {
 				if (r.length==0) {					
 					App.disabled();
@@ -564,9 +564,9 @@ App.controller.define('CMain', {
 					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
-		});
-		/*Auth.User.profile=1;
-		Auth.User.uid=614;*/
+		});*/
+		Auth.User.profile=1;
+		Auth.User.uid=614;
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
 		App.get('combo#cbo_year').setValue(new Date().getFullYear());
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.year=new Date().getFullYear();
