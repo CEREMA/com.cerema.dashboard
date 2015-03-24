@@ -10,7 +10,19 @@ Filtre = {
 	getAll: function(o, cb) {
 		var db=Filtre.using('db');
 		console.log(o.year);
-		db.model('dashboard', db.sql('filtre_getAll',{AN: o.year}), cb);
+		db.model('dashboard', db.sql('filtre_getAll',{AN: o.year}), function(err,result) {
+			var dta=result.data;
+			var NAT=[];
+			db.model('infocentre2015','select ID_nature, libelle_nature from nature',function(err,r2) {
+				for (var i=0;i<r2.data.length;i++) {
+					NAT[r2.data[i].ID_nature]=r2.data[i].libelle_nature;
+				};
+				for (var i=0;i<result.data.length;i++) {
+					result.data[i].libelle_nature=NAT[result.data[i].libelle_nature];
+				};
+				cb(err,result);
+			});
+		});
 		//db.model('dashboard', db.sql('filtre_getAll'), cb);		
 		//db.model('dashboard','SELECT * FROM filtre',cb);
 	},
@@ -37,11 +49,6 @@ Filtre = {
 	//------------------------------------------------------
 	getByCat: function(o, cb) {
 		var db=Filtre.using('db');
-		/*if (o.id)
-			{}
-		else
-			{};*/
-		//console.log(o.id);
 		db.model('dashboard', db.sql('filtre_getByCat',{ID: o.id}), cb);
 		
 	},
