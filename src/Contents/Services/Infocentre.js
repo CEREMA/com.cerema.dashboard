@@ -48,8 +48,6 @@ Infocentre = {
 								type: "string",
 								length: "255",
 							};
-				console.log(result);
-				return;
 							
 							cb(err,result);
 						});
