@@ -356,6 +356,7 @@ App.controller.define('CMain', {
 				gridF.getStore().load();
 				gridI.getStore().getProxy().extraParams.ID=-1;
 				gridI.getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
+				gridI.getStore().getProxy().extraParams.YEAR=App.get('combo#cbo_year').getValue();
 				gridI.getStore().load();
 				App.get('numberfield#hiddenFact').setValue(-100);
 				//************************************************
