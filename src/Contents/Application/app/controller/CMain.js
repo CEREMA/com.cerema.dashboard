@@ -796,7 +796,12 @@ App.controller.define('CMain', {
 				App.Filtre.getAll(o, function(tabFiltre) {
 					if (tabFiltre.message!="OK") {alert(tabFiltre.message.code);return;}
 					var _data=[];
-					//console.log(tabFiltre);
+					console.log('------ FILTRE');
+					console.log(tabFiltre);
+					console.log('------ CATEGORIE');
+					console.log(tabCategorie);
+					console.log('------ NATURE');
+					console.log(tabNature);
 					for(var cat=0; cat < tabCategorie.data.length; cat++)
 					{
 						for(var nat=0; nat < tabNature.data.length; nat++)
@@ -821,6 +826,8 @@ App.controller.define('CMain', {
 								//_data.push(tabFiltre.data[posExistFiltre])
 						}
 					};
+					console.log('------ DATA');
+					console.log(_data);
 					var obj={year: annee, dataArray: _data};
 					//console.log(obj);
 					if (_data.length>0) 
