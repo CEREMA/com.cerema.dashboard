@@ -789,10 +789,10 @@ App.controller.define('CMain', {
 			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
 			var annee=App.get('combo#cbo_year').getValue();
 			var o={year: annee};
-			//console.log(tabNature);
+			console.log(tabNature);
 			App.Categories.getAll(o, function(tabCategorie) {
 				if (tabCategorie.message!="OK") {alert(tabNature.message.code);return;}
-				//console.log(tabCategorie);
+				console.log(tabCategorie);
 				App.Filtre.getAll(o, function(tabFiltre) {
 					if (tabFiltre.message!="OK") {alert(tabFiltre.message.code);return;}
 					var _data=[];
