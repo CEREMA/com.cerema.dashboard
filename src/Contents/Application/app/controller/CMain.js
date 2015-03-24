@@ -276,7 +276,9 @@ App.controller.define('CMain', {
 					text: 'Gérer les filtres',
 					handler: function(widget, event) {
 						//alert('Annuler la gestion des commandes');
+						alert('x');
 						_p.open_filtre();
+						alert('y');
 						_p.createFiltres;
 							
 						var annee = App.get('combo#cbo_year').getValue();
