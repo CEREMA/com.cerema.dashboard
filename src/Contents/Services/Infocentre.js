@@ -14,6 +14,7 @@ Infocentre = {
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
 			//console.log('----NATURE---');
 			//console.log(nature);
+			console.log(db.sql('infocentre_getBase',{ID: o.ID, NAT: nature}));
 			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature}), function(err,result) {
 				var AGENTS=[];
 				var DEPARTEMENTS=[];
