@@ -8,7 +8,7 @@ Infocentre = {
 			console.log('----NATURE---');
 			console.log(nature);
 			//console.log(db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}));
-			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), function(err,result) {
+			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature.join(',')}), function(err,result) {
 				//console.log(err);
 				//console.log(result);
 			});
