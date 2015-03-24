@@ -6,7 +6,10 @@ Infocentre = {
 			var nature=[];
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
 			console.log(db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}));
-			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), cb);
+			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), function(err,result) {
+				console.log(err);
+				console.log(result);
+			});
 		});
 	},
 	// --------------------------------------------------------------------
