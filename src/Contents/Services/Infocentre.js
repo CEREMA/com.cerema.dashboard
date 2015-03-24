@@ -19,9 +19,13 @@ Infocentre = {
 				var AGENTS=[];
 				var DEPARTEMENTS=[];
 				var SERVICES=[];
+				console.log(result);
 				db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
+					console.log(agents);
 					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
+					console.log(departements);
 						db.model('bpclight',"select ksub,libsub from subddis",function(err,services) {
+						console.log(services);
 							AGENTS=boucle(agents,'kage','NomPre');
 							DEPARTEMENTS=boucle(departements,'kuni','libuni');
 							SERVICES=boucle(services,'ksub','libsub');
@@ -46,6 +50,7 @@ Infocentre = {
 								type: "string",
 								length: "255",
 							};
+							
 							cb(err,result);
 						});
 					});
