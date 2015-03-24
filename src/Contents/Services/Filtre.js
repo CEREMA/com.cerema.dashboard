@@ -117,7 +117,7 @@ Filtre = {
 		{
 			sql2 += '(' + o.dataArray[i].categorie + ',' + o.dataArray[i].nature + ',' + o.dataArray[i].coche + ',' + o.year + ((i==longData-1)?')':'),');
 		};
-		console.log(sql2);
+		//console.log(sql2);
 		db.query('dashboard',sql2,cb);
 		
 		/*db.query('dashboard',sql1,function(err,o) {

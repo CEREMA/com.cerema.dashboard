@@ -5,10 +5,10 @@ Infocentre = {
 		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1",function(err,r) {
 			var nature=[];
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
-			console.log(db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}));
+			//console.log(db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}));
 			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, CAT: o.CAT, NAT: nature}), function(err,result) {
-				console.log(err);
-				console.log(result);
+				//console.log(err);
+				//console.log(result);
 			});
 		});
 	},
@@ -25,7 +25,7 @@ Infocentre = {
 		var tab=[];		
 		for (var i=0;i<data.length;i++) tab.push(data[i].ID_demande);	
 		var sql='UPDATE base SET facture = "'+data[0].facture+'", livre_valide = 0, base.avancement = "'+data[0].avancement+'" WHERE base.ID_demande in ('+tab.join(',')+')';
-		console.log(sql);
+		//console.log(sql);
 		db.query('infocentre2015',sql ,cb);
 	},
 	// --------------------------------------------------------------------
