@@ -54,6 +54,13 @@ Infocentre = {
 	},
 	// --------------------------------------------------------------------
 	getBaseFact: function(o, cb) {
+		function boucle(o,name,n) {
+			var tmp={};
+			for (var i=0;i<o.data.length;i++) {
+				tmp[o.data[i][name]]=o.data[i][n];
+			};
+			return tmp;
+		};	
 		var db=Infocentre.using('db');		
 		db.model('infocentre2015', db.sql('infocentre_getBaseFact',{ID: o.ID}), function(err,result) {
 			var AGENTS=[];
