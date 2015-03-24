@@ -24,7 +24,7 @@ Infocentre = {
 					console.log(agents);
 					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
 					console.log(departements);
-						db.model('bpclight',"select ksub,libsub from subddis",function(err,services) {
+						db.model('bpclight',"select ksub,libsub from subdis",function(err,services) {
 						console.log(services);
 							AGENTS=boucle(agents,'kage','NomPre');
 							DEPARTEMENTS=boucle(departements,'kuni','libuni');
