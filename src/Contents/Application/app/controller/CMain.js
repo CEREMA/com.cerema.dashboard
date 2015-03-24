@@ -280,7 +280,7 @@ App.controller.define('CMain', {
 						_p.open_filtre();
 						alert('y');
 						_p.createFiltres;
-							
+						alert('z');
 						var annee = App.get('combo#cbo_year').getValue();
 						//console.log(annee);
 						App.get('combo#cbo_catFiltre').getStore().getProxy().extraParams.year = annee;
