@@ -785,7 +785,9 @@ App.controller.define('CMain', {
 	//---------------------------------------------
 	createFiltres: function()
 	{
+		console.log('+1');
 		App.Infocentre.getNatureAll(function(tabNature) {
+		console.log('+2');
 			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
 			var annee=App.get('combo#cbo_year').getValue();
 			var o={year: annee};
