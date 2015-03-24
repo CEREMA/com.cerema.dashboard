@@ -1,17 +1,14 @@
 Infocentre = {
 	getBase: function(o, cb) {
 		var db=Infocentre.using('db');		
-		//console.log(o);
+		console.log(o);
 		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1 and annee= "+o.YEAR+" ",function(err,r) {
 			var nature=[];
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
 			console.log('----NATURE---');
 			console.log(nature);
 			console.log('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')});
-			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')}), function(err,result) {
-				//console.log(err);
-				//console.log(result);
-			});
+			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')}), cb);
 		});
 	},
 	// --------------------------------------------------------------------
