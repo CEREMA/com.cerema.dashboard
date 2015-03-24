@@ -793,6 +793,7 @@ App.controller.define('CMain', {
 			var o={year: annee};
 			console.log(tabNature);
 			App.Categories.getAll(o, function(tabCategorie) {
+				console.log('+3');
 				if (tabCategorie.message!="OK") {alert(tabNature.message.code);return;}
 				console.log(tabCategorie);
 				App.Filtre.getAll(o, function(tabFiltre) {
