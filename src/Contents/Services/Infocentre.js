@@ -24,6 +24,8 @@ Infocentre = {
 							AGENTS=boucle(agents,'kage','NomPre');
 							DEPARTEMENTS=boucle(departements,'kuni','libuni');
 							SERVICES=boucle(services,'ksub','libsub');
+							console.log(result.length);
+							console.log(result.data.length);
 							for (var i=0;i<result.data.length;i++) {
 								result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
 								result.data[i].LibSub=SERVICES[result.data[i].service];
