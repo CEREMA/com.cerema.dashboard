@@ -10,20 +10,7 @@ Filtre = {
 	getAll: function(o, cb) {
 		var db=Filtre.using('db');
 		console.log(o.year);
-		db.model('dashboard', db.sql('filtre_getAll',{AN: o.year}), function(e,o) 
-		{
-			if (o) 
-			{
-				//console.log(o);
-				if (o.data) 
-				{
-					o.metaData.fields[2].type="boolean";
-					cb(e,o);
-					return;
-				};
-			};				
-			cb({});				
-		});
+		db.model('dashboard', db.sql('filtre_getAll',{AN: o.year}), cb);
 		//db.model('dashboard', db.sql('filtre_getAll'), cb);		
 		//db.model('dashboard','SELECT * FROM filtre',cb);
 	},
@@ -55,24 +42,8 @@ Filtre = {
 		else
 			{};*/
 		//console.log(o.id);
-		db.model('dashboard', db.sql('filtre_getByCat',{ID: o.id}), function(e,o) {
-			if (o) 
-			{
-				//console.log(o);
-				if (o.data) 
-				{
-					o.metaData.fields[2].type="boolean";
-					/*for (var i=0;i<o.data.length;i++) {
-						if (o.data[i].coche==0) o.data[i].coche=false; else o.data[i].coche=true;
-					};*/
-					//console.log('----------------------------');
-					//console.log(o);
-					cb(e,o);
-					return;
-				};
-			};				
-			cb({});
-		});		
+		db.model('dashboard', db.sql('filtre_getByCat',{ID: o.id}), cb);
+		
 	},
 	//------------------------------------------------------
 	update: function(o, cb) {
