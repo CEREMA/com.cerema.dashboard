@@ -276,11 +276,8 @@ App.controller.define('CMain', {
 					text: 'Gérer les filtres',
 					handler: function(widget, event) {
 						//alert('Annuler la gestion des commandes');
-						alert('x');
 						_p.open_filtre();
-						alert('y');
 						_p.createFiltres;
-						alert('z');
 						var annee = App.get('combo#cbo_year').getValue();
 						//console.log(annee);
 						App.get('combo#cbo_catFiltre').getStore().getProxy().extraParams.year = annee;
@@ -788,7 +785,7 @@ App.controller.define('CMain', {
 	createFiltres: function()
 	{
 		console.log('+1');
-		App.Infocentre.getNatureAll(function(tabNature) {
+		/*App.Infocentre.getNatureAll(function(tabNature) {
 		console.log('+2');
 			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
 			var annee=App.get('combo#cbo_year').getValue();
@@ -840,7 +837,7 @@ App.controller.define('CMain', {
 						});
 				});						
 			});			
-		});
+		});*/
 	},
 	//---------------------------------------------
 	open_form: function()
