@@ -19,8 +19,6 @@ Infocentre = {
 				var AGENTS=[];
 				var DEPARTEMENTS=[];
 				var SERVICES=[];
-				console.log(result);
-				return;
 				db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
 					console.log(agents);
 					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
@@ -51,6 +49,8 @@ Infocentre = {
 								type: "string",
 								length: "255",
 							};
+				console.log(result);
+				return;
 							
 							cb(err,result);
 						});
