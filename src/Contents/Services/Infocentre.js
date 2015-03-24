@@ -14,7 +14,6 @@ Infocentre = {
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
 			//console.log('----NATURE---');
 			//console.log(nature);
-			console.log(db.sql('infocentre_getBase',{ID: o.ID, NAT: nature}));
 			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature}), function(err,result) {
 				var AGENTS=[];
 				var DEPARTEMENTS=[];
@@ -73,8 +72,8 @@ Infocentre = {
 						AGENTS=boucle(agents,'kage','NomPre');
 						DEPARTEMENTS=boucle(departements,'kuni','libuni');
 						SERVICES=boucle(services,'ksub','libsub');
-						for (var i=0;i<result.length;i++) {
-							var rr=result[i];
+						for (var i=0;i<result.data.length;i++) {
+							var rr=result.data[i];
 							rr.NomPre=AGENTS[rr.agent_beneficiaire];
 							rr.LibSub=SERVICES[rr.service];
 							rr.LibUni=DEPARTEMENTS[rr.departement];
