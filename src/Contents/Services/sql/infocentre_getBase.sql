@@ -1,10 +1,13 @@
 select 	ID_demande,
-		LibSub,
+		/*LibSub,
 		LibUni,
-		concat(Nom," ",Prenom) NomPre,
+		concat(Nom," ",Prenom) NomPre,*/
 		budget_annuel,
 		budget_actuel,
 		date_de_demande,
+		agent_beneficiaire,
+		departement,
+		service,
 		libelle_nature,
 		libelle_sous_nature,
 		libelle_evolution,
@@ -28,9 +31,9 @@ select 	ID_demande,
 	join avancement 			on avancement = ID_avancement
 	join evolution 				on evolution = ID_evolution
 	join priorite 				on phasage = ID_priorite
-	join bpclight.agents as ka 	on agent_beneficiaire = ka.Kage 
+	/*join bpclight.agents as ka 	on agent_beneficiaire = ka.Kage 
 	join bpclight.unites as ku 	on departement = ku.Kuni 
-	join bpclight.subdis as su 	on service = su.Ksub 
+	join bpclight.subdis as su 	on service = su.Ksub */
 	where 	ba.facture = {ID} and 
 			ba.avancement >= 3 and
 			ba.nature in ({NAT})

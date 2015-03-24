@@ -1,17 +1,54 @@
 Infocentre = {
 	getBase: function(o, cb) {
+		function boucle(o,name,n) {
+			var tmp={};
+			for (var i=0;i<o.data.length;i++) {
+				tmp[o.data[i][name]]=o.data[i][n];
+			};
+			return tmp;
+		};
 		var db=Infocentre.using('db');		
-		console.log(o);
+		//console.log(o);
 		db.model('dashboard', "select dashboard.filtre.nature from dashboard.filtre where dashboard.filtre.categorie = "+o.CAT+" and coche = 1 and annee= "+o.YEAR+" ",function(err,r) {
 			var nature=[];
 			for (var i=0;i<r.data.length;i++) nature.push(r.data[i].nature);
-			console.log('----NATURE---');
-			console.log(nature);
-			console.log('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')});
+			//console.log('----NATURE---');
+			//console.log(nature);
 			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature}), function(err,result) {
-				console.log(err);
-				console.log(JSON.stringify(result,null,4));
-				cb(err,result);
+				var AGENTS=[];
+				var DEPARTEMENTS=[];
+				var SERVICES=[];
+				db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
+					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
+						db.model('bpclight',"select ksub,libsub from subddis",function(err,services) {
+							AGENTS=boucle(agents,'kage','NomPre');
+							DEPARTEMENTS=boucle(departements,'kuni','libuni');
+							SERVICES=boucle(services,'ksub','libsub');
+							for (var i=0;i<result.length;i++) {
+								var rr=result[i];
+								rr.NomPre=AGENTS[rr.agent_beneficiaire];
+								rr.LibSub=SERVICES[rr.service];
+								rr.LibUni=DEPARTEMENTS[rr.departement];
+							};
+							result.metaData.fields[result.metaData.fields.length]={
+								name: "LibUni",
+								type: "string",
+								length: "255",
+							};
+							result.metaData.fields[result.metaData.fields.length]={
+								name: "LibSub",
+								type: "string",
+								length: "255",
+							};
+							result.metaData.fields[result.metaData.fields.length]={
+								name: "NomPre",
+								type: "string",
+								length: "255",
+							};
+							cb(err,result);
+						});
+					});
+				});
 			});
 		});
 	},
