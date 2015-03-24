@@ -10,7 +10,7 @@ Infocentre = {
 			console.log('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')});
 			db.model('infocentre2015',db.sql('infocentre_getBase',{ID: o.ID, NAT: nature.join(',')}), function(err,result) {
 				console.log(err);
-				console.log(result);
+				console.log(JSON.stringify(result,null,4));
 				cb(err,result);
 			});
 		});
