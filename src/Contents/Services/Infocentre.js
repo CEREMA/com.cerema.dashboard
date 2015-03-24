@@ -43,7 +43,7 @@ Infocentre = {
 							result.metaData.fields[result.metaData.fields.length]={
 								name: "NomPre",
 								type: "string",
-								length: "255",
+								length: "250",
 							};
 							cb(err,result);
 						});
