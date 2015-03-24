@@ -544,6 +544,7 @@ App.controller.define('CMain', {
 		gridF.getStore().load();
 		
 		gridI.getStore().getProxy().extraParams.ID=-1;
+		gridI.getStore().getProxy().extraParams.YEAR=App.get('combo#cbo_year').getValue();;
 		gridI.getStore().getProxy().extraParams.CAT=d.id;
 		gridI.getStore().load();
 		
@@ -723,6 +724,7 @@ App.controller.define('CMain', {
 		App.Filtre.update(obj, function(result) {
 			//console.log(result);
 			App.get('grid#gridInfocentre').getStore().getProxy().extraParams.ID=-1;
+			App.get('grid#gridInfocentre').getStore().getProxy().extraParams.YEAR=annee;
 			App.get('grid#gridInfocentre').getStore().getProxy().extraParams.CAT=App.get('combo#cbo_cat').getValue();
 			App.get('grid#gridInfocentre').getStore().load();
 		});
