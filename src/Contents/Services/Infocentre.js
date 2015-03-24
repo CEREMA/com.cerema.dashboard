@@ -28,11 +28,10 @@ Infocentre = {
 							AGENTS=boucle(agents,'kage','NomPre');
 							DEPARTEMENTS=boucle(departements,'kuni','libuni');
 							SERVICES=boucle(services,'ksub','libsub');
-							for (var i=0;i<result.length;i++) {
-								var rr=result[i];
-								rr.NomPre=AGENTS[rr.agent_beneficiaire];
-								rr.LibSub=SERVICES[rr.service];
-								rr.LibUni=DEPARTEMENTS[rr.departement];
+							for (var i=0;i<result.data.length;i++) {
+								result.data[i].NomPre=AGENTS[rr.agent_beneficiaire];
+								result.data[i].LibSub=SERVICES[rr.service];
+								result.data[i].LibUni=DEPARTEMENTS[rr.departement];
 							};
 							result.metaData.fields[result.metaData.fields.length]={
 								name: "LibUni",
