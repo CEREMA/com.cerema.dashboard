@@ -20,11 +20,8 @@ Infocentre = {
 				var DEPARTEMENTS=[];
 				var SERVICES=[];
 				db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
-					console.log(agents);
 					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
-					console.log(departements);
 						db.model('bpclight',"select ksub,libsub from subdis",function(err,services) {
-						console.log(services);
 							AGENTS=boucle(agents,'kage','NomPre');
 							DEPARTEMENTS=boucle(departements,'kuni','libuni');
 							SERVICES=boucle(services,'ksub','libsub');
@@ -32,6 +29,7 @@ Infocentre = {
 								result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
 								result.data[i].LibSub=SERVICES[result.data[i].service];
 								result.data[i].LibUni=DEPARTEMENTS[result.data[i].departement];
+								if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 							};
 							result.metaData.fields[result.metaData.fields.length]={
 								name: "LibUni",
@@ -48,7 +46,6 @@ Infocentre = {
 								type: "string",
 								length: "255",
 							};
-							
 							cb(err,result);
 						});
 					});
