@@ -1,7 +1,6 @@
 SELECT 	categorie,
-		nature,
+		nature libelle_nature,
 		coche,
-		libelle_nature,
 		annee
 		FROM    filtre
 		WHERE	annee = {AN}
