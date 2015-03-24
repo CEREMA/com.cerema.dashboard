@@ -74,7 +74,7 @@ Infocentre = {
 			var SERVICES=[];
 			db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
 				db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
-					db.model('bpclight',"select ksub,libsub from subddis",function(err,services) {
+					db.model('bpclight',"select ksub,libsub from subdis",function(err,services) {
 						AGENTS=boucle(agents,'kage','NomPre');
 						DEPARTEMENTS=boucle(departements,'kuni','libuni');
 						SERVICES=boucle(services,'ksub','libsub');
