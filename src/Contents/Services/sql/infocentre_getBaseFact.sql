@@ -1,13 +1,13 @@
 select 	ID_demande,
-		LibSub,
-		LibUni,
-		concat(Nom," ",Prenom) NomPre,
 		budget_annuel,
 		budget_actuel,
 		date_de_demande,
 		libelle_nature,
 		libelle_sous_nature,
 		libelle_evolution,
+		agent_beneficiaire,
+		departement,
+		service,
 		quantite,
 		libelle_priorite,
 		libelle_commande, 
@@ -28,7 +28,4 @@ select 	ID_demande,
 	join avancement 			on avancement = ID_avancement
 	join evolution 				on evolution = ID_evolution
 	join priorite 				on phasage = ID_priorite
-	join bpclight.agents as ka 	on agent_beneficiaire = ka.Kage 
-	join bpclight.unites as ku 	on departement = ku.Kuni 
-	join bpclight.subdis as su 	on service = su.Ksub 
 	where 	ba.facture = {ID}
