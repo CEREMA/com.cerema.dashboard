@@ -18,8 +18,13 @@ Filtre = {
 					NAT[r2.data[i].ID_nature]=r2.data[i].libelle_nature;
 				};
 				for (var i=0;i<result.data.length;i++) {
-					result.data[i].libelle_nature=NAT[result.data[i].libelle_nature];
+					result.data[i].libelle_nature=NAT[result.data[i].nature];
 				};
+				result.metaData.fields.push({
+					name: "libelle_nature",
+					type: "string",
+					length: "255",
+				});
 				cb(err,result);
 			});
 		});

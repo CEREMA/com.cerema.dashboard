@@ -1,5 +1,5 @@
 SELECT 	categorie,
-		nature libelle_nature,
+		nature,
 		coche,
 		annee
 		FROM    filtre
