@@ -551,7 +551,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-		/*Auth.login(function(user) {
+		Auth.login(function(user) {
 			App.profils.get(user.uid,function(r,x) {
 				if (r.length==0) {					
 					App.disabled();
@@ -563,9 +563,9 @@ App.controller.define('CMain', {
 					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
-		});*/
+		});/*
 		Auth.User.profile=1;
-		Auth.User.uid=614;
+		Auth.User.uid=614;*/
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
 		App.get('combo#cbo_year').setValue(new Date().getFullYear());
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.year=new Date().getFullYear();
@@ -785,24 +785,24 @@ App.controller.define('CMain', {
 	createFiltres: function()
 	{
 		App.Infocentre.getNatureAll(function(tabNature) {
-		console.log('+2');
+		//console.log('+2');
 			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
 			var annee=App.get('combo#cbo_year').getValue();
 			var o={year: annee};
 			console.log(tabNature);
 			App.Categories.getAll(o, function(tabCategorie) {
-				console.log('+3');
+				//console.log('+3');
 				if (tabCategorie.message!="OK") {alert(tabNature.message.code);return;}
 				console.log(tabCategorie);
 				App.Filtre.getAll(o, function(tabFiltre) {
 					if (tabFiltre.message!="OK") {alert(tabFiltre.message.code);return;}
 					var _data=[];
-					console.log('------ FILTRE');
-					console.log(tabFiltre);
-					console.log('------ CATEGORIE');
+					/*console.log('------ FILTRE');
+					//console.log(tabFiltre);
+					//console.log('------ CATEGORIE');
 					console.log(tabCategorie);
 					console.log('------ NATURE');
-					console.log(tabNature);
+					console.log(tabNature);*/
 					for(var cat=0; cat < tabCategorie.data.length; cat++)
 					{
 						for(var nat=0; nat < tabNature.data.length; nat++)
@@ -827,8 +827,8 @@ App.controller.define('CMain', {
 								//_data.push(tabFiltre.data[posExistFiltre])
 						}
 					};
-					console.log('------ DATA');
-					console.log(_data);
+					/*console.log('------ DATA');
+					console.log(_data);*/
 					var obj={year: annee, dataArray: _data};
 					//console.log(obj);
 					if (_data.length>0) 
