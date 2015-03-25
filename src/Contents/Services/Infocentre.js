@@ -76,6 +76,7 @@ Infocentre = {
 							result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
 							result.data[i].LibSub=SERVICES[result.data[i].service];
 							result.data[i].LibUni=DEPARTEMENTS[result.data[i].departement];
+							if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 						};
 						result.metaData.fields[result.metaData.fields.length]={
 							name: "LibUni",
