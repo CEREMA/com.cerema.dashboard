@@ -1,3 +1,4 @@
+
 App.controller.define('CMain', {
 
 	views: [
@@ -301,7 +302,7 @@ App.controller.define('CMain', {
 			ID: p.up('window').facture.idfacture,
 			n: App.get('numberfield#duplicate_number').getValue()
 		};
-		console.log(o.ID);
+		//console.log(o.ID);
 		//console.log('facture-duplicate:'+App.get('datefield#date_servicefait').getValue()+', '+data.id);
 		//this.gestionFacture(App.get('datefield#date_servicefait').getValue(), data.id);
 		App.Factures.duplicate(o,function(err,r) {
@@ -578,7 +579,7 @@ App.controller.define('CMain', {
 	doMarchesDelete: function()
 	{
 		var sel=App.get('grid#GridMarches').getSelectionModel();
-		console.log(sel);
+		//console.log(sel);
 		if (sel.selected.items.length>0) {
 			App.Marches.del(sel.selected.items[0].data.ID,function(err,result) {
 				App.notify("Le marché a été supprimé");
@@ -797,11 +798,11 @@ App.controller.define('CMain', {
 			if (tabNature.message!="OK") {alert(tabNature.message.code);return;}
 			var annee=App.get('combo#cbo_year').getValue();
 			var o={year: annee};
-			console.log(tabNature);
+			//console.log(tabNature);
 			App.Categories.getAll(o, function(tabCategorie) {
 				//console.log('+3');
 				if (tabCategorie.message!="OK") {alert(tabNature.message.code);return;}
-				console.log(tabCategorie);
+				//console.log(tabCategorie);
 				App.Filtre.getAll(o, function(tabFiltre) {
 					if (tabFiltre.message!="OK") {alert(tabFiltre.message.code);return;}
 					var _data=[];
@@ -862,18 +863,23 @@ App.controller.define('CMain', {
 	gridFacture_drop: function(node, data, dropRec, dropPosition)
 	{
 		//console.log('Infocentre --> Facture');
+		//console.log(App.get('grid#MainGrid').getSelectionModel());
 		var fact = App.get('numberfield#hiddenFact').getValue();
 		var _data=[];
 		var sel = App.get('grid#MainGrid').getSelectionModel();
 		var ava;
+		valEj=App.get('grid#MainGrid').getStore().findRecord( 'idfacture', sel.selected.items[0].data.idfacture).data.ej;
+		//console.log('long sel MainGrid:'+sel.selected.items.length);
 		if (sel.selected.items.length>0) {
-			if 	(sel.selected.items[0].data.ej!=""){
+		//console.log('bdc sel MainGrid:'+sel.selected.items[0].data.idfacture);
+		console.log('valEj:'+valEj);
+			if 	(valEj!=""){
 				ava = 4;
 			} else {
 				ava = 3;
 			};
 		};
-		console.log('ava:'+ava);
+		//console.log('ava:'+ava);
 		for(var i=0; i < data.records.length; i++)
 		{
 			data.records[i].data.livre_valide=false;
@@ -897,7 +903,7 @@ App.controller.define('CMain', {
 		};
 		
 		App.get('grid#MainGrid').getStore().reload();
-			
+		App.get('grid#gridFacture').getStore().reload();	
 		this.calcTotal(App.get('grid#gridFacture').getStore().data);
 		
 	},
@@ -906,8 +912,8 @@ App.controller.define('CMain', {
 	{
 		//alert('click on checkcolumn');
 		var demande=App.get('grid#gridFacture').getStore().data.items[rowIndex].data.ID_demande;
-		console.log(rowIndex);
-		console.log(demande);
+		//console.log(rowIndex);
+		//console.log(demande);
 		if(checked)									
 		{											// Coché
 			var o = {coche: 1, bes: demande};		// On check le champ livre_valide dans infocentre
