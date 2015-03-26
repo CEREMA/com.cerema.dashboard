@@ -115,7 +115,7 @@ Infocentre = {
 		var db=Infocentre.using('db');	
 		//console.log('o.ID_demande:'+o.ID_demande);
 		//console.log('o.facture:'+o.facture);
-		var sql='UPDATE base SET livre_valide = "'+o.coche+'" WHERE base.ID_demande = "'+o.bes+'"';
+		var sql='UPDATE base SET livre_valide = "'+o.coche+'" WHERE base.ID_demande in ('+o.bes.join(',')+')';
 		//console.log(sql);
 		db.query('infocentre2015',sql ,cb);
 	},

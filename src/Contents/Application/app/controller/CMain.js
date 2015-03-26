@@ -645,7 +645,7 @@ App.controller.define('CMain', {
 				App.Factures.setBES(o, function(result) {
 					//console.log(result);
 				});
-				var tabBes=[];								// On fixe l'avancement des besoins dans infocentre à 7 ("Paiement facture")
+				var tabBes=[];								// On fixe l'avancement des besoins dans infocentre à 6 ("Paiement facture")
 				for(var i=0; i < gridF.getStore().data.length; i++)
 				{
 					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
@@ -690,6 +690,17 @@ App.controller.define('CMain', {
 						};
 					};
 					var o = {avanc: 4, data: tabBes};			
+					App.Infocentre.setBaseAv(o, function(result) {
+						//console.log(result);
+					});
+				} else {
+					var tabBes=[];							// On fixe l'avancement des besoins dans infocentre à 3 ("Validation S2i")
+					for(var i=0; i < gridF.getStore().data.length; i++)
+					{
+						gridF.getStore().data.items[i].data.coche=false;
+						tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
+					};
+					var o = {avanc: 3, data: tabBes};			
 					App.Infocentre.setBaseAv(o, function(result) {
 						//console.log(result);
 					});
@@ -1010,8 +1021,8 @@ App.controller.define('CMain', {
 		//console.log(record.data.libelle_domaine_metier);
 		this.open_form();
 		
-		App.get('textfield#txtfDepartement').setValue(record.data.LibUni);
-		App.get('textfield#txtfService').setValue(record.data.LibSub);
+		App.get('textfield#txtfDepartement').setValue(record.data.LibUnic);
+		App.get('textfield#txtfService').setValue(record.data.LibSubC);
 		App.get('textfield#txtfBeneficiaire').setValue(record.data.NomPre);
 		App.get('textfield#txtfDomaine').setValue(record.data.libelle_domaine_metier);
 		App.get('textfield#txtfNature').setValue(record.data.libelle_nature);
