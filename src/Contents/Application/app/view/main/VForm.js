@@ -125,19 +125,30 @@ App.view.define('main.VForm',
 												}
 										},
 										{
-											xtype	: 'progressbar',
-											itemId	: 'progbAvancement',
-											width	: '50%',
-											text	: '',
-											textEl	: 'blabla',
-											readOnly: true,
-											margin	:
-												{
-													top		: 19,
-													//bottom: 5,
-													left	: 12,
-													right: 10
-												}
+											layout	: "vbox",
+											{
+												xtype	: 'text',
+												itemId	: 'txtAvancement',
+												text	: 'progressbar',
+											},
+											{
+												xtype	: 'progressbar',
+												itemId	: 'progbAvancement',
+												width	: '50%',
+												text	: '',
+												style	: {
+															color : 'red'
+												},
+												//textEl	: 'blabla',
+												readOnly: true,
+												margin	:
+													{
+														top		: 19,
+														//bottom: 5,
+														left	: 12,
+														right: 10
+													}
+											}
 										}	
 									]	
 							},
