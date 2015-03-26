@@ -632,9 +632,10 @@ App.controller.define('CMain', {
 			//console.log(gridF);
 			gridF.getView().plugins[0].dragZone.lock();		// On bloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.lock();
-			gridF.columns[10].setVisible(true);
-			App.get('grid#gridFacture checkcolumn').setDisabled(true);
+			//gridF.columns[10].setVisible(true);
+			App.get('grid#gridFacture checkcolumn').setVisible(true);
 			//gridF.columns[10].setDisabled(true);
+			App.get('grid#gridFacture checkcolumn').setDisabled(true);
 			if(gridF.getStore().data.length != 0) 			// Des besoins sont rattachés à la facture
 			{
 				var o = {id: idFact, bes: 2};				// On fixe le champ BES (=besoins rattachés) à 2 (=facture finie et besoins rattachés)
@@ -666,8 +667,9 @@ App.controller.define('CMain', {
 			//alert('serviceFait is null');
 			gridF.getView().plugins[0].dragZone.unlock();	// On débloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.unlock();
-			gridF.columns[10].setDisabled(false);
-			(bdc!='')?gridF.columns[10].setVisible(true):gridF.columns[10].setVisible(false);
+			App.get('grid#gridFacture checkcolumn').setDisabled(false);
+			//gridF.columns[10].setDisabled(false);
+			(bdc!='')?App.get('grid#gridFacture checkcolumn').setVisible(true):App.get('grid#gridFacture checkcolumn').setVisible(false);
 			
 			if(gridF.getStore().data.length != 0)			// Des besoins sont rattachés à la facture
 			{
@@ -882,7 +884,7 @@ App.controller.define('CMain', {
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
 			//console.log(result);
-			App.notify("Demande(s) ajoutée(s) à la facture");
+			App.notify("Demande(s) ajoutée(s) au panier");
 		});
 		
 		if(App.get('grid#gridFacture').getStore().data.length != 0)
@@ -979,7 +981,7 @@ App.controller.define('CMain', {
 		};
 		App.Infocentre.setBaseFact(_data, function(result) {
 			//console.log(result);
-			App.notify("Demandes(s) supprimée(s) de la facture");
+			App.notify("Demandes(s) supprimée(s) du panier");
 		});
 		//console.log(App.get('grid#gridFacture').getStore().data.length);
 		//console.log(fact);
@@ -1014,6 +1016,7 @@ App.controller.define('CMain', {
 		//console.log('prix:'+record.data.prix_sous_nature);
 		var valeurprogress = (record.data.avancement / 7);
 		App.get('progressbar#progbAvancement').updateProgress(valeurprogress);
+		App.get('progressbar#progbAvancement').updateText(record.data.libelle_avancement);
 		
 		if (record.data.phasage==0) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'red';
 		if (record.data.phasage==1) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'orange';

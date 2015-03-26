@@ -128,6 +128,8 @@ App.view.define('main.VForm',
 											xtype	: 'progressbar',
 											itemId	: 'progbAvancement',
 											width	: '50%',
+											text	: '',
+											textEl	: 'blabla',
 											readOnly: true,
 											margin	:
 												{
