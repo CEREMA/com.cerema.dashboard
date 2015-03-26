@@ -26,8 +26,8 @@ Infocentre = {
 							SERVICES=boucle(services,'ksub','libsubc');
 							for (var i=0;i<result.data.length;i++) {
 								result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
-								result.data[i].LibSub=SERVICES[result.data[i].service];
-								result.data[i].LibUni=DEPARTEMENTS[result.data[i].departement];
+								result.data[i].LibSubC=SERVICES[result.data[i].service];
+								result.data[i].LibUnic=DEPARTEMENTS[result.data[i].departement];
 								if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 							};
 							result.metaData.fields[result.metaData.fields.length]={
@@ -74,8 +74,8 @@ Infocentre = {
 						SERVICES=boucle(services,'ksub','libsubc');
 						for (var i=0;i<result.data.length;i++) {							
 							result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
-							result.data[i].LibSub=SERVICES[result.data[i].service];
-							result.data[i].LibUni=DEPARTEMENTS[result.data[i].departement];
+							result.data[i].LibSubC=SERVICES[result.data[i].service];
+							result.data[i].LibUnic=DEPARTEMENTS[result.data[i].departement];
 							if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 						};
 						result.metaData.fields[result.metaData.fields.length]={
