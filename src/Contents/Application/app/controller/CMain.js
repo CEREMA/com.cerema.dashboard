@@ -926,26 +926,27 @@ App.controller.define('CMain', {
 		//console.log(rowIndex);
 		//console.log(demande);
 		if(checked)									
-		{											// Coché
-			var o = {coche: 1, bes: demande};		// On check le champ livre_valide dans infocentre
+		{	
+			var tabBes=[];							// Coché
+			tabBes.push(demande);
+			var o = {coche: 1, bes: tabBes};		// On check le champ livre_valide dans infocentre
 			App.Infocentre.setBaseLivre(o, function(result) {
 				//console.log(result);
 			});
-			var tabBes=[];							// On fixe l'avancement du besoin à 5 ("Livraison")
-			tabBes.push(demande);
+													// On fixe l'avancement du besoin à 5 ("Livraison")
 			var o = {avanc: 5, data: tabBes};			
 			App.Infocentre.setBaseAv(o, function(result) {
 				//console.log(result);
 			});
 		}
 		else
-		{											// Décoché
-			var o = {coche:0, bes:demande};			// On uncheck le champ livre_valide dans infocentre
+		{	
+			var tabBes=[];							// Décoché
+			tabBes.push(demande);
+			var o = {coche:0, bes:tabBes};			// On uncheck le champ livre_valide dans infocentre
 			App.Infocentre.setBaseLivre(o, function(result) {
 			//console.log(result);
 			});
-			var tabBes=[];							
-			tabBes.push(demande);
 			var sel=App.get('grid#MainGrid').getSelectionModel();
 			if (sel.selected.items.length>0) {
 				if 	(sel.selected.items[0].data.ej=="") 
