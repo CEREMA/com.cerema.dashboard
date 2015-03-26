@@ -633,7 +633,8 @@ App.controller.define('CMain', {
 			gridF.getView().plugins[0].dragZone.lock();		// On bloque la possibilité de drag & drop
 			gridI.getView().plugins[0].dragZone.lock();
 			gridF.columns[10].setVisible(true);
-			gridF.columns[10].setDisabled(true);
+			App.get('grid#gridFacture checkcolumn').setDisabled(true);
+			//gridF.columns[10].setDisabled(true);
 			if(gridF.getStore().data.length != 0) 			// Des besoins sont rattachés à la facture
 			{
 				var o = {id: idFact, bes: 2};				// On fixe le champ BES (=besoins rattachés) à 2 (=facture finie et besoins rattachés)
