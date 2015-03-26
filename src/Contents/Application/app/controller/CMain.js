@@ -475,6 +475,7 @@ App.controller.define('CMain', {
 			});			
 		};
 		p.up('window').close();
+		App.get('grid#gridFacture').getStore().load();
 	},
 	open_facture: function(p, record, item, index, e)
 	{
@@ -648,7 +649,7 @@ App.controller.define('CMain', {
 				{
 					tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
 				};
-				var o = {avanc: 7, data: tabBes};			
+				var o = {avanc: 6, data: tabBes};			
 				App.Infocentre.setBaseAv(o, function(result) {
 					//console.log(result);
 				});
@@ -680,7 +681,7 @@ App.controller.define('CMain', {
 				});
 				if (bdc!='')								// Un bon de commande est renseigné
 				{
-					var tabBes=[];							// On fixe l'avancement des besoins = 4 dans infocentre à 3 ("Commande")
+					var tabBes=[];							// On fixe l'avancement des besoins = 3 dans infocentre à 4 ("Commande")
 					for(var i=0; i < gridF.getStore().data.length; i++)
 					{
 						if (gridF.getStore().data.items[i].data.avancement == 3) {
@@ -943,6 +944,7 @@ App.controller.define('CMain', {
 				});
 			}
 		};
+		App.get('grid#gridFacture').getStore().load();
 	},
 	//---------------------------------------------
 	formatTotal : function(v)
@@ -992,7 +994,8 @@ App.controller.define('CMain', {
 				//console.log(result);
 			});
 		};
-		App.get('grid#MainGrid').getStore().reload();
+		App.get('grid#MainGrid').getStore().load();
+		App.get('grid#gridInfocentre').getStore().load();
 		this.calcTotal(App.get('grid#gridFacture').getStore().data);
 	},
 	//---------------------------------------------
@@ -1014,9 +1017,9 @@ App.controller.define('CMain', {
 		App.get('datefield#datfdatedem').setValue(record.data.date_de_demande);
 		App.get('numberfield#txtfprix').setValue(record.data.prix_sous_nature);
 		//console.log('prix:'+record.data.prix_sous_nature);
-		var valeurprogress = (record.data.avancement / 7);
+		var valeurprogress = (record.data.avancement / 6);
 		App.get('progressbar#progbAvancement').updateProgress(valeurprogress);
-		App.get('progressbar#progbAvancement').updateText(record.data.libelle_avancement);
+		App.get('text#txtAvancement').setText(record.data.libelle_avancement);
 		
 		if (record.data.phasage==0) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'red';
 		if (record.data.phasage==1) App.get('progressbar#progbAvancement').getEl().dom.style.background = 'orange';
