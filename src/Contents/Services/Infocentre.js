@@ -19,11 +19,11 @@ Infocentre = {
 				var DEPARTEMENTS=[];
 				var SERVICES=[];
 				db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
-					db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
-						db.model('bpclight',"select ksub,libsub from subdis",function(err,services) {
+					db.model('bpclight',"select kuni,libunic from unites",function(err,departements) {
+						db.model('bpclight',"select ksub,libsubc from subdis",function(err,services) {
 							AGENTS=boucle(agents,'kage','NomPre');
-							DEPARTEMENTS=boucle(departements,'kuni','libuni');
-							SERVICES=boucle(services,'ksub','libsub');
+							DEPARTEMENTS=boucle(departements,'kuni','libunic');
+							SERVICES=boucle(services,'ksub','libsubc');
 							for (var i=0;i<result.data.length;i++) {
 								result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
 								result.data[i].LibSub=SERVICES[result.data[i].service];
@@ -31,12 +31,12 @@ Infocentre = {
 								if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 							};
 							result.metaData.fields[result.metaData.fields.length]={
-								name: "LibUni",
+								name: "LibUnic",
 								type: "string",
 								length: "255",
 							};
 							result.metaData.fields[result.metaData.fields.length]={
-								name: "LibSub",
+								name: "LibSubC",
 								type: "string",
 								length: "255",
 							};
@@ -67,11 +67,11 @@ Infocentre = {
 			var DEPARTEMENTS=[];
 			var SERVICES=[];
 			db.model('bpclight',"select kage, concat(Nom,' ',Prenom) NomPre from agents",function(err,agents) {
-				db.model('bpclight',"select kuni,libuni from unites",function(err,departements) {
-					db.model('bpclight',"select ksub,libsub from subdis",function(err,services) {
+				db.model('bpclight',"select kuni,libunic from unites",function(err,departements) {
+					db.model('bpclight',"select ksub,libsubc from subdis",function(err,services) {
 						AGENTS=boucle(agents,'kage','NomPre');
-						DEPARTEMENTS=boucle(departements,'kuni','libuni');
-						SERVICES=boucle(services,'ksub','libsub');
+						DEPARTEMENTS=boucle(departements,'kuni','libunic');
+						SERVICES=boucle(services,'ksub','libsubc');
 						for (var i=0;i<result.data.length;i++) {							
 							result.data[i].NomPre=AGENTS[result.data[i].agent_beneficiaire];
 							result.data[i].LibSub=SERVICES[result.data[i].service];
@@ -79,12 +79,12 @@ Infocentre = {
 							if (result.data[i].commentaire_s2i=="undefined") result.data[i].commentaire_s2i="";
 						};
 						result.metaData.fields[result.metaData.fields.length]={
-							name: "LibUni",
+							name: "LibUnic",
 							type: "string",
 							length: "255",
 						};
 						result.metaData.fields[result.metaData.fields.length]={
-							name: "LibSub",
+							name: "LibSubC",
 							type: "string",
 							length: "255",
 						};
