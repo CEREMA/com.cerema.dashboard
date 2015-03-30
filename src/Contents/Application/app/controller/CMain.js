@@ -555,7 +555,7 @@ App.controller.define('CMain', {
 	},
 	onLoad: function()
 	{
-		/*Auth.login(function(user) {
+		Auth.login(function(user) {
 			App.profils.get(user.uid,function(r,x) {
 				if (r.length==0) {					
 					App.disabled();
@@ -567,9 +567,9 @@ App.controller.define('CMain', {
 					App.get('combo#cbo_cat').getStore().load();
 				}
 			});
-		});*/
+		});/*
 		Auth.User.profile=1;
-		Auth.User.uid=614;
+		Auth.User.uid=614;*/
 		
 		App.get('combo#cbo_cat').getStore().getProxy().extraParams.profile=Auth.User.profile;
 		App.get('combo#cbo_year').setValue(new Date().getFullYear());
@@ -682,16 +682,23 @@ App.controller.define('CMain', {
 				});
 				if (bdc!='')								// Un bon de commande est renseigné
 				{
-					var tabBes=[];							// On fixe l'avancement des besoins = 3 dans infocentre à 4 ("Commande")
+					var tabBes4=[];							// On fixe l'avancement des besoins = 3 dans infocentre à 4 ("Commande")
+					var tabBes5=[];
 					for(var i=0; i < gridF.getStore().data.length; i++)
 					{
-						if (gridF.getStore().data.items[i].data.avancement == 3) {
-							tabBes.push(gridF.getStore().data.items[i].data.ID_demande);
+						if (gridF.getStore().data.items[i].data.livre_valide) {
+							tabBes5.push(gridF.getStore().data.items[i].data.ID_demande);
+						} else {
+							tabBes4.push(gridF.getStore().data.items[i].data.ID_demande);
 						};
 					};
-					var o = {avanc: 4, data: tabBes};			
-					App.Infocentre.setBaseAv(o, function(result) {
+					var o4 = {avanc: 4, data: tabBes4};
+					var o5 = {avanc: 5, data: tabBes5};	
+					App.Infocentre.setBaseAv(o4, function(result) {
 						//console.log(result);
+						App.Infocentre.setBaseAv(o5, function(result) {
+						//console.log(result);
+						});
 					});
 				} else {
 					var tabBes=[];							// On fixe l'avancement des besoins dans infocentre à 3 ("Validation S2i")
@@ -887,7 +894,7 @@ App.controller.define('CMain', {
 		//console.log('long sel MainGrid:'+sel.selected.items.length);
 		if (sel.selected.items.length>0) {
 		//console.log('bdc sel MainGrid:'+sel.selected.items[0].data.idfacture);
-		console.log('valEj:'+valEj);
+		//console.log('valEj:'+valEj);
 			if 	(valEj!=""){
 				ava = 4;
 			} else {
