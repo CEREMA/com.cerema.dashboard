@@ -703,6 +703,10 @@ App.controller.define('CMain', {
 					var o = {avanc: 3, data: tabBes};			
 					App.Infocentre.setBaseAv(o, function(result) {
 						//console.log(result);
+						var obj = {coche:0, bes:tabBes};
+						App.Infocentre.setBaseLivre(obj, function(result) {
+						//console.log(result);
+						});
 					});
 				}
 			};
