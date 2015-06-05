@@ -32,7 +32,7 @@ Factures = {
 				r._BLOB=[];
 				delete r.id;
 				r.engagement='';
-				r.immonet='';
+				r.immoNET='';
 				r.BES=0;
 				r.date_servicefait='NULL';
 				var tab=[];
