@@ -31,6 +31,8 @@ Factures = {
 				var r=result[0];
 				r._BLOB=[];
 				delete r.id;
+				r.engagement='';
+				r.immonet='';
 				r.BES=0;
 				r.date_servicefait='NULL';
 				var tab=[];
