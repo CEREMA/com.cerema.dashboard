@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Dashboard</title>
+		<title>demo.hello.world</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 		<link rel="icon" href="Contents/Resources/favicon.ico" type="image/x-icon"/>
@@ -16,7 +16,7 @@
 			margin-right:0px;
 			height: 100%;
 			overflow: hidden;
-			background-color:#EEEEEE;
+			background-color:#FFFFFF;
 			-webkit-backface-visibility: hidden;
 		}
 		#appLoadingIndicator {
@@ -27,7 +27,7 @@
 			height: 25%;
 		}		
 		#bootstrap {
-			background-color:cyan;
+			background-color:orange;
 			position:absolute;
 			top:0px;
 			left:0px;
@@ -181,9 +181,10 @@
 			-o-animation-name: slideOutUp;
 			animation-name: slideOutUp;
 		}
-</style>
+	</style>
 	</head>
 	<body class="animated2 fadeIn">	
+		<div class="omneedia-overlay"></div>
 		<div id="bootstrap" class="animated2 fadeIn">
 			<div class="SystemScreen front face">
 				<div id="appLoadingFailed"></div>
@@ -216,19 +217,31 @@
 		  left: '50%'
 		};
 		var target = document.getElementById('appLoadingIndicator');
-		var spinner = new Spinner(opts).spin(target);			
+		var spinner = new Spinner(opts).spin(target);		
 		</script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.js" type="text/javascript" charset="utf-8"></script>
 		<script>
+		__SESSION__=-1;
+		__COUNTER__=-1;		
 		var bootstraploader=function(tab,i,cb) {
 			if (i<=tab.length) require([tab[i]],function(){
 				bootstraploader(tab,i+1,cb);
 			}); else cb();
 		};
-		var Ext = Ext || {};Ext.manifest = {compatibility:{ext: '4.2'}};
 		setTimeout(function(){
 			require(["Contents/Settings"], function() {
 				bootstraploader(Settings.FRAMEWORKS,0, function(){
+					setInterval(function() {
+						$.ajax({
+							url: "/session"
+						}).done(function( data ) {
+							$('.omneedia-overlay').hide();
+							if (__SESSION__==-1) __SESSION__=data.session;
+							if (__SESSION__!=data.session) location.reload();
+						}).fail(function() {
+							$('.omneedia-overlay').show();
+						});
+					},1000);				
 					require(["Contents/Application/app"], function() {					
 						
 					});
