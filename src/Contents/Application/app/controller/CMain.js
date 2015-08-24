@@ -333,7 +333,7 @@ App.controller.define('CMain', {
 	{
 		var sel=App.get('grid#MainGrid').getSelectionModel();
 		if (sel.selected.items.length>0) {
-			//console.log(sel.selected.items[0].data);
+			console.log(sel.selected.items[0].data);
 			if 	((sel.selected.items[0].data.ej=="") 
 				&& (sel.selected.items[0].data.nofacture=="") 
 				/*&& (sel.selected.items[0].data._BLOB==[])*/
