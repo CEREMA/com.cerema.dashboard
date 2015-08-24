@@ -102,7 +102,7 @@ App.view.define('VMain', {
 					labelAlign: "top",
 					fieldLabel: "Année",
 					itemId: "cbo_year",
-					store: App.store.create('App.Years.getAll'),
+					store: App.store.create('dashboard://annees{libelle+}'),
 					displayField:'libelle',
 					valueField: 'libelle',
 					selectOnFocus:true,
