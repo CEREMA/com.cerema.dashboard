@@ -698,6 +698,7 @@ App.controller.define('CMain', {
 						//console.log(result);
 						App.Infocentre.setBaseAv(o5, function(result) {
 						//console.log(result);
+							gridF.getStore().load();
 						});
 					});
 				} else {
