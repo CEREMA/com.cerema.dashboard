@@ -38,6 +38,7 @@ Factures = {
 				r.nofacture='NULL';
 				r.montant_facture='NULL';
 				r.ej='';
+				r.date_facture='NULL';
 				var tab=[];
 				for (var i=0;i<o.n;i++) tab.push(r);
 				Factures.duplicateme(tab,0,cb);
