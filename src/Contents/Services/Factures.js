@@ -35,6 +35,8 @@ Factures = {
 				r.immoNET='';
 				r.BES=0;
 				r.date_servicefait='NULL';
+				r.nofacture='NULL';
+				r.montant_facture='NULL';
 				var tab=[];
 				for (var i=0;i<o.n;i++) tab.push(r);
 				Factures.duplicateme(tab,0,cb);
