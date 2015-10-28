@@ -590,7 +590,7 @@ App.controller.define('CMain', {
 	grid_ondblclick: function( p, record, item, index )	// changement du nom : 'grid_ondblclick' au lieu de 'grid_onclick'
 	{
 		App.view.create('main.VFacture',{
-			modal: true,
+			modal: false,
 			facture: record.data
 		}).show();
 		// ********* Rajout
