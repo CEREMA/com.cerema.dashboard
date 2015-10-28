@@ -481,7 +481,7 @@ App.controller.define('CMain', {
 	open_facture: function(p, record, item, index, e)
 	{
 		App.view.create('main.VFacture',{
-			modal: true,
+			modal: false,
 			facture: record.data
 		}).show();
 		App.get('numberfield#duplicate_number').setVisible(false);
