@@ -55,6 +55,7 @@
     "modules": [
         "Ext.ux.upload"
     ],
+    "blur": "0",
     "plugins": [],
     "db": [
         "bpclight",
