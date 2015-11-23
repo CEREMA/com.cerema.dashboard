@@ -306,6 +306,8 @@ App.controller.define('CMain', {
 		//console.log('facture-duplicate:'+App.get('datefield#date_servicefait').getValue()+', '+data.id);
 		//this.gestionFacture(App.get('datefield#date_servicefait').getValue(), data.id);
 		App.Factures.duplicate(o,function(err,r) {
+			console.log(err);
+			console.log(r);
 			App.notify('La facture a été dupliquée.');
 			p.up('window').close();
 			App.get('grid#MainGrid').getStore().load();
