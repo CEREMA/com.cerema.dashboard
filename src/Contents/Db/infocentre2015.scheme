@@ -1,0 +1,18 @@
+{
+    "omneedia": {
+        "engine": "0.9.4"
+    },
+    "namespace": "packages",
+    "db": "infocentre2015",
+    "tables": [],
+    "table": {},
+    "error": {
+        "code": "ENOTFOUND",
+        "errno": "ENOTFOUND",
+        "syscall": "getaddrinfo",
+        "hostname": "127.0.0.1/infocentre2015",
+        "host": "127.0.0.1/infocentre2015",
+        "port": 3306,
+        "fatal": true
+    }
+}
