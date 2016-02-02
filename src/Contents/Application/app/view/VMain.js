@@ -180,7 +180,7 @@ App.view.define('VMain', {
 					tbar: [
 					{
 						xtype: 'exportbutton',
-						store: someStore
+						store: App.store.create({fields:[],data:[]})
 					}					
 					],
 					columns:[
