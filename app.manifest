@@ -35,7 +35,7 @@
             "theme": "classic",
             "src": [
                 "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/ext-all-debug.js",
-                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/theme-{theme}/theme-{theme}-debug.js"
+                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/{theme}/theme-{theme}/theme-{theme}-debug.js"
             ],
             "res": [
                 "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/{theme}/theme-{theme}/resources/theme-{theme}-all-debug.css"
