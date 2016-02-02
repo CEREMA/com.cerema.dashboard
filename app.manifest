@@ -9,7 +9,7 @@
     ],
     "uid": "9387d989-f7f0-4029-8717-160277de21d1",
     "version": "1.1.1",
-    "build": 55,
+    "build": 56,
     "copyright": "Copyright (c) 2014 By CEREMA",
     "license": "BSD",
     "author": {
@@ -53,7 +53,8 @@
         "CMain"
     ],
     "modules": [
-        "Ext.ux.upload"
+        "Ext.ux.upload",
+        "Ext.ux.Exporter"
     ],
     "blur": "0",
     "plugins": [],

@@ -178,6 +178,10 @@ App.view.define('VMain', {
 					border: false,
 					itemId: "MainGrid",
 					tbar: [
+					{
+						xtype: 'exportbutton',
+						store: someStore
+					}					
 					],
 					columns:[
 						{header: "ID Facture", width: 80, sortable: true, dataIndex: 'idfacture',hidden: true},
