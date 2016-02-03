@@ -11,7 +11,6 @@ Factures = {
         var db=Factures.using('db');
         var excelbuilder=Factures.using('msexcel-builder');
         
-        //if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
         var temp=Factures.temp('xslx');
         console.log(temp.filename);
         var workbook = excelbuilder.createWorkbook(temp.directory,temp.filename);
@@ -19,7 +18,6 @@ Factures = {
         var conf={};
         var sql=db.sql('export');
         sql+=" WHERE factures.id in ("+o.join(',')+")";
-        console.log(sql);
         db.query("dashboard",sql,function(e,tabs) {
             conf.cols=[];
             if (tabs.length==0) {
@@ -34,7 +32,6 @@ Factures = {
                     width: 50
                 });  
             };
-            console.log(conf.cols);
             for (var e=0;e<conf.cols.length;e++) {
                 sheet1.set(e+1,1,conf.cols[e].caption);
                 sheet1.width(e+1, conf.cols[e].width*1);
