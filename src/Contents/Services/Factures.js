@@ -13,6 +13,7 @@ Factures = {
         
         if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
         var temp=Factures.temp('xslx');
+        console.log(temp.filename);
         var workbook = excelbuilder.createWorkbook(temp.filename);
         var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
         var conf={};
