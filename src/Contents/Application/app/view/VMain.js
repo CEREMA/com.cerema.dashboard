@@ -180,7 +180,7 @@ App.view.define('VMain', {
 					{
 						xtype: 'button',
 						itemId: "export_excel",
-                        cls: "export",
+                        iconCls: "export",
                         text: "Exporter vers Excel"
 					}
 					],
