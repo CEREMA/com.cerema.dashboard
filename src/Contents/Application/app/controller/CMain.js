@@ -49,6 +49,9 @@ App.controller.define('CMain', {
 				itemcontextmenu: "GridMarches_menu",
 				itemdblclick: "GridMarches_onclick"
 			},
+            "button#export_excel": {
+                click: "export_excel"  
+            },
 			"button#Facture_close": {
 				click: "onFactureClose"
 			},
