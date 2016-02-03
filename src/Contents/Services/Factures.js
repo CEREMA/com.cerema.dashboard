@@ -19,7 +19,7 @@ Factures = {
         var sql=db.sql('export');
         sql+=" WHERE idfacture in ("+o.join(',')+")";
         console.log(sql);
-        db.query("dashboard",function(e,r) {
+        db.query("dashboard",sql,function(e,r) {
             console.log(e); 
             console.log(r);
         });        
