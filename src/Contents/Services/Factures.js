@@ -26,9 +26,11 @@ Factures = {
                 return;  
             };
             for (var i=0;i<tabs.metaData.fields.length;i++) {
+                var type="string";
+                if (tabs.metaData.fields[i].type=="date") type="date";
                 conf.cols.push({
                     caption: tabs.metaData.fields[i].name,
-                    type: "string",
+                    type: type,
                     width: 50
                 }); 
             };
