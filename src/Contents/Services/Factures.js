@@ -52,7 +52,7 @@ Factures = {
                 };
             };
             workbook.save(function(ok){
-                cb(temp.filename);
+                cb(temp.url);
             });
 
         });        
