@@ -123,7 +123,6 @@ App.view.define('VMain', {
 					margin: 10,
 					displayField:'libelle',
 					valueField: 'id',	
-					typeAhead: true,
 					triggerAction: 'all',
 					mode: 'remote',
 					emptyText:'Sélectionner une catégorie',
