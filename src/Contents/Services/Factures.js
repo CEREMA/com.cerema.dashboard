@@ -14,7 +14,7 @@ Factures = {
         //if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
         var temp=Factures.temp('xslx');
         console.log(temp.filename);
-        var workbook = excelbuilder.createWorkbook(temp.filename);
+        var workbook = excelbuilder.createWorkbook(temp.directory,temp.filename);
         var sheet1 = workbook.createSheet('Dashboard', 1500, 1500);
         var conf={};
         var sql=db.sql('export');
@@ -26,7 +26,7 @@ Factures = {
                 cb("-1");
                 return;  
             };
-            /*var tab=tabs[0];
+            var tab=tabs[0];
             for (var el in tab) {
                 conf.cols.push({
                     caption: el,
@@ -49,7 +49,7 @@ Factures = {
                     };
                     k++;
                 };
-            };*/
+            };
             workbook.save(function(ok){
                 if (ok) cb(temp.uid); else cb(-1);
             });
