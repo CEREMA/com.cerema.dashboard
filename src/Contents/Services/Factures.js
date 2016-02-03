@@ -11,11 +11,11 @@ Factures = {
         var db=Factures.using('db');
         var excelbuilder=Factures.using('msexcel-builder');
         
-        if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
+        //if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
         var temp=Factures.temp('xslx');
         console.log(temp.filename);
-        var workbook = excelbuilder.createWorkbook(temp.filename);
-        var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
+        var workbook = excelbuilder.createWorkbook("c:/temp.xslx");
+        var sheet1 = workbook.createSheet('Dashboard', 1500, 1500);
         var conf={};
         var sql=db.sql('export');
         sql+=" WHERE factures.id in ("+o.join(',')+")";
@@ -51,7 +51,6 @@ Factures = {
                 };
             };
             workbook.save(function(ok){
-                console.log(ok);
                 if (ok) cb(temp.uid); else cb(-1);
             });
 
