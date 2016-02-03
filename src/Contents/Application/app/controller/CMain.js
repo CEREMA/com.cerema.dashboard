@@ -135,6 +135,11 @@ App.controller.define('CMain', {
 		App.init('VMain',this.onLoad);
 		
 	},
+    export_excel: function(p)
+    {
+        var sel=p.up('grid').getSelection().getRange();
+        console.log(sel);
+    },
 	oncheckchange: function(column, rowIdx, checked, eOpts)
 	{
 		var id_facture=App.get("grid#MainGrid").getStore().getAt(rowIdx).data.idfacture;
