@@ -73,7 +73,9 @@
         "profils",
         "Years"
     ],
-    "packages": [],
+    "packages": [
+        "msexcel-builder"
+    ],
     "icon": {
         "background": "#FFFFFF",
         "file": "app.png"
