@@ -132,4 +132,8 @@
 .export
 {
 	background-image: url(webapp/excel.png);    
+	background-size:16px 16px;
+    background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;    
 }
