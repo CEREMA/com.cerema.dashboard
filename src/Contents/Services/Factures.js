@@ -11,7 +11,7 @@ Factures = {
         var db=Factures.using('db');
         var excelbuilder=Factures.using('msexcel-builder');
         
-        var temp=Factures.temp('xslx');
+        var temp=Factures.temp('xlsx');
         console.log(temp.filename);
         var workbook = excelbuilder.createWorkbook(temp.directory,temp.filename);
         var sheet1 = workbook.createSheet('Dashboard', 1500, 1500);
