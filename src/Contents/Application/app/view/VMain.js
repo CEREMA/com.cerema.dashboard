@@ -172,6 +172,7 @@ App.view.define('VMain', {
 					preserveScrollOnRefresh: true,
 					width: "100%",
 					flex: 1,
+                    mode: "MULTI",
 					border: false,
 					itemId: "MainGrid",
 					tbar: [
