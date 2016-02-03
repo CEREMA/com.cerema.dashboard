@@ -137,14 +137,18 @@ App.controller.define('CMain', {
 	},
     export_excel: function(p)
     {
+        p.setDisabled(true);
+        App.info.loading("Veuillez patienter...");
         var sel=p.up('grid').getSelectionModel().getSelection();
         var data=[];
         for (var i=0;i<sel.length;i++) data.push(sel[i].data.idfacture);
         if (data.length==0) alert("Vous devez sélectionner au moins une facture !");
         else
         App.Factures.export(data,function(url) {
+            p.setDisabled(false);
+            App.info.hide();
             var iframe=document.createElement('iframe');
-            iframe.src="/tmp/"+url;
+            iframe.src=url;
             iframe.style.display="none";
             document.getElementsByTagName('body')[0].appendChild(iframe);
         });
