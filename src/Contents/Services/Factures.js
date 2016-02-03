@@ -39,7 +39,7 @@ Factures = {
         console.log(sql);
         db.query("dashboard",sql,function(e,tabs) {
             conf.cols=[];
-            if (tab.length==0) {
+            if (tabs.length==0) {
                 cb("-1");
                 return;  
             };
