@@ -518,6 +518,7 @@ App.controller.define('CMain', {
 	},
 	cbo_cat_select: function(p, records, eOpts)
 	{
+        console.log(records);
 		var d=records[0].data;
 		// refresh the grid
 		var grid=App.get('grid#MainGrid');
