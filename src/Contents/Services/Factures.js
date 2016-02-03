@@ -44,7 +44,7 @@ Factures = {
                 return;  
             };
             var tab=tabs[0];
-            for (var el in tabs) {
+            for (var el in tab) {
                 conf.cols.push({
                     caption: el,
                     type: "string",
