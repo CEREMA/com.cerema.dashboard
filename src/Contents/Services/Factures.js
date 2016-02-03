@@ -11,7 +11,6 @@ Factures = {
         var db=Factures.using('db');
         var excelbuilder=Factures.using('msexcel-builder');
         
-        var uid=Math.uuid();
         if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
         var temp=Facures.temp('xslx');
         var workbook = excelbuilder.createWorkbook(temp.filename);
