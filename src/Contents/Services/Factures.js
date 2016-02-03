@@ -18,9 +18,12 @@ Factures = {
         var conf={};
         var sql=db.sql('export');
         sql+=" WHERE factures.id in ("+o.join(',')+")";
-        db.query("dashboard",sql,function(e,tabs) {
+        db.model("dashboard",sql,function(e,tabs) {
+            console.log(tabs);
+            cb(-1);
+            return;
             conf.cols=[];
-            if (tabs.length==0) {
+            if (tabs.data.length==0) {
                 cb("-1");
                 return;  
             };
