@@ -37,9 +37,39 @@ Factures = {
         var sql=db.sql('export');
         sql+=" WHERE factures.id in ("+o.join(',')+")";
         console.log(sql);
-        db.query("dashboard",sql,function(e,r) {
-            console.log(e); 
-            console.log(r);
+        db.query("dashboard",sql,function(e,tabs) {
+            conf.cols=[];
+            if (tab.length==0) {
+                cb("-1");
+                return;  
+            };
+            var tab=tabs[0];
+            for (var el in tabs) {
+                conf.cols.push({
+                    caption: el,
+                    type: "string",
+                    width: 50
+                });  
+            };
+            for (var e=0;e<conf.cols.length;e++) {
+                sheet1.set(e+1,1,conf.cols[e].caption);
+                sheet1.width(e+1, conf.cols[e].width*1);
+            };
+            for (var i=0;i<tabs.length;i++) {
+                var element=tabs[i];
+                var k=1;
+                var ii=i+2;
+                for (var el in element) {
+                    if (k<18) {
+                        sheet1.set(k, ii, element[el]);								
+                    };
+                    k++;
+                };
+            };			
+            workbook.save(function(ok){
+                if (ok) cb(uid); else cb(-1);
+            });
+
         });        
     },
 	get: function(o,cb) {
