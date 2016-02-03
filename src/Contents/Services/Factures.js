@@ -26,21 +26,19 @@ Factures = {
                 return;  
             };
             for (var i=0;i<tabs.metaData.fields.length;i++) {
-                console.log(tabs.metaData.fields[i]);
-                /*conf.cols.push({
-                    caption: el,
-                    type: "string",
+                conf.cols.push({
+                    caption: tabs.metaData.fields[i].name,
+                    type: tabs.metaData.fields[i].type,
                     width: 50
-                });  */
+                }); 
             };
-            cb(-1);
-            return;
+            console.log(conf.cols);
             for (var e=0;e<conf.cols.length;e++) {
                 sheet1.set(e+1,1,conf.cols[e].caption);
                 sheet1.width(e+1, conf.cols[e].width*1);
             };
-            for (var i=0;i<tabs.length;i++) {
-                var element=tabs[i];
+            for (var i=0;i<tabs.data.length;i++) {
+                var element=tabs.data[i];
                 var k=1;
                 var ii=i+2;
                 for (var el in element) {
