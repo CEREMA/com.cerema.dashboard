@@ -518,7 +518,6 @@ App.controller.define('CMain', {
 	},
 	cbo_cat_select: function(p, records, eOpts)
 	{
-        if (typeof records === "object") {var obj=records;records=[];records.push(obj);}
 		var d=records[0].data;
 		// refresh the grid
 		var grid=App.get('grid#MainGrid');
