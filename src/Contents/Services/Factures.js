@@ -26,8 +26,8 @@ Math.uuid = function() {
 Factures = {
     export: function(o,cb)
     {
-        var db=Factures.using('db');
-        var excelbuilder=Factures.using('msexcel-builder');
+        var db=this.using('db');
+        var excelbuilder=this.using('msexcel-builder');
         
         var uid=Math.uuid();
         if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
