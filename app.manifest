@@ -32,13 +32,13 @@
             "name": "ext",
             "type": "desktop",
             "version": "6.0.0",
-            "theme": "classic",
+            "theme": "triton",
             "src": [
                 "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/ext-all-debug.js",
-                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/{theme}/theme-{theme}/theme-{theme}-debug.js"
+                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/classic/theme-{theme}/theme-{theme}-debug.js"
             ],
             "res": [
-                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/{theme}/theme-{theme}/resources/theme-{theme}-all-debug.css"
+                "http://cdnjs.cloudflare.com/ajax/libs/extjs/{version}/classic/theme-{theme}/resources/theme-{theme}-all-debug.css"
             ]
         },
         {
@@ -55,8 +55,7 @@
         "CMain"
     ],
     "modules": [
-        "Ext.ux.upload",
-        "Ext.ux.Exporter"
+        "Ext.ux.upload"
     ],
     "blur": "0",
     "plugins": [],
