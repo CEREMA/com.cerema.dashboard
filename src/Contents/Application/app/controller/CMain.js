@@ -137,7 +137,7 @@ App.controller.define('CMain', {
 	},
     export_excel: function(p)
     {
-        var sel=p.up('grid').getSelection().getRange();
+        var sel=p.up('grid').getSelectionModel().getSelection();
         console.log(sel);
     },
 	oncheckchange: function(column, rowIdx, checked, eOpts)
