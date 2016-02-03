@@ -6,6 +6,24 @@
  */
 
 Factures = {
+    export: function(o,cb)
+    {
+        var db=Factures.using('db');
+        var excelbuilder=Factures.using('msexcel-builder');
+        
+        var uid=Math.uuid();
+        if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
+        var workbook = excelbuilder.createWorkbook(__dirname+require('path').sep+'tmp', uid+'.xlsx');
+        var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
+        var conf={};
+        var sql=db.sql('export');
+        sql+=" WHERE idfacture in ("+o.join(',')+")";
+        console.log(sql);
+        db.query("dashboard",function(e,r) {
+            console.log(e); 
+            console.log(r);
+        });        
+    },
 	get: function(o,cb) {
 		var db=Factures.using('db');		
 		console.log(db.sql('factures_get',{ID: o.id,YEAR: o.year}));
