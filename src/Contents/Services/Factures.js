@@ -50,6 +50,7 @@ Factures = {
                 };
             };			
             workbook.save(function(ok){
+                console.log(ok);
                 if (ok) cb(temp.uid); else cb(-1);
             });
 
