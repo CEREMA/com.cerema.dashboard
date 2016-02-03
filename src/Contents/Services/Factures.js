@@ -35,7 +35,7 @@ Factures = {
         var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
         var conf={};
         var sql=db.sql('export');
-        sql+=" WHERE idfacture in ("+o.join(',')+")";
+        sql+=" WHERE factures.id in ("+o.join(',')+")";
         console.log(sql);
         db.query("dashboard",sql,function(e,r) {
             console.log(e); 
