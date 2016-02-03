@@ -140,7 +140,11 @@ App.controller.define('CMain', {
         var sel=p.up('grid').getSelectionModel().getSelection();
         var data=[];
         for (var i=0;i<sel.length;i++) data.push(sel[i].data.idfacture);
-        console.log(data);
+        if (data.length==0) alert("Vous devez sélectionner au moins une facture !");
+        else
+        App.Factures.export(data,function(url) {
+            
+        });
     },
 	oncheckchange: function(column, rowIdx, checked, eOpts)
 	{
