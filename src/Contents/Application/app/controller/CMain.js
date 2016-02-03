@@ -138,7 +138,9 @@ App.controller.define('CMain', {
     export_excel: function(p)
     {
         var sel=p.up('grid').getSelectionModel().getSelection();
-        console.log(sel);
+        var data=[];
+        for (var i=0;i<sel.length;i++) data.push(sel[i].data.idfacture);
+        console.log(data);
     },
 	oncheckchange: function(column, rowIdx, checked, eOpts)
 	{
