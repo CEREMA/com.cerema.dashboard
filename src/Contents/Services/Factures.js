@@ -25,8 +25,8 @@ Factures = {
                 cb("-1");
                 return;  
             };
-            for (var i=0;i<tabs.fields.length;i++) {
-                console.log(tabs.fields[i]);
+            for (var i=0;i<tabs.metaData.fields.length;i++) {
+                console.log(tabs.metaData.fields[i]);
                 /*conf.cols.push({
                     caption: el,
                     type: "string",
