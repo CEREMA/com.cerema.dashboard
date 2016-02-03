@@ -28,7 +28,7 @@ Factures = {
             for (var i=0;i<tabs.metaData.fields.length;i++) {
                 conf.cols.push({
                     caption: tabs.metaData.fields[i].name,
-                    type: tabs.metaData.fields[i].type,
+                    type: "string",
                     width: 50
                 }); 
             };
