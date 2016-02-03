@@ -39,17 +39,17 @@ Factures = {
                 sheet1.set(e+1,1,conf.cols[e].caption);
                 sheet1.width(e+1, conf.cols[e].width*1);
             };
-            /*for (var i=0;i<tabs.length;i++) {
+            for (var i=0;i<tabs.length;i++) {
                 var element=tabs[i];
                 var k=1;
                 var ii=i+2;
                 for (var el in element) {
-                    if (k<18) {
+                    if (k<conf.cols.length) {
                         sheet1.set(k, ii, element[el]);								
                     };
                     k++;
                 };
-            };*/			
+            };
             workbook.save(function(ok){
                 console.log(ok);
                 if (ok) cb(temp.uid); else cb(-1);
