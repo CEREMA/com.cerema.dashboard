@@ -26,11 +26,9 @@ Factures = {
                 return;  
             };
             for (var i=0;i<tabs.metaData.fields.length;i++) {
-                var type="string";
-                if (tabs.metaData.fields[i].type=="date") type="date";
                 conf.cols.push({
                     caption: tabs.metaData.fields[i].name,
-                    type: type,
+                    type: "string",
                     width: 50
                 }); 
             };
@@ -45,7 +43,10 @@ Factures = {
                 var ii=i+2;
                 for (var el in element) {
                     if (k<conf.cols.length) {
-                        sheet1.set(k, ii, element[el]);								
+                        if (element[el] instanceof Date) {
+                            element[el]=element[el].toString('dd/MM/yyyy');
+                        };
+                        sheet1.set(k, ii, element[el]);
                     };
                     k++;
                 };

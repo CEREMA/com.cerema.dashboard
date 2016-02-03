@@ -143,7 +143,10 @@ App.controller.define('CMain', {
         if (data.length==0) alert("Vous devez sélectionner au moins une facture !");
         else
         App.Factures.export(data,function(url) {
-            
+            var iframe=document.createElement('iframe');
+            iframe.src="/tmp/"+url;
+            iframe.style.display="none";
+            document.getElementsByTagName('body')[0].appendChild(iframe);
         });
     },
 	oncheckchange: function(column, rowIdx, checked, eOpts)
