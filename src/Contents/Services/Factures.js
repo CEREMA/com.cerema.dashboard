@@ -12,7 +12,7 @@ Factures = {
         var excelbuilder=Factures.using('msexcel-builder');
         
         if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
-        var temp=Facures.temp('xslx');
+        var temp=Factures.temp('xslx');
         var workbook = excelbuilder.createWorkbook(temp.filename);
         var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
         var conf={};
