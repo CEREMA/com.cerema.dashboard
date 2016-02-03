@@ -20,21 +20,21 @@ Factures = {
         sql+=" WHERE factures.id in ("+o.join(',')+")";
         db.model("dashboard",sql,function(e,tabs) {
             console.log(tabs);
-            cb(-1);
-            return;
             conf.cols=[];
             if (tabs.data.length==0) {
                 cb("-1");
                 return;  
             };
-            var tab=tabs[0];
-            for (var el in tab) {
-                conf.cols.push({
+            for (var i=0;i<tabs.fields.length;i++) {
+                console.log(tabs.fields[i]);
+                /*conf.cols.push({
                     caption: el,
                     type: "string",
                     width: 50
-                });  
+                });  */
             };
+            cb(-1);
+            return;
             for (var e=0;e<conf.cols.length;e++) {
                 sheet1.set(e+1,1,conf.cols[e].caption);
                 sheet1.width(e+1, conf.cols[e].width*1);
@@ -51,7 +51,7 @@ Factures = {
                 };
             };
             workbook.save(function(ok){
-                if (ok) cb(temp.uid); else cb(-1);
+                if (ok) cb(temp.filename); else cb(-1);
             });
 
         });        
