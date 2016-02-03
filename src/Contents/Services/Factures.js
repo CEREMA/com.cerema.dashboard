@@ -5,24 +5,6 @@
  *
  */
 
-Math.uuid = function() {
-	var CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-    var chars = CHARS, uuid = new Array(36), rnd=0, r;
-    for (var i = 0; i < 36; i++) {
-      if (i==8 || i==13 ||  i==18 || i==23) {
-        uuid[i] = '-';
-      } else if (i==14) {
-        uuid[i] = '4';
-      } else {
-        if (rnd <= 0x02) rnd = 0x2000000 + (Math.random()*0x1000000)|0;
-        r = rnd & 0xf;
-        rnd = rnd >> 4;
-        uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
-      }
-    }
-    return uuid.join('');
-};
-
 Factures = {
     export: function(o,cb)
     {
@@ -31,7 +13,8 @@ Factures = {
         
         var uid=Math.uuid();
         if (!require('fs').existsSync(__dirname+require('path').sep+'tmp')) require('fs').mkdirSync(__dirname+require('path').sep+'tmp');
-        var workbook = excelbuilder.createWorkbook(__dirname+require('path').sep+'tmp', uid+'.xlsx');
+        var temp=Facures.temp('xslx');
+        var workbook = excelbuilder.createWorkbook(temp.filename);
         var sheet1 = workbook.createSheet('BPCLight', 1500, 1500);
         var conf={};
         var sql=db.sql('export');
@@ -67,7 +50,7 @@ Factures = {
                 };
             };			
             workbook.save(function(ok){
-                if (ok) cb(uid); else cb(-1);
+                if (ok) cb(temp.uid); else cb(-1);
             });
 
         });        
